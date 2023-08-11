@@ -1,0 +1,157 @@
+@import "../variables/variables.scss";
+
+nav {
+  padding: 25px;
+
+  .logo-container {
+    .logo {
+      border-radius: 50%;
+      width: 30px;
+      margin-right: 5px;
+      filter: invert(95%);
+      width: 25px;
+    }
+    .logo-text {
+      font-family: "Roboto Mono", monospace;
+      font-weight: 700;
+      color: $primaryTextColor;
+      font-size: 1.5rem;
+    }
+  }
+  .nav-headings {
+    display: none;
+  }
+
+  .fullscreenNavContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: $darkBackground;
+    padding: 25px;
+
+    .heading-container {
+      margin-bottom: 25px;
+    }
+
+    .links-container {
+      ul {
+        li {
+          margin: 15px 5px;
+          font-size: 1.2rem;
+          letter-spacing: 2px;
+          cursor: pointer;
+          position: relative;
+          width: min-content;
+
+          &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: calc(100% + 2px);
+            height: 2px;
+            width: 0;
+            background: $primaryTextColor;
+            transition: 0.4s ease-in-out;
+          }
+
+          &:hover {
+            transform: translateX(10px);
+            &::before {
+              width: 100%;
+              transition: 0.4s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .toggle-container {
+    svg {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  nav {
+    .fullscreenNavContainer,
+    .toggle-container {
+      display: none;
+    }
+
+    .nav-headings {
+      display: flex;
+      gap: 50px;
+      .links {
+        ul {
+          background: rgba(255, 255, 255, 0.05);
+          padding: 20px 50px;
+          gap: 40px;
+          border-radius: 30px;
+          box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.1);
+
+          li {
+            font-size: 1rem;
+            width: auto;
+            opacity: 0.5;
+            cursor: pointer;
+            letter-spacing: 2px;
+
+            &:hover {
+              transform: translateY(-5px);
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .sign-in-container {
+        button {
+          background: rgba(255, 255, 255, 0.05);
+          padding: 17px 35px;
+          border-radius: 10px;
+          letter-spacing: 2px;
+          border: 0px solid transparent;
+          font-size: 1rem;
+          cursor: pointer;
+          gap: 15px;
+          position: relative;
+          overflow: hidden;
+          z-index: 1;
+
+          &::before {
+            position: absolute;
+            content: "";
+            inset: -2rem;
+            background: linear-gradient(
+              to bottom right,
+              rgba(7, 15, 237, 0.3),
+              rgba(0, 177, 248, 0.4)
+            );
+
+            opacity: 0.3;
+            z-index: -1;
+            transition: 0.4s ease-in-out;
+            filter: blur(2rem);
+          }
+
+          &:hover {
+            &::before {
+              width: 150%;
+              opacity: 1.5;
+              transition: 0.4s ease-in-out;
+            }
+          }
+
+          svg {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}

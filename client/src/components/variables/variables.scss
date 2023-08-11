@@ -1,0 +1,63 @@
+$primaryBackground: #1e222c;
+$darkBackground: rgb(30, 31, 34);
+$primaryTextColor: rgb(225, 225, 225);
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s ease-in-out;
+  color: $primaryTextColor;
+  font-family: "Roboto Mono", monospace;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hide {
+  display: none;
+}
+
+.btn-glow-hover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    transform: skewX(45deg);
+    filter: blur(1rem);
+
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+  }
+
+  &:hover {
+    box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.3);
+
+    &::before {
+      width: 80%;
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}

@@ -1,0 +1,22 @@
+@import "../../components/variables/variables.scss";
+
+.login-container {
+  padding: 25px;
+  width: 80%;
+  margin: 0 auto;
+  .logo-container {
+    .logo {
+      border-radius: 50%;
+      width: 30px;
+      margin-right: 5px;
+      filter: invert(95%);
+      width: 25px;
+    }
+    .logo-text {
+      font-family: "Roboto Mono", monospace;
+      font-weight: 700;
+      color: $primaryTextColor;
+      font-size: 1.5rem;
+    }
+  }
+}

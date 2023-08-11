@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s ease-in-out;
+  color: rgb(225, 225, 225);
+  font-family: "Roboto Mono", monospace;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hide {
+  display: none;
+}
+
+.btn-glow-hover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
+}
+.btn-glow-hover::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transform: skewX(45deg);
+  filter: blur(1rem);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
+}
+.btn-glow-hover:hover {
+  box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.3);
+}
+.btn-glow-hover:hover::before {
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+nav {
+  padding: 25px;
+}
+nav .logo-container .logo {
+  border-radius: 50%;
+  width: 30px;
+  margin-right: 5px;
+  filter: invert(95%);
+  width: 25px;
+}
+nav .logo-container .logo-text {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  color: rgb(225, 225, 225);
+  font-size: 1.5rem;
+}
+nav .nav-headings {
+  display: none;
+}
+nav .fullscreenNavContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: rgb(30, 31, 34);
+  padding: 25px;
+}
+nav .fullscreenNavContainer .heading-container {
+  margin-bottom: 25px;
+}
+nav .fullscreenNavContainer .links-container ul li {
+  margin: 15px 5px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  width: -moz-min-content;
+  width: min-content;
+}
+nav .fullscreenNavContainer .links-container ul li::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: calc(100% + 2px);
+  height: 2px;
+  width: 0;
+  background: rgb(225, 225, 225);
+  transition: 0.4s ease-in-out;
+}
+nav .fullscreenNavContainer .links-container ul li:hover {
+  transform: translateX(10px);
+}
+nav .fullscreenNavContainer .links-container ul li:hover::before {
+  width: 100%;
+  transition: 0.4s ease-in-out;
+}
+nav .toggle-container svg {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (min-width: 1100px) {
+  nav .fullscreenNavContainer,
+  nav .toggle-container {
+    display: none;
+  }
+  nav .nav-headings {
+    display: flex;
+    gap: 50px;
+  }
+  nav .nav-headings .links ul {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px 50px;
+    gap: 40px;
+    border-radius: 30px;
+    box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.1);
+  }
+  nav .nav-headings .links ul li {
+    font-size: 1rem;
+    width: auto;
+    opacity: 0.5;
+    cursor: pointer;
+    letter-spacing: 2px;
+  }
+  nav .nav-headings .links ul li:hover {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+  nav .nav-headings .sign-in-container button {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 17px 35px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    border: 0px solid transparent;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 15px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  nav .nav-headings .sign-in-container button::before {
+    position: absolute;
+    content: "";
+    inset: -2rem;
+    background: linear-gradient(to bottom right, rgba(7, 15, 237, 0.3), rgba(0, 177, 248, 0.4));
+    opacity: 0.3;
+    z-index: -1;
+    transition: 0.4s ease-in-out;
+    filter: blur(2rem);
+  }
+  nav .nav-headings .sign-in-container button:hover::before {
+    width: 150%;
+    opacity: 1.5;
+    transition: 0.4s ease-in-out;
+  }
+  nav .nav-headings .sign-in-container button svg {
+    font-size: 1.2rem;
+  }
+}/*# sourceMappingURL=Navbar.css.map */

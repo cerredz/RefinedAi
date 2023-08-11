@@ -1,0 +1,21 @@
+@import "../variables/variables.scss";
+
+.login-form-container {
+  .login-form {
+    width: 70%;
+    margin: 100px auto;
+    padding: 25px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+
+    background: rgba(255, 255, 255, 0.05);
+    .form-header {
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .form-details {
+      flex-direction: column;
+    }
+  }
+}
