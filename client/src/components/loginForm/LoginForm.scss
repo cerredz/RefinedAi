@@ -48,6 +48,19 @@
           width: 75%;
         }
 
+        .error-message {
+          width: 75%;
+          text-align: center;
+          color: rgb(205, 10, 10);
+          letter-spacing: 2px;
+          font-weight: 800;
+          font-size: 0.7rem;
+        }
+
+        .error-border-bottom {
+          border-bottom: 2px solid rgb(205, 10, 10);
+        }
+
         p {
           margin-top: 5px;
           font-size: 0.9rem;

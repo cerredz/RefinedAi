@@ -3,10 +3,12 @@ import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { PiDotsNineLight } from "react-icons/pi";
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
+import { useSelector } from "react-redux";
 import { FaArrowRight } from "react-icons/fa";
 
 const Navbar = (props) => {
   const [toggleNavbarOn, setToggleNavbarOn] = useState(false);
+  const user = useSelector((state) => state.auth.user);
   return (
     <nav className="navbar-container flex-between">
       {/* NAVBAR*/}
@@ -35,10 +37,12 @@ const Navbar = (props) => {
 
         {/* SIGN-IN-BUTTON*/}
         <div className="sign-in-container">
-          <button className="flex ">
-            <p>Sign In</p>
-            <FaArrowRight />
-          </button>
+          {user == null && (
+            <button className="flex ">
+              <p>Sign In</p>
+              <FaArrowRight />
+            </button>
+          )}
         </div>
       </div>
 
