@@ -51,18 +51,109 @@ ul {
 }
 
 .login-form-container .login-form {
-  width: 70%;
+  width: 65%;
   margin: 100px auto;
   padding: 25px;
   border-radius: 25px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 4rem rgba(255, 255, 255, 0.2), 0 0 4rem rgba(255, 255, 255, 0.05);
 }
 .login-form-container .login-form .form-header {
   text-align: center;
   font-size: 1rem;
 }
+.login-form-container .login-form .form-header .form-subtitle {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
 .login-form-container .login-form .form-details {
   flex-direction: column;
+}
+.login-form-container .login-form .form-details .form-names {
+  margin-top: 25px;
+}
+.login-form-container .login-form .form-details .form-names,
+.login-form-container .login-form .form-details .form-account {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.login-form-container .login-form .form-details .form-names input,
+.login-form-container .login-form .form-details .form-account input {
+  background: inherit;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 5px 0;
+  outline: none;
+  margin: 10px 5px;
+  width: 75%;
+}
+.login-form-container .login-form .form-details .form-names p,
+.login-form-container .login-form .form-details .form-account p {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+.login-form-container .login-form .form-details .form-names p span,
+.login-form-container .login-form .form-details .form-account p span {
+  color: rgb(2, 169, 207);
+  cursor: pointer;
+  font-weight: 800;
+}
+.login-form-container .login-form .form-details .form-account .btn-container {
+  background: rgb(14, 97, 222);
+  border: none;
+  padding: 12px 22px;
+  margin: 10px;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+}
+.login-form-container .login-form .form-details .form-account .btn-container p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+}
+.login-form-container .login-form .form-details .form-account .btn-container svg {
+  font-size: 1.2rem;
+}
+.login-form-container .login-form .form-details .form-account .btn-container::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: inherit;
+  transition: 0.25s ease-in-out;
+}
+.login-form-container .login-form .form-details .form-account .btn-container:hover {
+  box-shadow: 0 0 3rem rgba(255, 255, 255, 0.1);
+}
+.login-form-container .login-form .form-details .form-account .btn-container:hover::before {
+  width: 100%;
+  filter: blur(1rem);
+  transition: 0.25s ease-in-out;
+}
+.login-form-container .login-form .form-details .form-account .btn-container:hover svg {
+  transform: translateX(5px);
+}
+
+@media (min-width: 1000px) {
+  .login-form-container .login-form {
+    width: 30%;
+  }
+  .login-form-container .login-form .form-details .form-names {
+    flex-direction: row;
+    width: 77%;
+  }
 }/*# sourceMappingURL=LoginForm.css.map */

@@ -52,8 +52,10 @@ ul {
 
 .login-container {
   padding: 25px;
-  width: 80%;
+  width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
+  background: linear-gradient(to bottom right, #1e222c, rgb(4, 39, 39));
 }
 .login-container .logo-container .logo {
   border-radius: 50%;
