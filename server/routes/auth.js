@@ -21,10 +21,14 @@ router.get("/check/:username", async (req, res) => {
 //function to register a new user
 router.post("/register", async (req, res) => {
   try {
-    const { firstName, lastName, email, username, password } = req.body;
+    const { firstName, lastName, email, username, password, accountCreated } =
+      req.body;
     //checks if the email is already associated with an account
     const emailExists = await User.findOne({ email: email });
-    if (emailExists) res.status(200).send(false);
+    if (emailExists) {
+      res.status(200).send(false);
+      return;
+    }
 
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
@@ -36,6 +40,7 @@ router.post("/register", async (req, res) => {
       email,
       password: passwordHash,
       picturePath: "",
+      credits: accountCreated ? 0 : 20,
     });
 
     const savedUser = await newUser.save();
@@ -48,8 +53,29 @@ router.post("/register", async (req, res) => {
 //function to login an existing user
 router.post("/login", async (req, res) => {
   try {
-    console.log("Loggin in a user...");
-  } catch {}
+    const { username, password } = req.body;
+    console.log(username);
+    console.log(password);
+
+    const user = await User.findOne({ username: username });
+    if (!user) return res.status(200).send({ msg: "Incorrect Username" });
+
+    let isMatchingPassword = null;
+
+    if (user) {
+      isMatchingPassword = await bcrypt.compare(password, user.password);
+    }
+
+    if (!isMatchingPassword)
+      return res.status(200).send({ msg: "Incorrect Password" });
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_TOKEN);
+    delete user.password;
+    res.status(200).send({ token, user });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send({ error: err.message });
+  }
 });
 
 module.exports = router;

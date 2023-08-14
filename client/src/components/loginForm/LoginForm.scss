@@ -1,6 +1,8 @@
 @import "../variables/variables.scss";
 
 .login-form-container {
+  flex-direction: column;
+  min-height: 80vh;
   .login-form {
     width: 65%;
     margin: 100px auto;
@@ -107,6 +109,8 @@
           }
           &:hover {
             box-shadow: 0 0 3rem rgba(255, 255, 255, 0.1);
+
+            filter: brightness(1.2) contrast(1.2);
             &::before {
               width: 100%;
               filter: blur(1rem);
@@ -118,6 +122,57 @@
           }
         }
       }
+
+      .form-account-login {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  .homepage-return {
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      top: calc(105%);
+      height: 2px;
+      width: 0;
+      background: rgba(255, 255, 255, 0.7);
+      transition: 0.4s ease-in-out;
+    }
+
+    &::after {
+      left: 50%;
+    }
+
+    &::before {
+      right: 50%;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+
+    &:hover {
+      p {
+        color: rgba(255, 255, 255, 0.7);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      &::after,
+      &::before {
+        width: 50%;
+        transition: 0.4s ease-in-out;
+      }
+    }
+    p {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.4);
     }
   }
 }

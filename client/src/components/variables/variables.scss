@@ -24,6 +24,10 @@ $primaryBlue: rgb(14, 97, 222);
   justify-content: space-between;
 }
 
+.grey-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .hide {
   display: none;
 }
@@ -62,4 +66,10 @@ $primaryBlue: rgb(14, 97, 222);
 ul {
   list-style-type: none;
   text-decoration: none;
+}
+
+img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -30,6 +30,7 @@ nav {
     height: 100vh;
     background: $darkBackground;
     padding: 25px;
+    z-index: 2;
 
     .heading-container {
       margin-bottom: 25px;
@@ -150,6 +151,11 @@ nav {
           svg {
             font-size: 1.2rem;
           }
+        }
+
+        svg {
+          font-size: 3rem;
+          cursor: pointer;
         }
       }
     }

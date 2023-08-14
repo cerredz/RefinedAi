@@ -18,6 +18,10 @@
   justify-content: space-between;
 }
 
+.grey-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .hide {
   display: none;
 }
@@ -48,4 +52,10 @@
 ul {
   list-style-type: none;
   text-decoration: none;
+}
+
+img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }/*# sourceMappingURL=variables.css.map */

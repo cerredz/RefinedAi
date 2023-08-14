@@ -3,12 +3,15 @@ import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { PiDotsNineLight } from "react-icons/pi";
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { FaArrowRight } from "react-icons/fa";
 
 const Navbar = (props) => {
   const [toggleNavbarOn, setToggleNavbarOn] = useState(false);
   const user = useSelector((state) => state.auth.user);
+  const navigate = useNavigate();
   return (
     <nav className="navbar-container flex-between">
       {/* NAVBAR*/}
@@ -32,17 +35,21 @@ const Navbar = (props) => {
             <li>
               Support<span></span>
             </li>
+
+            <li>Collection</li>
           </ul>
         </div>
 
         {/* SIGN-IN-BUTTON*/}
         <div className="sign-in-container">
           {user == null && (
-            <button className="flex ">
+            <button className="flex " onClick={() => navigate("/login")}>
               <p>Sign In</p>
               <FaArrowRight />
             </button>
           )}
+
+          {user != null && <CgProfile />}
         </div>
       </div>
 
@@ -80,7 +87,8 @@ const Navbar = (props) => {
               <li>Pricing</li>
               <li>Upscale</li>
               <li>Support</li>
-              <li>Login</li>
+              <li>Reviews</li>
+              {user == null ? <li>Login</li> : <li>Account</li>}
             </ul>
           </div>
         </div>

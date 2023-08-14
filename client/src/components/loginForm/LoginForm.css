@@ -50,6 +50,10 @@ ul {
   text-decoration: none;
 }
 
+.login-form-container {
+  flex-direction: column;
+  min-height: 80vh;
+}
 .login-form-container .login-form {
   width: 65%;
   margin: 100px auto;
@@ -151,6 +155,7 @@ ul {
 }
 .login-form-container .login-form .form-details .form-account .btn-container:hover {
   box-shadow: 0 0 3rem rgba(255, 255, 255, 0.1);
+  filter: brightness(1.2) contrast(1.2);
 }
 .login-form-container .login-form .form-details .form-account .btn-container:hover::before {
   width: 100%;
@@ -159,6 +164,46 @@ ul {
 }
 .login-form-container .login-form .form-details .form-account .btn-container:hover svg {
   transform: translateX(5px);
+}
+.login-form-container .login-form .form-details .form-account-login {
+  margin-top: 25px;
+}
+.login-form-container .homepage-return {
+  gap: 10px;
+  cursor: pointer;
+  position: relative;
+}
+.login-form-container .homepage-return::after, .login-form-container .homepage-return::before {
+  position: absolute;
+  content: "";
+  top: 105%;
+  height: 2px;
+  width: 0;
+  background: rgba(255, 255, 255, 0.7);
+  transition: 0.4s ease-in-out;
+}
+.login-form-container .homepage-return::after {
+  left: 50%;
+}
+.login-form-container .homepage-return::before {
+  right: 50%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.login-form-container .homepage-return:hover p {
+  color: rgba(255, 255, 255, 0.7);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.login-form-container .homepage-return:hover::after, .login-form-container .homepage-return:hover::before {
+  width: 50%;
+  transition: 0.4s ease-in-out;
+}
+.login-form-container .homepage-return p {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 @media (min-width: 1000px) {

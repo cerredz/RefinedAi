@@ -1,11 +1,11 @@
 import React from "react";
-import { Navbar } from "../../components/components";
+import { Navbar, Upscale } from "../../components/components";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <div className="home-container">
       <Navbar />
-      <h1>HomePage</h1>
+      <Upscale />
     </div>
   );
 };

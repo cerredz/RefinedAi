@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BsArrowRight } from "react-icons/bs";
-import { useDispath } from "react-redux";
+import { BiHomeAlt } from "react-icons/bi";
+import { useDispatch } from "react-redux";
 import { setLogin } from "../../state";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./LoginForm.css";
 
@@ -17,6 +19,8 @@ const initialFormValues = {
 const LoginForm = (props) => {
   const [hasCreatedAccount, setHasCreatedAccount] = useState(false);
   const [formData, setFormData] = useState(initialFormValues);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [errors, setErrors] = useState({
     firstName: false,
@@ -27,16 +31,14 @@ const LoginForm = (props) => {
     retypePassword: false,
   });
 
+  const [loginError, setLoginError] = useState(false);
+
   useEffect(() => {
-    if (localStorage.getItem("accounts")) {
+    if (localStorage.getItem("user")) {
       //checks if the user has created an account before, so we can redirect them to the login form
       setHasCreatedAccount(true);
     }
   }, []);
-
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
 
   useEffect(() => {
     //unndo error messages as user is typing
@@ -109,7 +111,7 @@ const LoginForm = (props) => {
     const { name, value } = event.target;
 
     //check if the username is taken
-    if (name === "username" && value.length !== 0) {
+    if (name === "username" && value.length !== 0 && !hasCreatedAccount) {
       const userExists = await checkUserName(value);
 
       if (userExists.data) {
@@ -202,9 +204,15 @@ const LoginForm = (props) => {
       //no errors found, register the account for the user
       const registerUser = await Axios.post(
         `http://localhost:3001/auth/register`,
-        formData
+        {
+          ...formData,
+          accountCreated: localStorage.getItem("account-created")
+            ? true
+            : false,
+        }
       );
       console.log(registerUser);
+
       if (!registerUser.data) {
         setErrors((prevValues) => ({
           ...prevValues,
@@ -212,26 +220,83 @@ const LoginForm = (props) => {
         }));
         return;
       }
-      console.log(registerUser);
-      const savedUser = registerUser.data.json();
-
+      setHasCreatedAccount(true);
       setFormData(initialFormValues);
+    }
+  };
 
-      if (savedUser) {
-        console.log(savedUser);
-        localStorage.setItem("email", savedUser);
+  //logs a user in
+  const handleLogInClick = async () => {
+    if (formData.username.length === 0) {
+      //no username entered
+      setErrors((prevValues) => ({
+        ...prevValues,
+        username: true,
+      }));
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      //password under 6 letters entered
+      setErrors((prevValues) => ({
+        ...prevValues,
+        password: true,
+      }));
+      return;
+    }
+
+    if (formData.password !== formData.retypePassword) {
+      //retyped password does not match password
+      setErrors((prevValues) => ({
+        ...prevValues,
+        retypePassword: true,
+      }));
+      return;
+    }
+
+    if (!errors.username && !errors.password && !errors.retypePassword) {
+      // No errors found, try to log in the user
+      try {
+        const loginUser = await Axios.post(
+          `http://localhost:3001/auth/login`,
+          formData
+        );
+
+        if (loginUser.data.token) {
+          //user successfully logged in
+          dispatch(
+            setLogin({
+              user: loginUser.data.user,
+              token: loginUser.data.token,
+            })
+          );
+
+          localStorage.setItem("user", loginUser.data.user);
+          localStorage.setItem("token", loginUser.data.token);
+          localStorage.setItem("account-created", true);
+
+          navigate("/");
+        } else {
+          setLoginError(true);
+          setTimeout(() => {
+            setLoginError((prev) => !prev);
+          }, 4000);
+        }
+      } catch (error) {
+        console.error("Error logging in:", error);
+        setLoginError(true);
       }
     }
   };
 
   return (
-    <div className="login-form-container">
+    <div className="login-form-container flex">
       <form className="login-form " action="">
         <div className="form-header">
           <h1>{hasCreatedAccount ? "Login" : "Create Account"}</h1>
           <p className="form-subtitle">
             {hasCreatedAccount
-              ? ""
+              ? "Transform Images with Precision: Login for our upscaling features"
               : "Join the community and gain access to world class upscaling services"}
           </p>
         </div>
@@ -239,36 +304,63 @@ const LoginForm = (props) => {
         <div className="form-details flex">
           {hasCreatedAccount ? (
             <>
-              <div className="form-account">
+              <div className="form-account flex form-account-login">
                 <input
                   type="text"
                   placeholder="Username"
                   name="username"
                   value={formData.username}
                   onChange={handleInputChange}
+                  className={`${
+                    errors.username || loginError ? "error-border-bottom" : ""
+                  }`}
                 />
 
-                <input
-                  type="text"
-                  placeholder="Email Address"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                />
                 <input
                   type="password"
                   placeholder="Password"
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
+                  className={`${
+                    errors.password || loginError ? "error-border-bottom" : ""
+                  }`}
                 />
+                {errors.password && (
+                  <p className="error-message">Minimum Password Length: 6</p>
+                )}
                 <input
                   type="password"
                   placeholder="Retype Password"
                   name="retypePassword"
                   value={formData.retypePassword}
                   onChange={handleInputChange}
+                  className={`${
+                    errors.retypePassword || loginError
+                      ? "error-border-bottom"
+                      : ""
+                  }`}
                 />
+                {errors.retypePassword && (
+                  <p className="error-message">
+                    Please Retype Correct Password
+                  </p>
+                )}
+
+                {loginError && (
+                  <p className="error-message">Invalid Credentials</p>
+                )}
+
+                <div onClick={handleLogInClick} className="btn-container flex ">
+                  <p className="btn">Login</p>
+                  <BsArrowRight />
+                </div>
+                <p>
+                  Dont Have an Account?{" "}
+                  <span onClick={() => setHasCreatedAccount(false)}>
+                    Sign up{" "}
+                  </span>
+                </p>
               </div>
             </>
           ) : (
@@ -366,6 +458,9 @@ const LoginForm = (props) => {
           )}
         </div>
       </form>
+      <div className="homepage-return flex" onClick={() => navigate("/")}>
+        <p>Return to Homepage</p>
+      </div>
     </div>
   );
 };

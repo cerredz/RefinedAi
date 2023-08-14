@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s ease-in-out;
+  color: rgb(225, 225, 225);
+  font-family: "Roboto Mono", monospace;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grey-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hide {
+  display: none;
+}
+
+.btn-glow-hover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
+}
+.btn-glow-hover::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transform: skewX(45deg);
+  filter: blur(1rem);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
+}
+.btn-glow-hover:hover {
+  box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.3);
+}
+.btn-glow-hover:hover::before {
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.upscale-container {
+  position: relative;
+  width: 90%;
+  margin: 50px auto;
+}
+.upscale-container .upscale-content .upscale-header {
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+}
+.upscale-container .upscale-content .upscale-header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 2px;
+}
+.upscale-container .upscale-content .upscale-header p {
+  margin-top: 10px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+.upscale-container .upscale-content .upscale-header .upscale-text {
+  filter: none;
+  background: linear-gradient(45deg, #ff0000, #ff7700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 3rem red;
+}
+.upscale-container .upscale-content .upscale-images {
+  display: none;
+}
+
+@media (min-width: 1100px) {
+  .upscale-container .upscale-content .upscale-header {
+    justify-content: flex-start;
+    height: 100%;
+    width: 50%;
+  }
+  .upscale-container .upscale-content .upscale-header h1 {
+    font-size: 3rem;
+  }
+  .upscale-container .upscale-content .upscale-images {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .upscale-container .upscale-content .upscale-images img {
+    width: 210px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  .upscale-container .upscale-content .upscale-images img:hover {
+    opacity: 0.4;
+    box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.1);
+  }
+}/*# sourceMappingURL=Upscale.css.map */

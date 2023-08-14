@@ -18,6 +18,10 @@
   justify-content: space-between;
 }
 
+.grey-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .hide {
   display: none;
 }
@@ -50,6 +54,12 @@ ul {
   text-decoration: none;
 }
 
+img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 nav {
   padding: 25px;
 }
@@ -77,6 +87,7 @@ nav .fullscreenNavContainer {
   height: 100vh;
   background: rgb(30, 31, 34);
   padding: 25px;
+  z-index: 2;
 }
 nav .fullscreenNavContainer .heading-container {
   margin-bottom: 25px;
@@ -169,5 +180,9 @@ nav .toggle-container svg {
   }
   nav .nav-headings .sign-in-container button svg {
     font-size: 1.2rem;
+  }
+  nav .nav-headings .sign-in-container svg {
+    font-size: 3rem;
+    cursor: pointer;
   }
 }/*# sourceMappingURL=Navbar.css.map */
