@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home, Login } from "./scenes/scenes";
+import { Home, Login, Support } from "./scenes/scenes";
 
 const App = (props) => {
   useEffect(() => {}, []);
@@ -10,6 +10,7 @@ const App = (props) => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/support" element={<Support />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,0 +1,42 @@
+@import "../../components/variables/variables.scss";
+
+.support-container {
+  flex-direction: column;
+  width: 70%;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  height: 100vh;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .support-header {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+
+    img {
+      width: 40px;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+  }
+
+  .support-text {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 55px;
+    margin-top: 5px;
+
+    p {
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.4);
+      a {
+        color: $primaryBlue;
+      }
+    }
+  }
+}

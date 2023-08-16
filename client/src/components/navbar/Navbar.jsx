@@ -15,7 +15,7 @@ const Navbar = (props) => {
   return (
     <nav className="navbar-container flex-between">
       {/* NAVBAR*/}
-      <div className="logo-container flex">
+      <div onClick={() => navigate("/")} className="logo-container flex">
         <img className="logo" src={logo} alt="" />
         <h1 className="logo-text">RefinedAI</h1>
       </div>
@@ -32,7 +32,7 @@ const Navbar = (props) => {
             <li>
               Upscale<span></span>
             </li>
-            <li>
+            <li onClick={() => navigate("/support")}>
               Support<span></span>
             </li>
 
@@ -86,9 +86,13 @@ const Navbar = (props) => {
               <li>Features</li>
               <li>Pricing</li>
               <li>Upscale</li>
-              <li>Support</li>
+              <li onClick={() => navigate("/support")}>Support</li>
               <li>Reviews</li>
-              {user == null ? <li>Login</li> : <li>Account</li>}
+              {user == null ? (
+                <li onClick={() => navigate("/login")}>Login</li>
+              ) : (
+                <li>Account</li>
+              )}
             </ul>
           </div>
         </div>

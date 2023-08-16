@@ -63,6 +63,9 @@ img {
 nav {
   padding: 25px;
 }
+nav .logo-container {
+  cursor: pointer;
+}
 nav .logo-container .logo {
   border-radius: 50%;
   width: 30px;
