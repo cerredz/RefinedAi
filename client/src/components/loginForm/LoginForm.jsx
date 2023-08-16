@@ -266,14 +266,16 @@ const LoginForm = (props) => {
           //user successfully logged in
           dispatch(
             setLogin({
-              user: loginUser.data.user,
-              token: loginUser.data.token,
+              user: JSON.stringify(loginUser.data.user),
+              token: JSON.stringify(loginUser.data.token),
             })
           );
 
-          localStorage.setItem("user", loginUser.data.user);
-          localStorage.setItem("token", loginUser.data.token);
+          localStorage.setItem("user", JSON.stringify(loginUser.data.user));
+          localStorage.setItem("token", JSON.stringify(loginUser.data.token));
           localStorage.setItem("account-created", true);
+
+          console.log(localStorage.getItem("user"));
 
           navigate("/");
         } else {

@@ -1,4 +1,5 @@
 import Navbar from "./navbar/Navbar";
 import LoginForm from "./loginForm/LoginForm";
 import Upscale from "./upscale/Upscale";
-export { Navbar, LoginForm, Upscale };
+import FileUploader from "./FileUploader/FileUploader";
+export { Navbar, LoginForm, Upscale, FileUploader };

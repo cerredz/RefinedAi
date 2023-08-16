@@ -74,7 +74,7 @@ img {
   font-size: 2.4rem;
   letter-spacing: 2px;
 }
-.upscale-container .upscale-content .upscale-header p {
+.upscale-container .upscale-content .upscale-header .grey-text {
   margin-top: 10px;
   letter-spacing: 2px;
   font-size: 0.8rem;
@@ -86,6 +86,15 @@ img {
   background-clip: text;
   color: transparent;
   text-shadow: 0 0 3rem red;
+}
+.upscale-container .upscale-content .upscale-header .upscale-upload {
+  padding: 25px;
+  position: relative;
+  width: 80%;
+  margin: 10px auto;
+  margin-top: 50px;
+  height: 25vh;
+  border: dotted 4px rgba(255, 255, 255, 0.2);
 }
 .upscale-container .upscale-content .upscale-images {
   display: none;
@@ -108,14 +117,58 @@ img {
     justify-content: center;
     gap: 10px;
   }
-  .upscale-container .upscale-content .upscale-images img {
-    width: 210px;
-    border-radius: 15px;
-    cursor: pointer;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+  .upscale-container .upscale-content .upscale-images .image-container {
+    position: relative;
   }
-  .upscale-container .upscale-content .upscale-images img:hover {
+  .upscale-container .upscale-content .upscale-images .image-container:hover img {
     opacity: 0.4;
     box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.1);
+  }
+  .upscale-container .upscale-content .upscale-images .image-container:hover svg {
+    opacity: 2;
+  }
+  .upscale-container .upscale-content .upscale-images .image-container img {
+    width: 210px;
+    height: 150px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  .upscale-container .upscale-content .upscale-images .image-container svg {
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 7px;
+    border-radius: 50%;
+    transition: 0.5s ease-in-out;
+  }
+  .upscale-container .upscale-content .upscale-images .image-container svg:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .upscale-container .upscale-content .upscale-images .expanded-image-container {
+    position: absolute;
+    z-index: 5;
+  }
+  .upscale-container .upscale-content .upscale-images .expanded-image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+  .upscale-container .upscale-content .upscale-images .expanded-image-container svg {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    filter: invert(70%);
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 6px;
+    font-weight: 800;
+  }
+  .upscale-container .upscale-content .upscale-images .expanded-image-container svg:hover {
+    background: rgba(255, 255, 255, 0.8);
   }
 }/*# sourceMappingURL=Upscale.css.map */

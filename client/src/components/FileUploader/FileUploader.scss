@@ -1,0 +1,27 @@
+@import "../variables/variables.scss";
+
+.file-dropzone {
+  background: red;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+  opacity: 0.5;
+
+  &:hover {
+    opacity: 0.75;
+    transition: 0.4s ease-in-out;
+  }
+
+  .btn-upload {
+    border: none;
+    background: red;
+    gap: 10px;
+    cursor: pointer;
+    p,
+    svg {
+      font-size: 1.4rem;
+    }
+  }
+}

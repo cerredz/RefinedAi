@@ -3,8 +3,10 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const multer = require("multer");
+const path = require("path");
 const authRoutes = require("./routes/auth");
-
+const upscaleRoutes = require("./routes/upscale");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -13,6 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 /* ROUTES */
 app.use("/auth", authRoutes);
+app.use("/upscale", upscaleRoutes);
 
 /* CONNECT TO MONGODB DATABASE */
 mongoose
