@@ -88,18 +88,23 @@ img {
   text-shadow: 0 0 3rem red;
 }
 .upscale-container .upscale-content .upscale-header .upscale-upload {
-  padding: 25px;
   position: relative;
   width: 80%;
   margin: 10px auto;
   margin-top: 50px;
   height: 25vh;
   border: dotted 4px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
 }
 .upscale-container .upscale-content .upscale-images {
   display: none;
 }
 
+@media (min-width: 800px) {
+  .upscale-container .upscale-content .upscale-header .upscale-upload {
+    height: 35vh;
+  }
+}
 @media (min-width: 1100px) {
   .upscale-container .upscale-content .upscale-header {
     justify-content: flex-start;

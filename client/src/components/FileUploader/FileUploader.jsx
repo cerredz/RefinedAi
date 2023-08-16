@@ -3,7 +3,10 @@ import { useDropzone } from "react-dropzone";
 import Axios from "axios";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineCloudUpload } from "react-icons/ai";
+import {
+  AiOutlineCloudUpload,
+  AiOutlineLoading3Quarters,
+} from "react-icons/ai";
 import Dropzone from "react-dropzone";
 import "./FileUploader.css";
 /*
@@ -72,43 +75,115 @@ const FileUploader = () => {
 const FileUploader = () => {
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
+  const navigate = useNavigate();
   const [image, setImage] = useState(null);
 
+  const [upscalingImage, setUpscalingImage] = useState(false);
+  const [upscaledImage, setUpscaledImage] = useState(null);
+  const [creditsError, setCreditsError] = useState(false);
+
+  // Function to Upscale an Image for a User
   const handleUpscale = async () => {
-    console.log(image);
+    if (user.credits < 1) {
+      //user does not have enought credits
+      setCreditsError(true);
+      return;
+    }
+
+    if (!user) {
+      //user is not logged in
+      navigate("/login");
+      return;
+    }
+
+    /* Pass Picture and User Information to Backend*/
     const formData = new FormData();
     formData.append("picture", image);
     formData.append("userString", user);
-    /*
-    const response = await Axios.post(`http://localhost:3001/upscale/image`, {
-      user: JSON.parse(user),
-      picture: image,
-    });
-    */
 
-    const response = await fetch(`http://localhost:3001/upscale/image`, {
-      method: "POST",
-      body: formData,
-    });
-
+    /* Update Frontend Display */
+    setUpscalingImage(true);
     setImage(null);
+
+    const response = await Axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/upscale/image`,
+      formData
+    );
+
+    const userData = await response.data.user;
+    const imageData = await response.data.image;
+
+    setUpscalingImage(false);
+
+    /* Extract The Upscaled Image from the backend */
+    setUpscaledImage(
+      `${process.env.REACT_APP_BACKEND_IMAGE_STORAGE}/${imageData}`
+    );
+
+    /* Update User's Credits and Image Paths*/
+    localStorage.setItem("user", JSON.stringify(userData));
   };
   return (
-    <>
-      {image && <button onClick={handleUpscale}>Upscale</button>}
+    <div className="file-uploader-container flex">
+      {/* After Image is Uploaded */}
+      {image && (
+        <button className="upscale" onClick={handleUpscale}>
+          Upscale
+        </button>
+      )}
+      {creditsError && (
+        <p className="err-credits">* Error: Not Enough Credits *</p>
+      )}
       <Dropzone
         acceptedFiles=".jpg, .jpeg, .png"
         multiple={false}
         onDrop={(acceptedFiles) => setImage(acceptedFiles[0])}
       >
         {({ getRootProps, getInputProps }) => (
-          <div {...getRootProps()}>
+          <div className="dropzone-container" {...getRootProps()}>
             <input {...getInputProps()}></input>
-            {!image ? <p>Upload</p> : <div>{image.name}</div>}
+            {!image ? (
+              <>
+                {/* Before Any Image Is Uploaded */}
+                {!upscalingImage && !upscaledImage ? (
+                  <button className="upload flex">
+                    Upload <AiOutlineCloudUpload />
+                  </button>
+                ) : (
+                  <>
+                    {/* Loading Screen While Image is Upscaling */}
+                    {upscalingImage && (
+                      <AiOutlineLoading3Quarters className="loading" />
+                    )}
+                  </>
+                )}
+
+                {/* Image After Upscaling */}
+                {upscaledImage && (
+                  <img
+                    className="dropzone-image"
+                    src={upscaledImage}
+                    alt="upscaled"
+                  />
+                )}
+              </>
+            ) : (
+              <div>
+                {!upscaledImage ? (
+                  <img
+                    className="dropzone-image"
+                    src={URL.createObjectURL(image)}
+                    alt="Uploaded"
+                  />
+                ) : (
+                  <></>
+                )}
+              </div>
+            )}
           </div>
         )}
       </Dropzone>
-    </>
+    </div>
   );
 };
 
