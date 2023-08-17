@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s ease-in-out;
+  color: rgb(225, 225, 225);
+  font-family: "Roboto Mono", monospace;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grey-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hide {
+  display: none;
+}
+
+.btn-glow-hover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
+}
+.btn-glow-hover::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transform: skewX(45deg);
+  filter: blur(1rem);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
+}
+.btn-glow-hover:hover {
+  box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.3);
+}
+.btn-glow-hover:hover::before {
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+}
+
+.advert-container {
+  position: relative;
+  margin: 50px auto;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 60px 2rem;
+}
+.advert-container .card-container {
+  background: rgba(255, 255, 255, 0.1);
+  flex-direction: column;
+  text-align: center;
+  margin: 10px;
+  max-width: 300px;
+  height: 300px;
+  padding: 25px;
+  border-radius: 10px;
+  justify-content: flex-start;
+  position: relative;
+  box-shadow: inset 0 0 2rem rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+.advert-container .card-container::after, .advert-container .card-container::before {
+  position: absolute;
+  content: "";
+}
+.advert-container .card-container::before {
+  left: 0;
+  right: 0;
+  height: 5px;
+  top: 0px;
+}
+.advert-container .card-container::after {
+  height: 40px;
+  left: 30%;
+  right: 30%;
+  top: -20px;
+  border-radius: 50%;
+  filter: blur(2rem);
+}
+.advert-container .card-container .img-container {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.advert-container .card-container .img-container img {
+  width: 70px;
+}
+.advert-container .card-container .text-container {
+  flex-direction: column;
+}
+.advert-container .card-container .text-container p {
+  margin: 10px;
+}
+.advert-container .card-container .text-container .btn-container {
+  position: absolute;
+  bottom: 30px;
+}
+.advert-container .card-container .text-container .btn-container button {
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  gap: 5px;
+}
+.advert-container .card-container .text-container .btn-container button svg {
+  font-size: 1.1rem;
+}
+.advert-container .card-container .text-container .btn-container button:hover {
+  scale: 1.05;
+}
+.advert-container .card-container .text-container .btn-container button:hover svg {
+  transform: translateX(5px);
+}
+.advert-container .card-container .text-container .btn-container button:hover::after {
+  opacity: 1;
+  transition: 0.25s ease-in-out;
+}
+.advert-container .card-container .text-container .btn-container button::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  opacity: 0.4;
+  z-index: -1;
+  transition: 0.25s ease-in-out;
+}
+.advert-container .card-container .text-container .btn-container .credits:hover {
+  box-shadow: 0 0 2rem rgb(105, 105, 2);
+}
+.advert-container .card-container .text-container .btn-container .credits::after {
+  background: rgb(105, 105, 2);
+}
+.advert-container .card-container .text-container .btn-container .gallary:hover {
+  box-shadow: 0 0 2rem rgb(136, 82, 0);
+}
+.advert-container .card-container .text-container .btn-container .gallary::after {
+  background: rgb(136, 82, 0);
+}
+.advert-container .card-container .text-container .btn-container .algorithmn:hover {
+  box-shadow: 0 0 2rem rgb(106, 54, 89);
+}
+.advert-container .card-container .text-container .btn-container .algorithmn::after {
+  background: rgb(106, 54, 89);
+}
+.advert-container .card-container .text-container .btn-container .reviews:hover {
+  box-shadow: 0 0 2rem rgb(23, 72, 114);
+}
+.advert-container .card-container .text-container .btn-container .reviews::after {
+  background: rgb(23, 72, 114);
+}
+.advert-container .reviews-container::before {
+  background: linear-gradient(to right, transparent, rgb(23, 72, 114), transparent);
+}
+.advert-container .reviews-container:after {
+  background: rgb(23, 72, 114);
+}
+.advert-container .algorithmn-container::before {
+  background: linear-gradient(to right, transparent, rgb(106, 54, 89), transparent);
+}
+.advert-container .algorithmn-container:after {
+  background: rgb(106, 54, 89);
+}
+.advert-container .gallary-container::before {
+  background: linear-gradient(to right, transparent, rgb(136, 82, 0), transparent);
+}
+.advert-container .gallary-container:after {
+  background: rgb(136, 82, 0);
+}
+.advert-container .credits-container::before {
+  background: linear-gradient(to right, transparent, rgb(105, 105, 2), transparent);
+}
+.advert-container .credits-container:after {
+  background: rgb(105, 105, 2);
+}
+
+@media (min-width: 1200px) {
+  .advert-container {
+    flex-direction: row;
+  }
+  .advert-container .card-container {
+    max-width: 250px;
+  }
+}/*# sourceMappingURL=AdvertCards.css.map */

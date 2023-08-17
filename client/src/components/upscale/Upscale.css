@@ -60,10 +60,15 @@ img {
   background-size: cover;
 }
 
+button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+}
+
 .upscale-container {
   position: relative;
   width: 90%;
-  margin: 50px auto;
+  margin: 25px auto;
 }
 .upscale-container .upscale-content .upscale-header {
   flex-direction: column;
@@ -98,6 +103,17 @@ img {
 }
 .upscale-container .upscale-content .upscale-images {
   display: none;
+}
+.upscale-container .buttons-container {
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 90%;
+  padding: 50px;
+}
+.upscale-container .buttons-container button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 10px;
 }
 
 @media (min-width: 800px) {

@@ -60,7 +60,9 @@ img {
   background-size: cover;
 }
 
-button {
+.upscaler-facts-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.1);
-  border: none;
-}/*# sourceMappingURL=variables.css.map */
+}/*# sourceMappingURL=UpscalerFacts.css.map */
