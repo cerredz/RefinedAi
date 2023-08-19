@@ -112,6 +112,66 @@ nav {
       }
 
       .sign-in-container {
+        padding-right: 1rem;
+        .profile-picture {
+          z-index: 3;
+          position: relative;
+
+          .user-pfp {
+            width: 57px;
+            height: 57px;
+            border-radius: 50%;
+          }
+
+          svg,
+          img {
+            cursor: pointer;
+          }
+
+          .profile-tab {
+            backdrop-filter: blur(10px);
+            position: absolute;
+            right: -30px;
+            top: 80px;
+            padding: 10px 0;
+            width: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            text-align: center;
+            padding-top: 25px;
+
+            .connector {
+              position: absolute;
+              top: -30px;
+              right: 25px;
+              width: 0;
+              height: 0;
+              border-left: 30px solid transparent; /* Adjust the size as needed */
+              border-right: 30px solid transparent; /* Adjust the size as needed */
+              border-bottom: 30px solid rgba(255, 255, 255, 0.1); /* Adjust the color and size as needed */
+            }
+
+            .profile-links {
+              border-radius: 15px;
+              ul {
+                overflow: hidden;
+                li {
+                  overflow: hidden;
+                  padding: 10px 0;
+                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                  font-size: 1rem;
+                  letter-spacing: 2px;
+                  cursor: pointer;
+                  position: relative;
+
+                  &:hover {
+                    color: rgba(255, 255, 255, 1);
+                  }
+                }
+              }
+            }
+          }
+        }
         button {
           background: rgba(255, 255, 255, 0.05);
           padding: 17px 35px;

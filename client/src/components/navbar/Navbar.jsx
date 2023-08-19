@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { PiDotsNineLight } from "react-icons/pi";
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { FaArrowRight } from "react-icons/fa";
+import { setLogout } from "../../state";
 
 const Navbar = (props) => {
   const [toggleNavbarOn, setToggleNavbarOn] = useState(false);
+  const [isHoveringUser, setIsHoveringUser] = useState(false);
   const user = useSelector((state) => state.auth.user);
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  /* SIGN OUT USER */
+  const handleSignOut = () => {
+    dispatch(setLogout());
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
+  useEffect(() => {}, []);
   return (
     <nav className="navbar-container flex-between">
       {/* NAVBAR*/}
@@ -49,7 +63,49 @@ const Navbar = (props) => {
             </button>
           )}
 
-          {user != null && <CgProfile />}
+          {user != null && (
+            <>
+              <div
+                className="profile-picture"
+                onMouseOver={() => setIsHoveringUser(true)}
+                onMouseLeave={() => setIsHoveringUser(false)}
+              >
+                {user.picturePath === "" ? (
+                  <>
+                    <CgProfile />
+                  </>
+                ) : (
+                  <>
+                    <img
+                      className="user-pfp"
+                      src={user.picturePath}
+                      alt="User Profile"
+                    />
+                  </>
+                )}
+
+                {isHoveringUser && (
+                  <div className="profile-tab">
+                    {/* HOVERING PROFILE PICTURE*/}
+                    <span className="connector"></span>
+                    <div className="profile-links">
+                      <ul>
+                        <li className="center-outwards-hover grey-text">
+                          Account
+                        </li>
+                        <li
+                          className="center-outwards-hover grey-text"
+                          onClick={handleSignOut}
+                        >
+                          Sign Out
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -87,7 +143,7 @@ const Navbar = (props) => {
               <li>Pricing</li>
               <li>Upscale</li>
               <li onClick={() => navigate("/support")}>Support</li>
-              <li>Reviews</li>
+              <li onClick={() => navigate("/reviews")}>Reviews</li>
               {user == null ? (
                 <li onClick={() => navigate("/login")}>Login</li>
               ) : (

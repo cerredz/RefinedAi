@@ -1,8 +1,8 @@
 import React from "react";
 import {
+  Features,
   Navbar,
   Upscale,
-  UpscalerFacts,
   AdvertCards,
 } from "../../components/components";
 
@@ -12,7 +12,7 @@ const Home = (props) => {
       <Navbar />
       <Upscale />
       <AdvertCards />
-      <UpscalerFacts />
+      <Features />
     </div>
   );
 };

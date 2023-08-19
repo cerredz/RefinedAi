@@ -18,7 +18,7 @@ const imageUrls = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 const Upscale = (props) => {
   const [expandImage, setExpandImage] = useState("");
   return (
-    <div className="upscale-container">
+    <div id="upscale" className="upscale-container">
       <div className="upscale-content flex">
         <div className="upscale-header flex">
           <h1>

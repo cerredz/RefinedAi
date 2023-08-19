@@ -78,3 +78,33 @@ button {
   background: rgba(255, 255, 255, 0.1);
   border: none;
 }
+
+.center-outwards-hover {
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.2);
+    width: 0;
+    transition: 0.4s ease-in-out;
+  }
+
+  &::before {
+    right: 50%;
+  }
+
+  &::after {
+    left: 50%;
+  }
+
+  &:hover {
+    &::after,
+    &::before {
+      width: 50%;
+      transition: 0.4s ease-in-out;
+    }
+  }
+}

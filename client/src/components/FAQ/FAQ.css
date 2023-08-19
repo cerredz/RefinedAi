@@ -58,4 +58,9 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
 }/*# sourceMappingURL=FAQ.css.map */

@@ -7,6 +7,7 @@ const multer = require("multer");
 const path = require("path");
 const authRoutes = require("./routes/auth");
 const upscaleRoutes = require("./routes/upscale");
+const reviewsRoutes = require("./routes/reviews");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 3001;
 /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/upscale", upscaleRoutes);
+app.use("/reviews", reviewsRoutes);
 
 /* CONNECT TO MONGODB DATABASE */
 mongoose

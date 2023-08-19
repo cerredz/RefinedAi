@@ -60,6 +60,32 @@ img {
   background-size: cover;
 }
 
+button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+}
+
+.center-outwards-hover::before, .center-outwards-hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.2);
+  width: 0;
+  transition: 0.4s ease-in-out;
+}
+.center-outwards-hover::before {
+  right: 50%;
+}
+.center-outwards-hover::after {
+  left: 50%;
+}
+.center-outwards-hover:hover::after, .center-outwards-hover:hover::before {
+  width: 50%;
+  transition: 0.4s ease-in-out;
+}
+
 nav {
   padding: 25px;
 }
@@ -152,6 +178,63 @@ nav .toggle-container svg {
   nav .nav-headings .links ul li:hover {
     transform: translateY(-5px);
     opacity: 1;
+  }
+  nav .nav-headings .sign-in-container {
+    padding-right: 1rem;
+  }
+  nav .nav-headings .sign-in-container .profile-picture {
+    z-index: 3;
+    position: relative;
+  }
+  nav .nav-headings .sign-in-container .profile-picture .user-pfp {
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+  }
+  nav .nav-headings .sign-in-container .profile-picture svg,
+  nav .nav-headings .sign-in-container .profile-picture img {
+    cursor: pointer;
+  }
+  nav .nav-headings .sign-in-container .profile-picture .profile-tab {
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    position: absolute;
+    right: -30px;
+    top: 80px;
+    padding: 10px 0;
+    width: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 25px;
+  }
+  nav .nav-headings .sign-in-container .profile-picture .profile-tab .connector {
+    position: absolute;
+    top: -30px;
+    right: 25px;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent; /* Adjust the size as needed */
+    border-right: 30px solid transparent; /* Adjust the size as needed */
+    border-bottom: 30px solid rgba(255, 255, 255, 0.1); /* Adjust the color and size as needed */
+  }
+  nav .nav-headings .sign-in-container .profile-picture .profile-tab .profile-links {
+    border-radius: 15px;
+  }
+  nav .nav-headings .sign-in-container .profile-picture .profile-tab .profile-links ul {
+    overflow: hidden;
+  }
+  nav .nav-headings .sign-in-container .profile-picture .profile-tab .profile-links ul li {
+    overflow: hidden;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+  }
+  nav .nav-headings .sign-in-container .profile-picture .profile-tab .profile-links ul li:hover {
+    color: rgb(255, 255, 255);
   }
   nav .nav-headings .sign-in-container button {
     background: rgba(255, 255, 255, 0.05);

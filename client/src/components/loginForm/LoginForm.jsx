@@ -262,12 +262,15 @@ const LoginForm = (props) => {
           formData
         );
 
+        console.log(loginUser.data.user);
+        //console.log(JSON.parse(loginUser.data.user));
+
         if (loginUser.data.token) {
           //user successfully logged in
           dispatch(
             setLogin({
-              user: JSON.stringify(loginUser.data.user),
-              token: JSON.stringify(loginUser.data.token),
+              user: loginUser.data.user,
+              token: loginUser.data.token,
             })
           );
 
@@ -276,7 +279,6 @@ const LoginForm = (props) => {
           localStorage.setItem("account-created", true);
 
           console.log(localStorage.getItem("user"));
-
           navigate("/");
         } else {
           setLoginError(true);
