@@ -7,7 +7,7 @@ const Support = () => {
     <div>
       <Navbar />
       <FAQ />
-      <div className="support-container flex">
+      <div className="support-container">
         <div className="support-header flex">
           <img src={supportICON} alt="" />
           <h1>Support</h1>
