@@ -152,10 +152,7 @@ const Reviews = (props) => {
                   <AiOutlineCheck />
                   Submit
                 </button>
-                <button
-                  onClick={() => handleCancelReview}
-                  className="cancel flex"
-                >
+                <button onClick={handleCancelReview} className="cancel flex">
                   <AiOutlineClose />
                   Cancel
                 </button>

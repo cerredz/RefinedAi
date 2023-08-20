@@ -24,11 +24,11 @@
 
       .upscale-text {
         filter: none;
-        background: linear-gradient(45deg, #ff0000, #ff7700);
+        background: linear-gradient(45deg, $primaryBlue, $secondaryBlue);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        text-shadow: 0 0 3rem red;
+        text-shadow: 0 0 5rem $primaryBlue;
       }
 
       .upscale-upload {

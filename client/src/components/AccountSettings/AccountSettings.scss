@@ -1,0 +1,162 @@
+@import "../variables/variables.scss";
+
+.account-settings-container {
+  width: 90%;
+  margin: 0 auto;
+  .title {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    width: fit-content;
+    margin: 0 auto;
+    letter-spacing: 2px;
+  }
+
+  .basic-info,
+  .account-info {
+    box-shadow: inset 0 0 1rem rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    .header {
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+      width: fit-content;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      margin: 10px 0;
+    }
+
+    .row {
+      margin: 10px 0;
+      padding: 10px 0;
+      gap: 25px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      width: 100%;
+      justify-content: space-between;
+      p {
+        font-size: 1.1rem;
+      }
+
+      .info-name {
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+  .basic-info {
+    margin: 25px;
+
+    .basic-info-content {
+      align-items: flex-start;
+      flex-direction: column;
+
+      .image {
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  .account-info {
+    margin: 25px;
+
+    .account-info-content {
+      flex-direction: column;
+      align-items: flex-start;
+      .password {
+        img {
+          width: 10px;
+        }
+      }
+
+      .change-password {
+        border-bottom: none;
+        margin: none;
+        padding: none;
+        justify-content: center;
+
+        button {
+          padding: 10px 25px;
+          border-radius: 10px;
+          cursor: pointer;
+          background: red;
+          opacity: 0.4;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+
+  .changing-passwords-container {
+    position: absolute;
+    z-index: 5;
+    backdrop-filter: blur(15px);
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .changing-passwords-content {
+      flex-direction: column;
+      gap: 25px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 25px;
+      border-radius: 25px;
+      max-width: 100%;
+
+      .error {
+        color: red;
+        opacity: 0.5;
+        font-weight: 800;
+      }
+      input {
+        outline: none;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 10px;
+        border-radius: 20px;
+      }
+      .btn-container {
+        width: 100%;
+        padding: 0 10px;
+        display: flex;
+        gap: 20px;
+
+        button {
+          padding: 10px 25px;
+          border-radius: 5px;
+          cursor: pointer;
+          gap: 6px;
+          opacity: 0.4;
+
+          svg {
+            font-size: 1.1rem;
+          }
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        .confirm {
+          background: rgb(7, 101, 7);
+        }
+
+        .cancel {
+          background: rgb(114, 1, 1);
+        }
+      }
+    }
+  }
+}

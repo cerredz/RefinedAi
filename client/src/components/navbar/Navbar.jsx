@@ -90,7 +90,10 @@ const Navbar = (props) => {
                     <span className="connector"></span>
                     <div className="profile-links">
                       <ul>
-                        <li className="center-outwards-hover grey-text">
+                        <li
+                          onClick={() => navigate(`/account/${user.username}`)}
+                          className="center-outwards-hover grey-text"
+                        >
                           Account
                         </li>
                         <li

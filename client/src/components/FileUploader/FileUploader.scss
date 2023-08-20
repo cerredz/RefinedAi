@@ -20,19 +20,26 @@
 
   .upload {
     position: relative;
-    background: red;
+    background: linear-gradient(to right, $primaryBlue, rgb(9, 98, 231));
     opacity: 0.4;
     gap: 5px;
+    border-radius: 40px;
     &:hover {
       opacity: 0.8;
+
+      &::after {
+        opacity: 1;
+        transition: 0.4s ease-in-out;
+      }
     }
     &::after {
       position: absolute;
       content: "";
       inset: 0;
       border-radius: inherit;
-      box-shadow: 0 0 4rem red;
+      box-shadow: 0 0 4rem $primaryBlue;
       opacity: 0.3;
+      transition: 0.4s ease-in-out;
     }
   }
 

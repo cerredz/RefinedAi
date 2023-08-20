@@ -5,5 +5,15 @@ import FileUploader from "./FileUploader/FileUploader";
 import FAQ from "./FAQ/FAQ";
 import AdvertCards from "./AdvertCards/AdvertCards";
 import Features from "./features/Features";
+import AccountSettings from "./AccountSettings/AccountSettings";
 
-export { Features, FAQ, Navbar, LoginForm, Upscale, FileUploader, AdvertCards };
+export {
+  AccountSettings,
+  Features,
+  FAQ,
+  Navbar,
+  LoginForm,
+  Upscale,
+  FileUploader,
+  AdvertCards,
+};

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Reviews, Home, Login, Support } from "./scenes/scenes";
+import { Account, Reviews, Home, Login, Support } from "./scenes/scenes";
 
 const App = (props) => {
   useEffect(() => {
@@ -16,6 +16,7 @@ const App = (props) => {
           <Route path="/login" element={<Login />} />
           <Route path="/support" element={<Support />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/account/:username" element={<Account />} />
         </Routes>
       </BrowserRouter>
     </div>

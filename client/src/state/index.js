@@ -12,8 +12,13 @@ const usernamesSet = new Set();
 
 allReviews.data.forEach((review) => {
   if (!usernamesSet.has(review.username)) {
-    usernamesSet.add(review.username);
-    uniqueReviews.push(review);
+    const wordArray = review.description.split(/\s+/);
+    const wordCount = wordArray.length;
+
+    if (wordCount < 50) {
+      usernamesSet.add(review.username);
+      uniqueReviews.push(review);
+    }
   }
 });
 

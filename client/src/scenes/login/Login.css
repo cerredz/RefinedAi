@@ -65,6 +65,27 @@ button {
   border: none;
 }
 
+.center-outwards-hover::before, .center-outwards-hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.2);
+  width: 0;
+  transition: 0.4s ease-in-out;
+}
+.center-outwards-hover::before {
+  right: 50%;
+}
+.center-outwards-hover::after {
+  left: 50%;
+}
+.center-outwards-hover:hover::after, .center-outwards-hover:hover::before {
+  width: 50%;
+  transition: 0.4s ease-in-out;
+}
+
 .login-container {
   padding: 25px;
   width: 100%;

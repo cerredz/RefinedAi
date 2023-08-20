@@ -65,6 +65,27 @@ button {
   border: none;
 }
 
+.center-outwards-hover::before, .center-outwards-hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.2);
+  width: 0;
+  transition: 0.4s ease-in-out;
+}
+.center-outwards-hover::before {
+  right: 50%;
+}
+.center-outwards-hover::after {
+  left: 50%;
+}
+.center-outwards-hover:hover::after, .center-outwards-hover:hover::before {
+  width: 50%;
+  transition: 0.4s ease-in-out;
+}
+
 .file-uploader-container {
   position: relative;
   max-width: 100%;
@@ -83,20 +104,26 @@ button {
 }
 .file-uploader-container .upload {
   position: relative;
-  background: red;
+  background: linear-gradient(to right, rgb(6, 36, 233), rgb(9, 98, 231));
   opacity: 0.4;
   gap: 5px;
+  border-radius: 40px;
 }
 .file-uploader-container .upload:hover {
   opacity: 0.8;
+}
+.file-uploader-container .upload:hover::after {
+  opacity: 1;
+  transition: 0.4s ease-in-out;
 }
 .file-uploader-container .upload::after {
   position: absolute;
   content: "";
   inset: 0;
   border-radius: inherit;
-  box-shadow: 0 0 4rem red;
+  box-shadow: 0 0 4rem rgb(6, 36, 233);
   opacity: 0.3;
+  transition: 0.4s ease-in-out;
 }
 .file-uploader-container .upscale,
 .file-uploader-container .upload {
