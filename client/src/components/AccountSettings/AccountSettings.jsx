@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./AccountSettings.css";
-import { useSelector } from "react-redux/";
+import { useSelector, useDispatch } from "react-redux";
+import { setLogin } from "../../state";
 import passwordIcons from "../assets/password.png";
 import Axios from "axios";
+
 const AccountSettings = () => {
   const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
 
   /* VARIABLES FOR USER CHANGING PASSWORD */
   const [isChangingPassword, setIsChangingPassword] = useState(false);
@@ -52,13 +55,39 @@ const AccountSettings = () => {
 
     /* NO ERRORS SO FAR, ATTEMPT TO CHANGE PASSWORD*/
     const changePassword = await Axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/changePassword`,
+      `${process.env.REACT_APP_BACKEND_URL}/auth/changePassword`,
       {
         userID: user._id,
         currentPassword: currentPassword,
         newPassword: newPassword,
       }
     );
+
+    if (changePassword.data.res) {
+      //password changed for user, update redux state
+      localStorage.setItem("user", JSON.stringify(changePassword.data.user));
+      dispatch(
+        setLogin({
+          user: changePassword.data.user,
+          token: changePassword.data.token,
+        })
+      );
+
+      setIsChangingPassword(false);
+      setCurrentPassword("");
+      setNewPassword("");
+      setNewRetypePassword("");
+    } else {
+      setErrors({ current: true });
+    }
+  };
+
+  /* USER CANCELLED THEIR CHANGE PASSWORD REQUEST */
+  const handleCancelClick = () => {
+    setCurrentPassword("");
+    setNewPassword("");
+    setNewRetypePassword("");
+    setIsChangingPassword(false);
   };
   return (
     <div className="account-settings-container">
@@ -148,7 +177,9 @@ const AccountSettings = () => {
                 <button className="confirm" onClick={handleConfirmClick}>
                   Confirm
                 </button>
-                <button className="cancel">Cancel</button>
+                <button className="cancel" onClick={handleCancelClick}>
+                  Cancel
+                </button>
               </div>
             </div>
           </div>

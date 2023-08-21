@@ -156,6 +156,7 @@ button {
 }
 .account-settings-container .account-info .account-info-content .password img {
   width: 10px;
+  filter: grayscale(90%);
 }
 .account-settings-container .account-info .account-info-content .change-password {
   border-bottom: none;

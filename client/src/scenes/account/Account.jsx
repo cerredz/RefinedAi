@@ -9,7 +9,11 @@ import userImages from "../../components/assets/userImages.png";
 import notiIcon from "../../components/assets/notificationsIcon.png";
 import helpIcon from "../../components/assets/helpIcon.png";
 import buyIcon from "../../components/assets/buyIcon.png";
-import { AccountSettings } from "../../components/components";
+import {
+  AccountSettings,
+  FileUploader,
+  AccountImages,
+} from "../../components/components";
 
 const Account = () => {
   /* ACCOUNT TABS: 
@@ -36,13 +40,22 @@ const Account = () => {
         </div>
 
         <div className="mobile-nav-links flex">
-          <div className="nav-link flex">
+          <div
+            onClick={() => setSelectedTab("account-settings")}
+            className="nav-link flex"
+          >
             <img src={profileIcon} alt="" />
           </div>
-          <div className="nav-link flex">
+          <div
+            onClick={() => setSelectedTab("upscaler")}
+            className="nav-link flex"
+          >
             <img src={upscaleIcon} alt="" />
           </div>
-          <div className="nav-link flex">
+          <div
+            onClick={() => setSelectedTab("account-images")}
+            className="nav-link flex"
+          >
             <img src={userImages} alt="" />
           </div>
           <div className="nav-link flex">
@@ -57,6 +70,13 @@ const Account = () => {
         </div>
         <div className="account-mobile-section">
           {selectedTab === "account-settings" && <AccountSettings />}
+          {selectedTab === "upscaler" && (
+            <div className="uploader-border flex">
+              {" "}
+              <FileUploader />
+            </div>
+          )}
+          {selectedTab === "account-images" && <AccountImages />}
         </div>
       </div>
 

@@ -21,8 +21,6 @@ allReviews.data.forEach((review) => {
     }
   }
 });
-
-console.log(allReviews);
 const initialState = {
   user: localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
@@ -31,6 +29,7 @@ const initialState = {
     ? JSON.parse(localStorage.getItem("token"))
     : null,
   reviews: uniqueReviews,
+  images: [],
 };
 
 export const authSlice = createSlice({
@@ -50,8 +49,12 @@ export const authSlice = createSlice({
     setReviews: (state, action) => {
       state.reviews = action.payload.reviews;
     },
+
+    setImages: (state, action) => {
+      state.images = action.payload.images;
+    },
   },
 });
 
-export const { setLogin, setLogout, setReviews } = authSlice.actions;
+export const { setLogin, setLogout, setReviews, setImages } = authSlice.actions;
 export default authSlice.reducer;

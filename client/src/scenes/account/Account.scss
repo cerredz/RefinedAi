@@ -49,6 +49,12 @@
     .account-mobile-section {
       min-height: 15px;
       padding: 25px;
+
+      .uploader-border {
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        min-height: 25vh;
+      }
     }
   }
 }

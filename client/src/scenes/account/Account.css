@@ -132,6 +132,11 @@ button {
   min-height: 15px;
   padding: 25px;
 }
+.account-container .account-mobile-content .account-mobile-section .uploader-border {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  min-height: 25vh;
+}
 
 @media (min-width: 800px) {
   .account-container .account-mobile-content {

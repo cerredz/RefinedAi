@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("../models/User");
+const Image = require("../models/Image");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
@@ -75,6 +76,61 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).send({ error: err.message });
+  }
+});
+
+/* ATTEMPTS TO CHANGE A USER'S PASSWORD */
+router.post("/changePassword", async (req, res) => {
+  try {
+    const { userID, currentPassword, newPassword } = req.body;
+
+    const user = await User.findById(userID);
+    /* USER NOT FOUND */
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    const isMatchingPassword = await bcrypt.compare(
+      currentPassword,
+      user.password
+    );
+
+    /* USER DID NOT INPUT CORRECT PASSWORD */
+    if (!isMatchingPassword) {
+      return res.status(200).json({ res: false });
+    }
+
+    /* UPDATE PASSWORD FOR USER */
+    const salt = await bcrypt.genSalt();
+    const newPasswordHash = await bcrypt.hash(newPassword, salt);
+
+    user.password = newPasswordHash;
+    await user.save();
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_TOKEN);
+    delete user.password;
+    res.status(200).json({ res: true, user: user, token: token });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ msg: "Failed to update password" });
+  }
+});
+
+router.post("/retrieveImages", async (req, res) => {
+  try {
+    const { userID } = req.body;
+    console.log(userID);
+
+    const user = await User.findById(userID);
+    console.log(userID);
+
+    /* INVALID USER ID */
+    if (!user) return res.status(401).json("Invalid User ID");
+
+    const images = await Image.findAll({ userID: userID });
+    res.status(201).json(images);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("Error Retrieving User Images");
   }
 });
 
