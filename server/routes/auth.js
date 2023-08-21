@@ -115,18 +115,17 @@ router.post("/changePassword", async (req, res) => {
   }
 });
 
+/* SENDS ALL IMAGES A USER HAS UPSCALED TO THE FRONTEND */
 router.post("/retrieveImages", async (req, res) => {
   try {
     const { userID } = req.body;
-    console.log(userID);
-
     const user = await User.findById(userID);
-    console.log(userID);
 
     /* INVALID USER ID */
     if (!user) return res.status(401).json("Invalid User ID");
 
-    const images = await Image.findAll({ userID: userID });
+    /* RETURN ALL IMAGES WITH INPUTTED USER ID */
+    const images = await Image.find({ userID: userID });
     res.status(201).json(images);
   } catch (err) {
     console.log(err);

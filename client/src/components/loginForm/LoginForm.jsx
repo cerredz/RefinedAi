@@ -278,7 +278,6 @@ const LoginForm = (props) => {
           localStorage.setItem("token", JSON.stringify(loginUser.data.token));
           localStorage.setItem("account-created", true);
 
-          console.log(localStorage.getItem("user"));
           navigate("/");
         } else {
           setLoginError(true);

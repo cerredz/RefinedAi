@@ -150,7 +150,9 @@ const Navbar = (props) => {
               {user == null ? (
                 <li onClick={() => navigate("/login")}>Login</li>
               ) : (
-                <li>Account</li>
+                <li onClick={() => navigate(`/account/${user.username}`)}>
+                  Account
+                </li>
               )}
             </ul>
           </div>

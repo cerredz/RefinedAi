@@ -86,10 +86,17 @@ button {
   transition: 0.4s ease-in-out;
 }
 
+.pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 .account-container {
   position: relative;
   width: 100%;
   padding: 50px 0;
+  min-height: 100vh;
 }
 .account-container .account-content {
   display: none;
@@ -113,6 +120,7 @@ button {
 .account-container .account-mobile-content .mobile-nav-links {
   margin: 10px 0;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .account-container .account-mobile-content .mobile-nav-links .nav-link {
   padding: 10px;

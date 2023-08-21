@@ -4,8 +4,8 @@ import { Account, Reviews, Home, Login, Support } from "./scenes/scenes";
 
 const App = (props) => {
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(null));
-    localStorage.setItem("token", JSON.stringify(null));
+    //localStorage.setItem("user", JSON.stringify(null));
+    //localStorage.setItem("token", JSON.stringify(null));
     //localStorage.removeItem("account-created");
   }, []);
   return (

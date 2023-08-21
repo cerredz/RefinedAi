@@ -58,7 +58,10 @@ const Account = () => {
           >
             <img src={userImages} alt="" />
           </div>
-          <div className="nav-link flex">
+          <div
+            onClick={() => setSelectedTab("email-list")}
+            className="nav-link flex"
+          >
             <img src={notiIcon} alt="" />
           </div>
           <div className="nav-link flex">
@@ -77,6 +80,7 @@ const Account = () => {
             </div>
           )}
           {selectedTab === "account-images" && <AccountImages />}
+          {selectedTab === "email-list"}
         </div>
       </div>
 

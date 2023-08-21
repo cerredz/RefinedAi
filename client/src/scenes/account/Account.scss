@@ -4,6 +4,7 @@
   position: relative;
   width: 100%;
   padding: 50px 0;
+  min-height: 100vh;
 
   .account-content {
     display: none;
@@ -28,6 +29,7 @@
     .mobile-nav-links {
       margin: 10px 0;
       gap: 10px;
+      flex-wrap: wrap;
 
       .nav-link {
         padding: 10px;
