@@ -7,6 +7,7 @@ import AdvertCards from "./AdvertCards/AdvertCards";
 import Features from "./features/Features";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import AccountImages from "./AccountImages/AccountImages";
+import EmailList from "./EmailList/EmailList";
 
 export {
   AccountImages,
@@ -18,4 +19,5 @@ export {
   Upscale,
   FileUploader,
   AdvertCards,
+  EmailList,
 };

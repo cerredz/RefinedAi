@@ -8,6 +8,7 @@ const path = require("path");
 const authRoutes = require("./routes/auth");
 const upscaleRoutes = require("./routes/upscale");
 const reviewsRoutes = require("./routes/reviews");
+const emailRoutes = require("./routes/email");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -18,6 +19,7 @@ const PORT = process.env.PORT || 3001;
 app.use("/auth", authRoutes);
 app.use("/upscale", upscaleRoutes);
 app.use("/reviews", reviewsRoutes);
+app.use("/emails", emailRoutes);
 
 /* CONNECT TO MONGODB DATABASE */
 mongoose

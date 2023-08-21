@@ -30,6 +30,7 @@ const initialState = {
     : null,
   reviews: uniqueReviews,
   images: [],
+  emailList: false,
 };
 
 export const authSlice = createSlice({
@@ -53,8 +54,22 @@ export const authSlice = createSlice({
     setImages: (state, action) => {
       state.images = action.payload.images;
     },
+
+    setJoinEmailList: (state, action) => {
+      state.emailList = true;
+    },
+    setLeaveEmailList: (state, action) => {
+      state.emailList = false;
+    },
   },
 });
 
-export const { setLogin, setLogout, setReviews, setImages } = authSlice.actions;
+export const {
+  setLogin,
+  setLogout,
+  setReviews,
+  setImages,
+  setJoinEmailList,
+  setLeaveEmailList,
+} = authSlice.actions;
 export default authSlice.reducer;

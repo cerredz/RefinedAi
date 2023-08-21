@@ -13,6 +13,7 @@ import {
   AccountSettings,
   FileUploader,
   AccountImages,
+  EmailList,
 } from "../../components/components";
 
 const Account = () => {
@@ -80,7 +81,7 @@ const Account = () => {
             </div>
           )}
           {selectedTab === "account-images" && <AccountImages />}
-          {selectedTab === "email-list"}
+          {selectedTab === "email-list" && <EmailList />}
         </div>
       </div>
 
