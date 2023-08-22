@@ -15,12 +15,40 @@ const EmailList = () => {
       `${process.env.REACT_APP_BACKEND_URL}/emails/checkUser`,
       user
     );
-    console.log(joinedEmailList.data);
+
     const response = joinedEmailList.data;
 
     if (response) {
       dispatch(setJoinEmailList());
     } else {
+      dispatch(setLeaveEmailList());
+    }
+  };
+
+  /* ADDS A USER'S EMAIL TO THE EMAIL LIST*/
+  const handleJoinEmailList = async () => {
+    const joinEmailList = await Axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/emails/join`,
+      user
+    );
+
+    const response = joinEmailList.data;
+
+    if (response) {
+      dispatch(setJoinEmailList());
+    }
+  };
+
+  /* REMOVES A USER'S EMAIL FROM THE EMAIL LIST */
+  const handleLeaveEmailList = async () => {
+    const leaveEmailList = await Axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/emails/leave`,
+      user
+    );
+
+    const response = leaveEmailList.data;
+
+    if (response.res) {
       dispatch(setLeaveEmailList());
     }
   };
@@ -43,10 +71,10 @@ const EmailList = () => {
 
       <div className="btn-container">
         {emailList ? (
-          <button>Leave</button>
+          <button onClick={handleLeaveEmailList}>Leave</button>
         ) : (
           <>
-            <button>Join </button>
+            <button onClick={handleJoinEmailList}>Join </button>
           </>
         )}
       </div>
