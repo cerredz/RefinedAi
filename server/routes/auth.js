@@ -4,6 +4,23 @@ const Image = require("../models/Image");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
+const multer = require("multer");
+const crypto = require("crypto");
+const path = require("path");
+
+const randomString = crypto.randomBytes(20).toString("hex"); //not perfect, but limits the chances of files having the same path
+/* MULTER SETUP (File Storage)*/
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/assets");
+  },
+  filename: (req, file, cb) => {
+    console.log(file);
+    cb(null, randomString + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 //function to check if a username exists in the usernames taken already
 router.get("/check/:username", async (req, res) => {
@@ -19,7 +36,7 @@ router.get("/check/:username", async (req, res) => {
   }
 });
 
-//function to register a new user
+/* ADD A USER TO THE DATABASE */
 router.post("/register", async (req, res) => {
   try {
     const { firstName, lastName, email, username, password, accountCreated } =
@@ -132,5 +149,34 @@ router.post("/retrieveImages", async (req, res) => {
     res.status(500).json("Error Retrieving User Images");
   }
 });
+
+/* CHANGE PROFILE PICTURE OF A USER */
+router.post(
+  "/changeProfilePicture",
+  upload.single("picture"),
+  async (req, res) => {
+    try {
+      /* CONVERT USER TO JSON */
+      const { user } = req.body;
+      const userJSON = JSON.parse(user);
+
+      const { _id } = userJSON;
+
+      const findUser = await User.findById(_id);
+      if (!findUser) return res.status(404).json("User Not Found");
+
+      /* UPDATE PROFILE PICTURE PATH FOR USER */
+      const imagePath =
+        randomString + encodeURIComponent(req.file.originalname); //path that is stored in the backend storage
+
+      findUser.picturePath = `${process.env.BACKEND_IMAGE_STORAGE}/${imagePath}`;
+      await findUser.save();
+      res.status(200).json(findUser);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json("Failed To Change Profile Picture");
+    }
+  }
+);
 
 module.exports = router;

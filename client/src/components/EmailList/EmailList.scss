@@ -1,1 +1,51 @@
 @import "../variables/variables.scss";
+
+.email-list-container {
+  .email-header {
+    text-align: center;
+    .header {
+      font-size: 1.7rem;
+      margin: 10px;
+    }
+
+    .subheader {
+      font-size: 0.9rem;
+      width: 75%;
+      margin: 0 auto;
+      max-width: 500px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .btn-container {
+    width: 100%;
+    margin: 25px 0;
+
+    button {
+      padding: 10px 25px;
+      font-size: 1.2rem;
+      gap: 5px;
+      cursor: pointer;
+      opacity: 0.4;
+      border-radius: 20px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .join {
+      background: rgb(11, 123, 11);
+      &:hover {
+        box-shadow: 0 0 2rem rgb(11, 123, 11);
+      }
+    }
+
+    .leave {
+      background: rgb(129, 9, 9);
+      &:hover {
+        box-shadow: 0 0 2rem rgb(129, 9, 9);
+      }
+    }
+  }
+}

@@ -23,10 +23,8 @@ const router = express.Router();
 
 router.post("/image", upload.single("picture"), async (req, res) => {
   try {
-    console.log(req.body);
     const { userString } = req.body;
     const jsonUser = JSON.parse(userString); //parsed json user object
-    console.log(jsonUser);
 
     const imagePath = randomString + encodeURIComponent(req.file.originalname); //path that is stored in the backend storage
     const userId = jsonUser._id;

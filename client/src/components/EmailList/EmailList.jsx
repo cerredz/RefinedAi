@@ -3,6 +3,7 @@ import "./EmailList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setJoinEmailList, setLeaveEmailList } from "../../state";
 import Axios from "axios";
+import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 
 const EmailList = () => {
   const user = useSelector((state) => state.auth.user);
@@ -60,21 +61,30 @@ const EmailList = () => {
     <div className="email-list-container">
       <div className="email-header">
         {emailList ? (
-          <h1>Leave Email List</h1>
+          <h1 className="header">Leave Email List</h1>
         ) : (
           <>
-            <h1>Join RefinedAI's Email List</h1>
-            <p>Gain Access to new features, news, and announcements</p>
+            <h1 className="header">Join RefinedAI's Email List</h1>
+            <p className="grey-text subheader">
+              Be the First to Gain Access to Exclusive Features, Insights, and
+              Exciting Announcements.
+            </p>
           </>
         )}
       </div>
 
-      <div className="btn-container">
+      <div className="btn-container flex">
         {emailList ? (
-          <button onClick={handleLeaveEmailList}>Leave</button>
+          <button className="flex leave" onClick={handleLeaveEmailList}>
+            <AiOutlineClose />
+            Leave
+          </button>
         ) : (
           <>
-            <button onClick={handleJoinEmailList}>Join </button>
+            <button className="flex join" onClick={handleJoinEmailList}>
+              <AiOutlineCheck />
+              Join{" "}
+            </button>
           </>
         )}
       </div>

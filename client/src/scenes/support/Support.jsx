@@ -2,7 +2,7 @@ import React from "react";
 import "./Support.css";
 import { Navbar, FAQ } from "../../components/components";
 import supportICON from "../../components/assets/mail.png";
-const Support = () => {
+const Support = (props) => {
   return (
     <div>
       <Navbar />

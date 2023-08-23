@@ -96,7 +96,6 @@ const FileUploader = () => {
       return;
     }
 
-    console.log(user);
     /* Pass Picture and User Information to Backend*/
     const formData = new FormData();
     formData.append("picture", image);
@@ -111,8 +110,8 @@ const FileUploader = () => {
       formData
     );
 
-    const userData = await response.data.user;
-    const imageData = await response.data.image;
+    const userData = response.data.user;
+    const imageData = response.data.image;
 
     setUpscalingImage(false);
 

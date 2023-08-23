@@ -262,7 +262,6 @@ const LoginForm = (props) => {
           formData
         );
 
-        console.log(loginUser.data.user);
         //console.log(JSON.parse(loginUser.data.user));
 
         if (loginUser.data.token) {

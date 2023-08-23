@@ -145,6 +145,16 @@ button {
   border-radius: 10px;
   min-height: 25vh;
 }
+.account-container .account-mobile-content .account-mobile-section .account-support-container {
+  width: 75%;
+  margin: 0 auto;
+}
+.account-container .account-mobile-content .account-mobile-section .account-support-container h1 {
+  margin: 10px 0;
+}
+.account-container .account-mobile-content .account-mobile-section .account-support-container a {
+  color: rgb(6, 36, 233);
+}
 
 @media (min-width: 800px) {
   .account-container .account-mobile-content {

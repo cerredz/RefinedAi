@@ -57,6 +57,17 @@
         border-radius: 10px;
         min-height: 25vh;
       }
+
+      .account-support-container {
+        width: 75%;
+        margin: 0 auto;
+        h1 {
+          margin: 10px 0;
+        }
+        a {
+          color: $primaryBlue;
+        }
+      }
     }
   }
 }

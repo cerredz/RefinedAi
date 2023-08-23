@@ -59,6 +59,21 @@
           border-radius: 50%;
         }
       }
+
+      .row {
+        .dropzone-container {
+          flex-direction: column;
+          position: relative;
+          svg {
+            font-size: 1.1rem;
+          }
+
+          p {
+            position: absolute;
+            left: calc(100% + 10px);
+          }
+        }
+      }
     }
   }
 
