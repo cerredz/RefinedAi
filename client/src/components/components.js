@@ -8,6 +8,7 @@ import Features from "./features/Features";
 import AccountSettings from "./AccountSettings/AccountSettings";
 import AccountImages from "./AccountImages/AccountImages";
 import EmailList from "./EmailList/EmailList";
+import Credits from "./Credits/Credits";
 
 export {
   AccountImages,
@@ -20,4 +21,5 @@ export {
   FileUploader,
   AdvertCards,
   EmailList,
+  Credits,
 };

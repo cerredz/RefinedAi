@@ -94,7 +94,7 @@ const AccountSettings = () => {
     setIsChangingPassword(false);
   };
 
-  /* ATTEMPTS TO CHANGE PROFILE PICTURES FOR A USER*/
+  /* ATTEMPTS TO CHANGE PROFILE PICTURES FOR A USER */
   const handleChangeProfilePicture = async (acceptedFiles) => {
     const file = acceptedFiles[0];
     setProfilePicture(file);
@@ -130,6 +130,7 @@ const AccountSettings = () => {
           <div className="row flex image">
             <p className="info-name">Profile Picture </p>
 
+            {/* CHANGE PFP */}
             <Dropzone
               acceptedFiles=".jpg, .jpeg, .png"
               multiple={false}

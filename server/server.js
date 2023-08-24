@@ -9,6 +9,8 @@ const authRoutes = require("./routes/auth");
 const upscaleRoutes = require("./routes/upscale");
 const reviewsRoutes = require("./routes/reviews");
 const emailRoutes = require("./routes/email");
+const creditRoutes = require("./routes/prices");
+const Prices = require("./models/Prices");
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -20,6 +22,7 @@ app.use("/auth", authRoutes);
 app.use("/upscale", upscaleRoutes);
 app.use("/reviews", reviewsRoutes);
 app.use("/emails", emailRoutes);
+app.use("/credits", creditRoutes);
 
 /* CONNECT TO MONGODB DATABASE */
 mongoose
@@ -28,7 +31,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(PORT, async () => {
       console.log(`Server Port: ${PORT}`);
       console.log("Successfully Connected to the MongoDB Database");
     });

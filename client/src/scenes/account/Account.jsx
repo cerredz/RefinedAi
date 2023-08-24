@@ -15,6 +15,7 @@ import {
   FileUploader,
   AccountImages,
   EmailList,
+  Credits,
 } from "../../components/components";
 const Account = () => {
   /* ACCOUNT TABS: 
@@ -76,7 +77,10 @@ const Account = () => {
           >
             <img src={helpIcon} alt="" />
           </div>
-          <div className="nav-link flex">
+          <div
+            onClick={() => setSelectedTab("credits")}
+            className="nav-link flex"
+          >
             <img src={buyIcon} alt="" />
           </div>
         </div>
@@ -101,6 +105,8 @@ const Account = () => {
               </p>
             </div>
           )}
+
+          {selectedTab === "credits" && <Credits />}
         </div>
       </div>
 

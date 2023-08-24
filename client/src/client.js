@@ -20,3 +20,16 @@ export const downloadImage = async (img) => {
     console.error("Error fetching or downloading image:", error);
   }
 };
+
+/* GET PRICE DATA FROM THE BACKEND */
+export const getPriceData = async () => {
+  try {
+    const priceData = await Axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/credits/getAllPrices`
+    );
+    const response = priceData.data;
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+};
