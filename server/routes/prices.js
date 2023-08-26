@@ -6,7 +6,7 @@ const router = express.Router();
 /* FUNCTION TO SEND ALL PRICES TO THE FRONTEND */
 router.get("/getAllPrices", async (req, res) => {
   try {
-    const allPrices = await Prices.find({}, { _id: 0 });
+    const allPrices = await Prices.find();
     if (!allPrices) return res.status(404).json("Prices Not Found");
     res.status(200).json(allPrices);
   } catch (err) {

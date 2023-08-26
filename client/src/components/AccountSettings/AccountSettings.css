@@ -162,7 +162,7 @@ button {
 }
 .account-settings-container .basic-info .basic-info-content .row .dropzone-container p {
   position: absolute;
-  left: calc(100% + 10px);
+  bottom: 100%;
 }
 .account-settings-container .account-info {
   margin: 25px;
