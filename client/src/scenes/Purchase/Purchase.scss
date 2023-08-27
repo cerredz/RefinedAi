@@ -1,0 +1,159 @@
+@import "../../components/variables/variables.scss";
+
+.purchase-container {
+  min-height: 100vh;
+  padding-bottom: 50px;
+
+  .purchase-icon-container {
+    padding: 75px 5%;
+    background: rgba(255, 255, 255, 0.1);
+    img {
+      width: 50%;
+    }
+  }
+
+  .cart-container,
+  .purchase-data-container {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .cart-container {
+    gap: 5px;
+    justify-content: flex-start;
+    margin-top: 25px;
+
+    p {
+      font-size: 0.8rem;
+      color: $lightBlue;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+
+    img {
+      width: 13px;
+    }
+  }
+
+  .purchase-data-container {
+    .tier {
+      letter-spacing: 2px;
+      font-size: 1.7rem;
+    }
+
+    .purchase-info {
+      .purchase-info-banner {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        img {
+          width: 30px;
+        }
+
+        h3 {
+          letter-spacing: 2px;
+        }
+      }
+
+      .purchase-info-content {
+        flex-direction: column;
+        margin: 10px 0;
+        padding-right: 5px;
+
+        .purchase-detail {
+          justify-content: space-between;
+          width: 100%;
+        }
+      }
+    }
+
+    .payment-methods {
+      .title {
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+
+      .error {
+        letter-spacing: 2px;
+        color: red;
+      }
+
+      .payment-container {
+        justify-content: space-between;
+        margin: 15px 0;
+        cursor: pointer;
+
+        .payment-method {
+          justify-content: space-between;
+          gap: 10px;
+          .payment-icon-container {
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            height: 90%;
+
+            img {
+              height: 60%;
+            }
+          }
+
+          .payment-names-container {
+            flex-direction: column;
+            align-items: flex-start;
+
+            .method {
+              font-size: 1rem;
+            }
+
+            p {
+              font-size: 0.8rem;
+            }
+          }
+        }
+
+        .arrow-container {
+          padding: 5px;
+          border-radius: 50%;
+          cursor: pointer;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+          svg {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+
+    .price-container {
+      position: relative;
+      .price {
+        letter-spacing: 2px;
+      }
+      p {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .btn-container {
+        margin: 20px auto;
+        padding: 10px 0;
+        background: $lightBlue;
+        cursor: pointer;
+        width: 100%;
+        button {
+          cursor: pointer;
+          background: inherit;
+          font-size: 1.3rem;
+          letter-spacing: 3px;
+        }
+      }
+    }
+  }
+
+  hr {
+    margin: 5px 0;
+    border: none;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

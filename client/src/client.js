@@ -21,14 +21,34 @@ export const downloadImage = async (img) => {
   }
 };
 
-/* GET PRICE DATA FROM THE BACKEND */
-export const getPriceData = async () => {
+/* GET ALL PRICE DATA FROM THE BACKEND */
+export const getAllPriceData = async () => {
   try {
     const priceData = await Axios.get(
       `${process.env.REACT_APP_BACKEND_URL}/credits/getAllPrices`
     );
     const response = priceData.data;
     return response;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+/* GET SINGULAR PRICE OBJECT DATA FROM THE BACKEND */
+export const getPurchaseData = async (id) => {
+  try {
+    const getPrice = await Axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/credits/getPrice`,
+      {
+        params: {
+          _id: id,
+        },
+      }
+    );
+
+    const response = getPrice.data;
+    return response;
+    
   } catch (err) {
     console.log(err);
   }

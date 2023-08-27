@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
+const paypal = require("paypal-rest-sdk");
 const authRoutes = require("./routes/auth");
 const upscaleRoutes = require("./routes/upscale");
 const reviewsRoutes = require("./routes/reviews");
@@ -24,6 +25,12 @@ app.use("/reviews", reviewsRoutes);
 app.use("/emails", emailRoutes);
 app.use("/credits", creditRoutes);
 
+/* CONFIGURE PAYPAL API */
+paypal.configure({
+  mode: "sandbox",
+  client_id: `${process.env.PAYPAL_CLIENT_ID}`,
+  client_secret: `${process.env.PAYPAL_SECRET_KEY}`,
+});
 /* CONNECT TO MONGODB DATABASE */
 mongoose
   .connect(process.env.MONGO_URL, {

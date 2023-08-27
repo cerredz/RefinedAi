@@ -31,6 +31,7 @@ const initialState = {
   reviews: uniqueReviews,
   images: [],
   emailList: false,
+  creditID: null,
 };
 
 export const authSlice = createSlice({
@@ -61,6 +62,14 @@ export const authSlice = createSlice({
     setLeaveEmailList: (state, action) => {
       state.emailList = false;
     },
+
+    setCreditID: (state, action) => {
+      state.creditID = action.payload.creditID;
+    },
+
+    setEraseCreditId: (state, action) => {
+      state.creditID = null;
+    },
   },
 });
 
@@ -71,5 +80,7 @@ export const {
   setImages,
   setJoinEmailList,
   setLeaveEmailList,
+  setCreditID,
+  setEraseCreditId,
 } = authSlice.actions;
 export default authSlice.reducer;

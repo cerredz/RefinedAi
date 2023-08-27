@@ -1,21 +1,32 @@
 import React, { useState, useEffect } from "react";
 import "./Credits.css";
-import { getPriceData } from "../../client";
+import { getAllPriceData } from "../../client";
 import { BiDollar } from "react-icons/bi";
 import checkmark from "../assets/checkmark.png";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setCreditID } from "../../state";
 
 const Credits = (props) => {
   const [priceData, setPriceData] = useState([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   /* GET PRICE DATA FROM THE BACKEND */
   useEffect(() => {
     async function fetchData() {
-      const prices = await getPriceData();
+      const prices = await getAllPriceData();
       const sortedPriceData = prices.sort((a, b) => a.price - b.price);
       setPriceData(sortedPriceData);
     }
     fetchData();
   }, []);
+
+  /* USER WANTS TO BUY CREDITS, REDIRECT THEM TO PURCHASE SCREEN */
+  const handlePurchaseClick = async (id) => {
+    dispatch(setCreditID({ creditID: id }));
+    navigate("/purchase");
+  };
 
   return (
     <div className="credits-container">
@@ -59,7 +70,12 @@ const Credits = (props) => {
             </div>
 
             <div className="credit-button flex">
-              <button className={`btn-${price.tier}`}>Buy Now</button>
+              <button
+                onClick={() => handlePurchaseClick(price._id)}
+                className={`btn-${price.tier}`}
+              >
+                Buy Now
+              </button>
             </div>
           </div>
         ))}

@@ -1,6 +1,13 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Account, Reviews, Home, Login, Support } from "./scenes/scenes";
+import {
+  Purchase,
+  Account,
+  Reviews,
+  Home,
+  Login,
+  Support,
+} from "./scenes/scenes";
 
 const App = (props) => {
   useEffect(() => {
@@ -17,6 +24,7 @@ const App = (props) => {
           <Route path="/support" element={<Support />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/account/:username" element={<Account />} />
+          <Route path="/purchase" element={<Purchase />} />
         </Routes>
       </BrowserRouter>
     </div>
