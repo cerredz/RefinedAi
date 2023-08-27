@@ -21,10 +21,36 @@ allReviews.data.forEach((review) => {
     }
   }
 });
+
+let existedUser = null;
+/* SEE IF USER EXISTS */
+if (localStorage.getItem("user")) {
+  existedUser = JSON.parse(localStorage.getItem("user"));
+
+  // the reason we are making a call to the backend to get the user instead of just the localStorage is
+  // beacuse when the user buys credits we do not update the localStorage, so their credits will
+  // never update if we just get the user from the localStorage, which is why we get it from our backend
+  const updateUser = Axios.get(
+    `${process.env.REACT_APP_BACKEND_URL}/auth/getUser`,
+    {
+      params: {
+        userID: existedUser._id,
+      },
+    }
+  )
+    .then((response) => {
+      localStorage.setItem("user", JSON.stringify(response.data));
+    })
+    .then(() => {
+      existedUser = JSON.parse(localStorage.getItem("user"));
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
 const initialState = {
-  user: localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : null,
+  user: existedUser,
   token: localStorage.getItem("token")
     ? JSON.parse(localStorage.getItem("token"))
     : null,

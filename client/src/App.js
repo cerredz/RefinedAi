@@ -9,6 +9,8 @@ import {
   Support,
 } from "./scenes/scenes";
 
+import { PaymentSuccess } from "./components/components";
+
 const App = (props) => {
   useEffect(() => {
     //localStorage.setItem("user", JSON.stringify(null));
@@ -25,6 +27,10 @@ const App = (props) => {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/account/:username" element={<Account />} />
           <Route path="/purchase" element={<Purchase />} />
+          <Route
+            path="/success/:credits/:paymentID/:price/:type"
+            element={<PaymentSuccess />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

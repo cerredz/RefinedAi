@@ -179,4 +179,20 @@ router.post(
   }
 );
 
+/* SENDS A USER'S INFORMATION TO THE FRONTEND */
+router.get("/getUser", async (req, res) => {
+  try {
+    const { userID } = req.query;
+
+    const user = await User.findById(userID);
+    if (!user || user.length === 0)
+      return res.status(404).json("User Not Found");
+
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("Could Not Get the User's Information");
+  }
+});
+
 module.exports = router;

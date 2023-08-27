@@ -5,6 +5,13 @@ const paypal = require("paypal-rest-sdk");
 
 const router = express.Router();
 
+/* CONFIGURE PAYPAL API */
+paypal.configure({
+  mode: "sandbox",
+  client_id: `${process.env.PAYPAL_CLIENT_ID}`,
+  client_secret: `${process.env.PAYPAL_SECRET_KEY}`,
+});
+
 /* FUNCTION TO SEND A SINGULAR PRICE OBJECT TO THE FRONTEND*/
 router.get("/getPrice", async (req, res) => {
   try {
@@ -37,12 +44,16 @@ router.post("/paypal", async (req, res) => {
   const { user, pricesID } = req.body;
 
   /* MAKE SURE WE HAVE VALID USER AND PAYMENT ID*/
-  const userData = User.findById(user._id);
+  const userData = await User.findById(user._id);
   if (!userData) return res.status(404).json("Invalid User ID");
 
   const paymentData = await Prices.findById(pricesID);
   if (!paymentData || paymentData.length === 0)
     return res.status(404).json("Could Not Find Credit Package");
+
+  //must encode user and payment data, so we can send info to //success paypal link
+  const encodedUser = encodeURIComponent(JSON.stringify(user));
+  const encodedPaymenData = encodeURIComponent(JSON.stringify(paymentData));
 
   /* CONFIGURE PAYPAL PAYMENT DATA */
   const paypal_payment_data = {
@@ -53,7 +64,7 @@ router.post("/paypal", async (req, res) => {
     transactions: [
       {
         amount: {
-          total: paymentData.priceInCents,
+          total: paymentData.price,
           currency: "USD",
         },
 
@@ -62,13 +73,13 @@ router.post("/paypal", async (req, res) => {
     ],
 
     redirect_urls: {
-      return_url: `http://localhost:3000/`,
+      return_url: `${process.env.BACKEND_URL}/credits/paypal/success?user=${encodedUser}&payment=${encodedPaymenData}`,
       cancel_url: "http://localhost:3000/cancel/paypal",
     },
   };
 
   /* MAKE THE PAYPAL PAYMENT */
-  const paypalPayment = await paypal.payment.create(
+  const paypalPayment = paypal.payment.create(
     paypal_payment_data,
     async (error, payment) => {
       try {
@@ -84,6 +95,31 @@ router.post("/paypal", async (req, res) => {
       }
     }
   );
+});
+
+/* USER HAS COMPLETED A SUCCESSFUL PAYPAL PAYMENT */
+router.get("/paypal/success", async (req, res) => {
+  try {
+    const user = JSON.parse(req.query.user);
+    const payment = JSON.parse(req.query.payment);
+    const { paymentId } = req.query;
+
+    /* UPDATE CREDITS AND PAYMENT IDS FOR USER*/
+    const userData = await User.findById(user._id);
+    if (!userData) return res.status(404).json("User Not Found");
+
+    userData.credits += payment.credits;
+    userData.paymentID.push(paymentId);
+    await userData.save();
+    res.redirect(
+      `http://localhost:3000/success/${payment.credits}/${paymentId}/${payment.price}/PayPal`
+    );
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json("Failed To Add Credits to User's Account, Please Contact Support");
+  }
 });
 
 module.exports = router;

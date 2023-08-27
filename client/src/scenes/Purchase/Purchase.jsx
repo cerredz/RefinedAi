@@ -73,8 +73,6 @@ const Purchase = (props) => {
 
       const redirectURL = paymentRequest.data.approval_url;
       const newWindow = window.open(redirectURL, "_blank");
-
-      console.log(paymentRequest);
     }
   };
 

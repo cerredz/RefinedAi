@@ -25,12 +25,6 @@ app.use("/reviews", reviewsRoutes);
 app.use("/emails", emailRoutes);
 app.use("/credits", creditRoutes);
 
-/* CONFIGURE PAYPAL API */
-paypal.configure({
-  mode: "sandbox",
-  client_id: `${process.env.PAYPAL_CLIENT_ID}`,
-  client_secret: `${process.env.PAYPAL_SECRET_KEY}`,
-});
 /* CONNECT TO MONGODB DATABASE */
 mongoose
   .connect(process.env.MONGO_URL, {

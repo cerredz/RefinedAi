@@ -7,7 +7,7 @@
 <a href="https://www.flaticon.com/free-icons/money" title="money icons">Money icons created by vectorsmarket15 - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/stock" title="stock icons">Stock icons created by ultimatearm - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/info" title="info icons">Info icons created by Plastic Donut - Flaticon</a>
-
+<a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Roundicons - Flaticon</a>
 
 
 
