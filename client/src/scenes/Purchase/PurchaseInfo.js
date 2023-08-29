@@ -29,9 +29,4 @@ export const paymentMethodData = [
     img_src: stripeIcon,
     payment_method_description: "Pay with your Stripe account",
   },
-  {
-    payment_method: "Google Pay",
-    img_src: googlePay,
-    payment_method_description: "Pay with your Google Pay account",
-  },
 ];

@@ -63,6 +63,12 @@ img {
 button {
   background: rgba(255, 255, 255, 0.1);
   border: none;
+  cursor: pointer;
+}
+
+.smooth-btn {
+  padding: 10px 25px;
+  border-radius: 5px;
 }
 
 .center-outwards-hover::before, .center-outwards-hover::after {
@@ -92,6 +98,14 @@ button {
   border-radius: 50%;
 }
 
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .success-container {
   min-height: 100vh;
 }
@@ -138,7 +152,9 @@ button {
   width: 100%;
 }
 .success-container .success-content .success-info .success-detail p {
+  max-width: 250px;
   margin: 5px 0;
+  overflow: hidden;
 }
 .success-container .success-content .btn-container {
   margin-top: 35px;
@@ -157,4 +173,13 @@ button {
   opacity: 1;
   transition: 0.4s ease-in-out;
   box-shadow: 0 0 2rem #13462f;
+}
+
+@media (min-width: 1000px) {
+  .success-container .success-content .success-banner h1 {
+    font-size: 2rem;
+  }
+  .success-container .success-content .success-banner img {
+    width: 75px;
+  }
 }/*# sourceMappingURL=PaymentSuccess.css.map */

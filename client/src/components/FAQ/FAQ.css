@@ -63,6 +63,12 @@ img {
 button {
   background: rgba(255, 255, 255, 0.1);
   border: none;
+  cursor: pointer;
+}
+
+.smooth-btn {
+  padding: 10px 25px;
+  border-radius: 5px;
 }
 
 .center-outwards-hover::before, .center-outwards-hover::after {
@@ -90,4 +96,13 @@ button {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=FAQ.css.map */

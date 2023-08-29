@@ -63,6 +63,12 @@ img {
 button {
   background: rgba(255, 255, 255, 0.1);
   border: none;
+  cursor: pointer;
+}
+
+.smooth-btn {
+  padding: 10px 25px;
+  border-radius: 5px;
 }
 
 .center-outwards-hover::before, .center-outwards-hover::after {
@@ -92,6 +98,14 @@ button {
   border-radius: 50%;
 }
 
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .purchase-container {
   min-height: 100vh;
   padding-bottom: 50px;
@@ -220,4 +234,59 @@ button {
   border: none;
   height: 2px;
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* LOADING / USER REFRESHED PAGE*/
+.loading-container {
+  min-height: 100vh;
+}
+.loading-container .loading {
+  font-size: 6rem;
+  margin-top: -250px;
+  animation: loading 3s linear infinite;
+}
+
+.refresh {
+  top: 55%;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: rgba(255, 255, 255, 0.4);
+  max-width: 100%;
+}
+
+.back,
+.refresh {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.back {
+  top: 70%;
+}
+.back:hover {
+  box-shadow: 0 0 2rem rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 900px) {
+  .purchase-container {
+    padding-top: 100px;
+  }
+  .purchase-container .purchase-icon-container {
+    width: 10%;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+  .purchase-container .purchase-icon-container img {
+    width: 90%;
+  }
+  .purchase-container .purchase-data-container,
+  .purchase-container .cart-container {
+    width: 50%;
+  }
+  .back {
+    top: 65%;
+  }
 }/*# sourceMappingURL=Purchase.css.map */

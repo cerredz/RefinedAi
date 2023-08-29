@@ -8,11 +8,14 @@ import Axios from "axios";
 import { getPurchaseData } from "../../client";
 import { monthNames, paymentMethodData } from "./PurchaseInfo";
 import { IoIosArrowForward } from "react-icons/io";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Purchase = (props) => {
   const user = useSelector((state) => state.auth.user);
   const id = useSelector((state) => state.auth.creditID);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [purchaseData, setPurchaseData] = useState([]);
   const [month, setMonth] = useState("");
@@ -74,13 +77,25 @@ const Purchase = (props) => {
       const redirectURL = paymentRequest.data.approval_url;
       const newWindow = window.open(redirectURL, "_blank");
     }
+
+    /*  STRIPE PAYMENT */
+    if (paymentMethod.includes(1)) {
+      const paymentRequest = await Axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/credits/stripe`,
+        {
+          user: user,
+          pricesID: id,
+        }
+      );
+
+      const redirectURL = paymentRequest.data.url;
+      const newWindow = window.open(redirectURL, "_blank");
+    }
   };
 
   return (
     <div className="purchase-container">
-      {!id && <h1>Please Do Not Refresh Page When Purchasing Credits</h1>}
-
-      {purchaseData ? (
+      {purchaseData && id ? (
         <>
           {/* TOP IMAGE*/}
           <div className="purchase-icon-container flex">
@@ -149,7 +164,7 @@ const Purchase = (props) => {
 
                       {/* ARROW ON THE RIGHT */}
                       <div
-                        onClick={() => setPaymentMethod([0, 1, 2])}
+                        onClick={() => setPaymentMethod([0, 1])}
                         className="arrow-container flex"
                       >
                         <IoIosArrowForward />
@@ -161,6 +176,7 @@ const Purchase = (props) => {
             </div>
             <hr />
 
+            {/* BOTTOM BUY NOW / PRICE CONTAINER */}
             <div className="price-container">
               <h1 className="price">${purchaseData.price}</h1>
               <p className="grey-text"> Enjoy Your Credits</p>
@@ -180,8 +196,20 @@ const Purchase = (props) => {
           </div>
         </>
       ) : (
+        <div className="loading-container flex">
+          <h1 className="loading">
+            <AiOutlineLoading3Quarters />
+          </h1>
+        </div>
+      )}
+      {!id && (
         <>
-          <h1>Loading Purchase...</h1>
+          <h1 className="refresh">
+            Please Do Not Refresh Page When Purchasing Credits
+          </h1>
+          <button onClick={() => navigate(-1)} className="back smooth-btn">
+            Back
+          </button>
         </>
       )}
     </div>

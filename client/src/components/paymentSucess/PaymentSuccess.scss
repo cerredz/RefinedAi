@@ -52,7 +52,10 @@
         width: 100%;
 
         p {
+          max-width: 250px;
           margin: 5px 0;
+
+          overflow: hidden;
         }
       }
     }
@@ -74,6 +77,21 @@
           opacity: 1;
           transition: 0.4s ease-in-out;
           box-shadow: 0 0 2rem #13462f;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .success-container {
+    .success-content {
+      .success-banner {
+        h1 {
+          font-size: 2rem;
+        }
+        img {
+          width: 75px;
         }
       }
     }

@@ -157,3 +157,62 @@
     background: rgba(255, 255, 255, 0.1);
   }
 }
+
+/* LOADING / USER REFRESHED PAGE*/
+.loading-container {
+  min-height: 100vh;
+  .loading {
+    font-size: 6rem;
+    margin-top: -250px;
+    animation: loading 3s linear infinite;
+  }
+}
+
+.refresh {
+  top: 55%;
+  width: fit-content;
+  color: rgba(255, 255, 255, 0.4);
+  max-width: 100%;
+}
+
+.back,
+.refresh {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.back {
+  top: 70%;
+
+  &:hover {
+    box-shadow: 0 0 2rem rgba(255, 255, 255, 0.05);
+  }
+}
+
+@media (min-width: 900px) {
+  .purchase-container {
+    padding-top: 100px;
+
+    .purchase-icon-container {
+      width: 10%;
+      margin: 0 auto;
+      border-radius: 50%;
+
+      img {
+        width: 90%;
+      }
+    }
+
+    .purchase-data-container,
+    .cart-container {
+      width: 50%;
+    }
+  }
+
+  .back {
+    top: 65%;
+  }
+}
