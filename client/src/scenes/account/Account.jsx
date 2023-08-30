@@ -124,24 +124,36 @@ const Account = () => {
       <div className="account-content">
         {/* TOP RIGHT NAVBAR*/}
         <div className="account-navbar flex">
-          <ul className="flex">
-            <li onClick={() => navigate("/")}>Home</li>
-            <li>Pricing</li>
-            <li>Support</li>
-            <li>Collection</li>
-            <li>
-              <img src={user.picturePath} alt="" />
-            </li>
-          </ul>
+          <div>
+            <ul className="flex">
+              <li onClick={() => navigate("/")}>Home</li>
+              <li>Pricing</li>
+              <li>Support</li>
+              <li>Collection</li>
+            </ul>
+          </div>
         </div>
 
         <div className="account-dashboard-content">
           {/* LEFT SIDE SIDEBAR*/}
           <div className="account-sidebar">
+            <span className="fill-background"></span>
             <div className="sidebar-links flex">
+              <div className="flex user">
+                {user.picturePath ? (
+                  <img src={user.picturePath} alt="pfp"></img>
+                ) : (
+                  <CgProfile />
+                )}
+                <div className="user-username flex">
+                  <p className="grey-text">Welcome Back,</p>
+                  <h3>{user.username}</h3>
+                </div>
+              </div>
               {/* SIDE BAR LINKS */}
               {/* ACCOUNT SETTINGS */}
               <div
+                onClick={() => setSelectedTab("account-settings")}
                 className={`link flex ${
                   selectedTab === "account-settings" ? "active" : ""
                 }`}
@@ -157,6 +169,7 @@ const Account = () => {
 
               {/* CREDITS */}
               <div
+                onClick={() => setSelectedTab("credits")}
                 className={`link flex ${
                   selectedTab === "credits" ? "active" : ""
                 }`}
@@ -172,6 +185,7 @@ const Account = () => {
 
               {/* UPSCALER */}
               <div
+                onClick={() => setSelectedTab("upscaler")}
                 className={`link flex ${
                   selectedTab === "upscaler" ? "active" : ""
                 }`}
@@ -187,6 +201,7 @@ const Account = () => {
 
               {/* ACCOUNT IMAGES */}
               <div
+                onClick={() => setSelectedTab("account-images")}
                 className={`link flex ${
                   selectedTab === "account-images" ? "active" : ""
                 }`}
@@ -202,6 +217,7 @@ const Account = () => {
 
               {/* NOTIFICATIONS */}
               <div
+                onClick={() => setSelectedTab("email-list")}
                 className={`link flex ${
                   selectedTab === "email-list" ? "active" : ""
                 }`}
@@ -217,6 +233,7 @@ const Account = () => {
 
               {/* SUPPORT */}
               <div
+                onClick={() => setSelectedTab("support")}
                 className={`link flex ${
                   selectedTab === "support" ? "active" : ""
                 }`}
@@ -235,6 +252,26 @@ const Account = () => {
           {/* CONTENT ON THE RIGHT SIDE OF THE SIDEBAR */}
           <div className="account-dashboard">
             {selectedTab === "account-settings" && <AccountSettings />}
+            {selectedTab === "credits" && <Credits />}
+            {selectedTab === "upscaler" && (
+              <div className="uploader-border flex">
+                {" "}
+                <FileUploader />
+              </div>
+            )}
+            {selectedTab === "account-images" && <AccountImages />}
+            {selectedTab === "email-list" && <EmailList />}
+            {selectedTab === "support" && (
+              <div className="account-support-container">
+                <h1>Support</h1>
+                <p className="grey-text">
+                  If you have any questions please feel free to email us:{" "}
+                  <a href="mailto:refiinedaii@gmail.com">
+                    refiinedaii@gmail.com
+                  </a>{" "}
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>

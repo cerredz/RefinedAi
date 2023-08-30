@@ -262,4 +262,106 @@ button {
 }
 .account-settings-container .changing-passwords-container .changing-passwords-content .btn-container .cancel {
   background: rgb(114, 1, 1);
+}
+
+@media (min-width: 1000px) {
+  .account-settings-container .account-settings-mobile {
+    display: none;
+  }
+  .account-settings-container .account-settings-web {
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+  }
+  .account-settings-container .account-settings-web .user-information {
+    padding-right: 40px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-banner p {
+    margin-top: 5px;
+    width: 75%;
+    font-size: 0.9rem;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content {
+    margin-top: 25px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .input {
+    outline: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+    padding-left: 10px;
+    background: #20232b;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    z-index: 1;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content input {
+    background: inherit;
+    outline: none;
+    border: none;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .email {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .email label {
+    margin: 10px 0;
+    letter-spacing: 2px;
+    font-weight: 800;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .email .email-input {
+    justify-content: space-between;
+    width: max(250px, 35%);
+    cursor: pointer;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .email .email-input input {
+    width: 90%;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .name {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .first-name,
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .last-name {
+    position: relative;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .first-name .change-name,
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .last-name .change-name {
+    position: absolute;
+    top: 125%;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: rgba(255, 255, 255, 0.3);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .first-name .change-name:hover,
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .last-name .change-name:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transition: 0.4s ease-in-out;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .first-name-input,
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .last-name-input {
+    justify-content: space-between;
+    position: relative;
+    z-index: 0;
+    margin-top: 10px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .first-name-input input,
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .last-name-input input {
+    width: 90%;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .first-name-input:hover,
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .last-name-input:hover {
+    border: 2px solid rgb(13, 168, 234);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .first-name-input svg,
+  .account-settings-container .account-settings-web .user-information .user-information-content .name .last-name-input svg {
+    font-size: 1.1rem;
+    cursor: pointer;
+    fill: rgb(13, 168, 234);
+  }
 }/*# sourceMappingURL=AccountSettings.css.map */

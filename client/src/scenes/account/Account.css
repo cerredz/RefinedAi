@@ -177,7 +177,7 @@ button {
   .account-container .account-content {
     display: block;
     position: relative;
-    width: 95%;
+    width: 90%;
     margin: 25px auto;
     padding: 25px 0;
     background: rgba(255, 255, 255, 0.1);
@@ -186,12 +186,13 @@ button {
     overflow: hidden;
   }
   .account-container .account-content .account-navbar {
-    padding: 5px 30px;
+    padding: 1.5rem;
     justify-content: flex-end;
   }
   .account-container .account-content .account-navbar ul {
     gap: 15px;
     flex-wrap: wrap;
+    margin-right: 25px;
   }
   .account-container .account-content .account-navbar ul li {
     cursor: pointer;
@@ -211,24 +212,83 @@ button {
   .account-container .account-content .account-dashboard-content {
     display: flex;
     position: relative;
-    margin-top: 25px;
+    margin-top: 50px;
   }
   .account-container .account-content .account-dashboard-content .account-sidebar {
-    border-right: 2px solid rgba(255, 255, 255, 0.2);
-    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    position: relative;
+    top: -145px;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .fill-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    background: rgba(255, 255, 255, 0.05);
   }
   .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links {
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 100px;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .user {
+    padding-left: 1.5rem;
+    margin: 50px 0;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .user img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .user .user-username {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .user .user-username h3 {
+    font-size: 1.5rem;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .active {
+    z-index: 1;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .active svg {
+    fill: rgb(13, 168, 234);
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .active p {
+    color: rgb(13, 168, 234);
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .active:hover::before {
+    display: none;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .active::after {
+    position: absolute;
+    content: "";
+    top: -10px;
+    bottom: -10px;
+    left: -25px;
+    background: linear-gradient(to right, rgb(13, 168, 234), transparent);
+    filter: blur(2rem);
+    z-index: -1;
+    opacity: 0.6;
+    animation: slideRight 0.5s linear 1 forwards;
+  }
+  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .active .active-span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: rgb(13, 168, 234);
   }
   .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .link {
     gap: 10px;
     cursor: pointer;
-    padding: 15px 25px;
+    padding: 15px 40px;
+    width: 175px;
     justify-content: flex-start;
     position: relative;
     overflow: hidden;
+    flex-shrink: none;
   }
   .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .link::before {
     position: absolute;
@@ -250,8 +310,8 @@ button {
     transition: 0.4s ease-in-out;
   }
   .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .link p {
-    display: none;
-    font-size: 1.1rem;
+    display: block;
+    font-size: 1.05rem;
   }
   .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .link svg {
     font-size: 1.5rem;
@@ -260,12 +320,17 @@ button {
     width: 80%;
     margin: 0 auto;
   }
-}
-@media (min-width: 1000px) {
-  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .link {
-    width: 175px;
+  .account-container .account-content .account-dashboard-content .account-dashboard .uploader-border {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    min-height: 25vh;
   }
-  .account-container .account-content .account-dashboard-content .account-sidebar .sidebar-links .link p {
-    display: block;
+}
+@keyframes slideRight {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }/*# sourceMappingURL=Account.css.map */

@@ -176,3 +176,114 @@
     }
   }
 }
+
+@media (min-width: 1000px) {
+  .account-settings-container {
+    .account-settings-mobile {
+      display: none;
+    }
+
+    .account-settings-web {
+      min-height: 70vh;
+      display: grid;
+      grid-template-columns: 1.75fr 1fr;
+
+      .user-information {
+        padding-right: 40px;
+
+        .user-banner {
+          p {
+            margin-top: 5px;
+            width: 75%;
+            font-size: 0.9rem;
+          }
+        }
+
+        .user-information-content {
+          margin-top: 25px;
+          .input {
+            outline: none;
+            border-radius: 10px;
+            padding: 10px 25px;
+            padding-left: 10px;
+            background: #20232b;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            z-index: 1;
+          }
+
+          input {
+            background: inherit;
+            outline: none;
+            border: none;
+          }
+          .email {
+            flex-direction: column;
+            align-items: flex-start;
+            label {
+              margin: 10px 0;
+              letter-spacing: 2px;
+              font-weight: 800;
+            }
+
+            .email-input {
+              justify-content: space-between;
+              width: max(250px, 35%);
+              cursor: pointer;
+              input {
+                width: 90%;
+                color: rgba(255, 255, 255, 0.4);
+              }
+            }
+          }
+
+          .name {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+
+            .first-name,
+            .last-name {
+              position: relative;
+              .change-name {
+                position: absolute;
+                top: 125%;
+                left: 0;
+                background: rgba(0, 0, 0, 0.3);
+                padding: 5px 20px;
+                border-radius: 10px;
+                font-size: 0.9rem;
+                cursor: pointer;
+                border: rgba(255, 255, 255, 0.3);
+                &:hover {
+                  background: rgba(0, 0, 0, 0.8);
+                  transition: 0.4s ease-in-out;
+                }
+              }
+            }
+            .first-name-input,
+            .last-name-input {
+              justify-content: space-between;
+              position: relative;
+              z-index: 0;
+              margin-top: 10px;
+              input {
+                width: 90%;
+              }
+
+              &:hover {
+                border: 2px solid $lightBlue;
+              }
+
+              svg {
+                font-size: 1.1rem;
+                cursor: pointer;
+                fill: $lightBlue;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

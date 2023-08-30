@@ -179,6 +179,24 @@ router.post(
   }
 );
 
+/* CHANGES A USER'S FIRST AND LAST NAME */
+router.post("/changeName", async (req, res) => {
+  try {
+    const { id, newFirstName, newLastName } = req.body;
+
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json("Failed to Find User");
+
+    user.firstName = newFirstName;
+    user.lastName = newLastName;
+    await user.save();
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("Failed To Update User's Name");
+  }
+});
+
 /* SENDS A USER'S INFORMATION TO THE FRONTEND */
 router.get("/getUser", async (req, res) => {
   try {
