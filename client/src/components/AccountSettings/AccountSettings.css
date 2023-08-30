@@ -110,6 +110,9 @@ button {
   width: 90%;
   margin: 0 auto;
 }
+.account-settings-container .account-settings-web {
+  display: none;
+}
 .account-settings-container .title {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   width: -moz-fit-content;
@@ -283,6 +286,7 @@ button {
   }
   .account-settings-container .account-settings-web .user-information .user-information-content {
     margin-top: 25px;
+    position: relative;
   }
   .account-settings-container .account-settings-web .user-information .user-information-content .input {
     outline: none;
@@ -316,6 +320,9 @@ button {
     width: 90%;
     color: rgba(255, 255, 255, 0.4);
   }
+  .account-settings-container .account-settings-web .user-information .user-information-content .email .email-input svg {
+    fill: rgba(255, 255, 255, 0.4);
+  }
   .account-settings-container .account-settings-web .user-information .user-information-content .name {
     margin-top: 25px;
     display: grid;
@@ -329,8 +336,8 @@ button {
   .account-settings-container .account-settings-web .user-information .user-information-content .name .first-name .change-name,
   .account-settings-container .account-settings-web .user-information .user-information-content .name .last-name .change-name {
     position: absolute;
-    top: 125%;
-    left: 0;
+    top: -100%;
+    right: 10px;
     background: rgba(0, 0, 0, 0.3);
     padding: 5px 20px;
     border-radius: 10px;
@@ -363,5 +370,137 @@ button {
     font-size: 1.1rem;
     cursor: pointer;
     fill: rgb(13, 168, 234);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .input {
+    margin-top: 10px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column {
+    position: relative;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column .username-input {
+    justify-content: space-between;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column .username-input p {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column .username-input svg {
+    fill: rgba(255, 255, 255, 0.4);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column .password-input {
+    justify-content: space-between;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column .password-input .change-password {
+    font-size: 0.6rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column .password-input .change-password:hover {
+    color: rgb(13, 168, 234);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column .password-input:hover {
+    border: 2px solid rgb(13, 168, 234);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-reviews {
+    padding-top: 25px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-reviews .review-container {
+    margin: 15px 0;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-reviews .review-container .review-stars {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-left: 5px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-reviews .review-container .review-description {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    margin-top: 5px;
+    border-radius: 15px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-reviews .review-container .review-description p {
+    font-size: 0.9rem;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .changing-passwords-container {
+    position: absolute;
+    -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+    width: 100%;
+    left: 0;
+    height: -moz-fit-content;
+    height: fit-content;
+    top: 100px;
+    margin: 0;
+    padding: 25px 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .changing-passwords-container .changing-passwords-content {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .account-settings-container .account-settings-web .account-stats {
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  .account-settings-container .account-settings-web .account-stats .subheading {
+    margin: 20px;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-profile-picture {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-profile-picture .dropzone-container {
+    flex-direction: column;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-profile-picture .dropzone-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-profile-picture .dropzone-container p {
+    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-profile-picture .dropzone-container p:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .account-settings-container .account-settings-web .account-stats .account-stats-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-stats-content .stat {
+    margin: 5px 0;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-stats-content .stat .label {
+    color: rgba(255, 255, 255, 0.4);
+    margin: 5px;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-stats-content .stat .input {
+    outline: none;
+    border-radius: 10px;
+    padding: 10px 25px;
+    padding-left: 10px;
+    background: #20232b;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    z-index: 1;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+  .account-settings-container .account-settings-web .account-stats .account-stats-content .stat .input svg {
+    fill: rgba(255, 255, 255, 0.4);
+    font-size: 1.1rem;
   }
 }/*# sourceMappingURL=AccountSettings.css.map */

@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AccountSettings.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogin } from "../../state";
 import passwordIcons from "../assets/password.png";
 import Axios from "axios";
+
+//icons
 import Dropzone from "react-dropzone";
 import { CgProfile } from "react-icons/cg";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { BiUser } from "react-icons/bi";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { BsCardImage } from "react-icons/bs";
+import { MdOutlinePayment } from "react-icons/md";
+import { PiNotePencilFill } from "react-icons/pi";
+import { getUserReviews } from "../../client";
 
 const AccountSettings = () => {
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
   const [profilePicture, setProfilePicture] = useState(null);
+  const [reviews, setReviews] = useState([]);
 
   /* VARIABLES FOR USER CHANGING PASSWORD */
   const [isChangingPassword, setIsChangingPassword] = useState(false);
@@ -24,6 +33,16 @@ const AccountSettings = () => {
 
   const [newFirstName, setNewFirstName] = useState(null);
   const [newLastName, setNewLastName] = useState(null);
+
+  useEffect(() => {
+    /* GET REVIEWS WRITTEN BY USER FROM THE BACKEND*/
+    async function userReviews() {
+      const getReviews = await getUserReviews(user._id);
+      setReviews(getReviews);
+    }
+
+    userReviews();
+  }, []);
 
   /* USER SUBMITTED A CHANGE PASSWORD REQUEST*/
   const handleConfirmClick = async () => {
@@ -316,6 +335,7 @@ const AccountSettings = () => {
                         className="first"
                         type="text"
                         value={newFirstName}
+                        autoFocus
                       />
                       <IoIosCloseCircleOutline
                         onClick={() => setNewFirstName(null)}
@@ -353,6 +373,7 @@ const AccountSettings = () => {
                         className="first"
                         type="text"
                         value={newLastName}
+                        autoFocus
                       />
                       <IoIosCloseCircleOutline
                         onClick={() => setNewLastName(null)}
@@ -377,11 +398,165 @@ const AccountSettings = () => {
                 </div>
               </div>
             </div>
+            {/* USER USERNAME AND PASSWORD */}
+            <div className="username">
+              <div className="username-column">
+                <label htmlFor="">Username</label>
+                <div className="username-input input flex">
+                  <p>{user.username}</p>
+                  <BiUser />
+                </div>
+              </div>
+              <div className="username-column">
+                <label htmlFor="">Password</label>
+                <div className="password-input input flex">
+                  <p>*******</p>
+                  <p
+                    onClick={() => setIsChangingPassword(true)}
+                    className="grey-text change-password"
+                  >
+                    {" "}
+                    Change Password
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* CHANING PASSWORD CONTENT */}
+            {isChangingPassword && (
+              <div className="changing-passwords-container">
+                <div className="changing-passwords-content flex">
+                  <input
+                    type="password"
+                    placeholder="Current Password"
+                    onChange={(event) => setCurrentPassword(event.target.value)}
+                    value={currentPassword}
+                  />
+                  {errors.current && <p className="error">Invalid Password</p>}
+                  <input
+                    type="password"
+                    placeholder="New Password"
+                    onChange={(event) => setNewPassword(event.target.value)}
+                    value={newPassword}
+                  />
+                  {errors.password && (
+                    <p className="error">Minimum Password Length: 6</p>
+                  )}
+                  <input
+                    type="password"
+                    placeholder="Retype New Password"
+                    onChange={(event) =>
+                      setNewRetypePassword(event.target.value)
+                    }
+                    value={newRetypePassword}
+                  />
+                  {errors.retype && (
+                    <p className="error">Passwords Do Not Match</p>
+                  )}
+
+                  <div className="btn-container flex">
+                    <button className="confirm" onClick={handleConfirmClick}>
+                      Confirm
+                    </button>
+                    <button className="cancel" onClick={handleCancelClick}>
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="user-reviews">
+              <h3>Reviews </h3>
+              {reviews &&
+                reviews.map((review, index) => (
+                  <div className="review-container">
+                    <p className="grey-text review-stars">
+                      Rating: {review.stars}
+                    </p>
+                    <div key={index} className="review-description">
+                      <p>{review.description}</p>
+                    </div>
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
         {/* RIGHT SIDE OF ACCOUNT SETTINGS*/}
         <div className="account-stats">
-          <h1>Hello World</h1>
+          {/* CHANGE PROFILE PICTURE */}
+          <h3 className="subheading">Profile Picture</h3>
+          <div className="account-profile-picture flex">
+            <Dropzone
+              acceptedFiles=".jpg, .jpeg, .png"
+              multiple={false}
+              onDrop={(acceptedFiles) =>
+                handleChangeProfilePicture(acceptedFiles)
+              }
+            >
+              {({ getRootProps, getInputProps }) => (
+                <div className="dropzone-container flex" {...getRootProps()}>
+                  <input {...getInputProps()}></input>
+
+                  {user && user.picturePath !== "" ? (
+                    <img src={user.picturePath} alt=""></img>
+                  ) : (
+                    <CgProfile />
+                  )}
+                  <p className="grey-text">Change</p>
+                </div>
+              )}
+            </Dropzone>
+          </div>
+
+          {/* ACCOUNT STATS */}
+          <h3 className="subheading">Account Stats</h3>
+
+          <div className="account-stats-content ">
+            {/* CREDITS */}
+            <div className="account-stats-credits stat">
+              <label className="label" htmlFor="">
+                Credits
+              </label>
+              <div className="credits-input input flex">
+                <p>{user.credits}</p>
+                <RiMoneyDollarCircleLine />
+              </div>
+            </div>
+
+            {/* IMAGES UPSCALED */}
+            <div className="account-stats-credits stat">
+              <label className="label" htmlFor="">
+                Images Upscaled
+              </label>
+              <div className="credits-input input flex">
+                <p>{user.images.length}</p>
+                <BsCardImage />
+              </div>
+            </div>
+
+            {/* REVIEWS WRITTEN */}
+            <div className="account-stats-credits stat">
+              <label className="label" htmlFor="">
+                Reviews Written
+              </label>
+              <div className="credits-input input flex">
+                <p>{user.reviews.length}</p>
+                <PiNotePencilFill />
+              </div>
+            </div>
+
+            {/* PAYMENTS MADE */}
+            <div className="account-stats-credits stat">
+              <label className="label" htmlFor="">
+                Payments Made
+              </label>
+              <div className="credits-input input flex">
+                <p>{user.paymentID.length}</p>
+                <MdOutlinePayment />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

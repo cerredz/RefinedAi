@@ -48,7 +48,20 @@ export const getPurchaseData = async (id) => {
 
     const response = getPrice.data;
     return response;
-    
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+/* GET ALL REVIEWS WRITTEN BY A USER */
+export const getUserReviews = async (id) => {
+  try {
+    const userReviews = await Axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/auth/getUserReviews`,
+      { params: { id: id } }
+    );
+
+    return userReviews.data;
   } catch (err) {
     console.log(err);
   }

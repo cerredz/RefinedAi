@@ -213,4 +213,20 @@ router.get("/getUser", async (req, res) => {
   }
 });
 
+/* GETS ALL REVIEWS WRITTEN FROM A SINGULAR USER */
+router.get("/getUserReviews", async (req, res) => {
+  try {
+    const { id } = req.query;
+    console.log(req.query);
+
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json("User Not Found");
+
+    res.status(200).json(user.reviews);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("Failed To Get User's Reviews");
+  }
+});
+
 module.exports = router;
