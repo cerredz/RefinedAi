@@ -65,14 +65,14 @@
           margin: 10px 0;
         }
         a {
-          color: $primaryBlue;
+          color: $lightBlue;
         }
       }
     }
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1000px) {
   .account-container {
     .account-mobile-content {
       display: none;
@@ -84,10 +84,11 @@
       width: 90%;
       margin: 25px auto;
       padding: 25px 0;
-      background: rgba(255, 255, 255, 0.1);
+      background: #2f333e;
       box-shadow: inset 0 0 1rem rgba(255, 255, 255, 0.1);
       border-radius: 50px;
       overflow: hidden;
+      z-index: 1;
 
       .account-navbar {
         padding: 1.5rem;
@@ -130,7 +131,7 @@
           .fill-background {
             position: absolute;
             width: 100%;
-            height: 100%;
+            height: 500%;
             top: 100%;
             left: 0;
             background: rgba(255, 255, 255, 0.05);
@@ -255,9 +256,38 @@
           .border-fill {
             border: 2px solid rgba(255, 255, 255, 0.2);
           }
+
+          .account-support-container {
+            width: 80%;
+            margin: 0 auto;
+            a {
+              color: $lightBlue;
+            }
+          }
         }
       }
     }
+  }
+
+  .circle {
+    position: absolute;
+    z-index: 0;
+    border-radius: 50%;
+  }
+  .bottom-right-circle {
+    background: rgb(22, 53, 87);
+    bottom: 0;
+    right: 25px;
+    height: 200px;
+    width: 200px;
+  }
+
+  .top-left-circle {
+    top: 10px;
+    left: 25px;
+    height: 200px;
+    width: 200px;
+    background: rgb(2, 44, 88);
   }
 }
 

@@ -132,8 +132,8 @@ const Account = () => {
           <div>
             <ul className="flex">
               <li onClick={() => navigate("/")}>Home</li>
-              <li>Pricing</li>
-              <li>Support</li>
+              <li onClick={() => navigate("/")}>Pricing</li>
+              <li onClick={() => setSelectedTab("support")}>Support</li>
               <li>Collection</li>
             </ul>
           </div>
@@ -286,6 +286,8 @@ const Account = () => {
           </div>
         </div>
       </div>
+      <span className="bottom-right-circle circle"></span>
+      <span className="top-left-circle circle"></span>
     </div>
   );
 };

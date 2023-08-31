@@ -49,3 +49,26 @@
     }
   }
 }
+
+@media (min-width: 1000px) {
+  .email-list-container {
+    width: 90%;
+    margin: 0 auto;
+
+    .email-header {
+      text-align: left;
+      .subheader,
+      .header {
+        margin: 0;
+      }
+
+      .subheader {
+        width: fit-content;
+      }
+    }
+
+    .btn-container {
+      justify-content: flex-start;
+    }
+  }
+}

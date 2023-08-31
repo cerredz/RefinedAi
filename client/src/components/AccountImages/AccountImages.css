@@ -109,7 +109,7 @@ button {
 .account-images-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 15px;
 }
@@ -154,6 +154,7 @@ button {
   top: 0px;
   left: 0px;
   padding: 5%;
+  bottom: 0;
   z-index: 6;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -162,7 +163,7 @@ button {
   flex-direction: column;
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
-  min-height: 100vh;
+  overflow-x: hidden;
 }
 .selected-upscaled-image-container .close-container {
   align-items: flex-start;
@@ -243,4 +244,27 @@ button {
 }
 .selected-upscaled-image-container .disclaimers-container .flex p {
   color: rgba(255, 255, 255, 0.4);
+}
+
+@media (min-width: 1000px) {
+  .account-images-container {
+    padding: 25px 5%;
+  }
+  .account-images-container .image-container {
+    height: 125px;
+  }
+  .selected-upscaled-image-container {
+    width: 70%;
+    padding: 50px 15%;
+    overflow-y: scroll;
+  }
+  .selected-upscaled-image-container .img-container img {
+    max-height: 400px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    margin: 0 0;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 25px 0;
+    border-radius: 10px;
+  }
 }/*# sourceMappingURL=AccountImages.css.map */

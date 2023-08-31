@@ -146,4 +146,25 @@ button {
 }
 .email-list-container .btn-container .leave:hover {
   box-shadow: 0 0 2rem rgb(129, 9, 9);
+}
+
+@media (min-width: 1000px) {
+  .email-list-container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .email-list-container .email-header {
+    text-align: left;
+  }
+  .email-list-container .email-header .subheader,
+  .email-list-container .email-header .header {
+    margin: 0;
+  }
+  .email-list-container .email-header .subheader {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .email-list-container .btn-container {
+    justify-content: flex-start;
+  }
 }/*# sourceMappingURL=EmailList.css.map */
