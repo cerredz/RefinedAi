@@ -48,6 +48,7 @@ const AccountImages = () => {
   const handleImageClick = (img) => {
     setIsSelectedImage(img);
   };
+
   return (
     <>
       <div className="account-images-container">

@@ -22,7 +22,6 @@ const AccountSettings = () => {
   const token = useSelector((state) => state.auth.token);
   const dispatch = useDispatch();
   const [profilePicture, setProfilePicture] = useState(null);
-  const [reviews, setReviews] = useState([]);
 
   /* VARIABLES FOR USER CHANGING PASSWORD */
   const [isChangingPassword, setIsChangingPassword] = useState(false);
@@ -33,16 +32,6 @@ const AccountSettings = () => {
 
   const [newFirstName, setNewFirstName] = useState(null);
   const [newLastName, setNewLastName] = useState(null);
-
-  useEffect(() => {
-    /* GET REVIEWS WRITTEN BY USER FROM THE BACKEND*/
-    async function userReviews() {
-      const getReviews = await getUserReviews(user._id);
-      setReviews(getReviews);
-    }
-
-    userReviews();
-  }, []);
 
   /* USER SUBMITTED A CHANGE PASSWORD REQUEST*/
   const handleConfirmClick = async () => {
@@ -466,10 +455,11 @@ const AccountSettings = () => {
               </div>
             )}
 
+            {/* USER REVIEWS */}
             <div className="user-reviews">
               <h3>Reviews </h3>
-              {reviews &&
-                reviews.map((review, index) => (
+              {user &&
+                user.reviews.map((review, index) => (
                   <div className="review-container">
                     <p className="grey-text review-stars">
                       Rating: {review.stars}
@@ -477,6 +467,17 @@ const AccountSettings = () => {
                     <div key={index} className="review-description">
                       <p>{review.description}</p>
                     </div>
+                  </div>
+                ))}
+            </div>
+
+            {/* USER PAYMENT ID'S */}
+            <div className="user-payments">
+              <h3 className="subheader">Payment IDs</h3>
+              {user &&
+                user.paymentID.map((id, index) => (
+                  <div className="payment-id">
+                    <p>{id}</p>
                   </div>
                 ))}
             </div>

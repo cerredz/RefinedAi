@@ -327,4 +327,10 @@ button {
   position: absolute;
   inset: 0;
   border-radius: inherit;
+}
+
+@media (min-width: 1000px) {
+  .credits-container .credit-card {
+    width: 275px;
+  }
 }/*# sourceMappingURL=Credits.css.map */

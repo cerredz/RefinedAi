@@ -1,81 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import Axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setLogin } from "../../state";
 import {
   AiOutlineCloudUpload,
   AiOutlineLoading3Quarters,
 } from "react-icons/ai";
 import Dropzone from "react-dropzone";
+import { downloadImage } from "../../client";
 import "./FileUploader.css";
-/*
-const FileUploader = () => {
-  const user = useSelector((state) => state.auth.user);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    setTimeout(() => {
-      console.log(user);
-    }, 2000);
-  }, []);
-  const onDrop = useCallback(async (acceptedFiles) => {
-    if (acceptedFiles.length > 0) {
-      const formData = new FormData();
-      formData.append("picture", acceptedFiles[0]);
-
-      if (user) {
-        console.log(JSON.stringify(user));
-        console.log(JSON.stringify(user._id));
-        formData.append("_id", user._id);
-        console.log(formData);
-        try {
-          const response = await Axios.post(
-            "http://localhost:3001/upscale/image",
-            formData,
-            {
-              headers: {
-                "Content-Type": "multipart/form-data",
-              },
-            }
-          );
-
-          console.log("File uploaded successfully:", response.data);
-        } catch (error) {
-          console.error("Error uploading file:", error);
-        }
-      } else {
-        //user not signed in
-        navigate("/login");
-      }
-    }
-  }, []);
-
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-    accept: ".pdf,.jpg,.jpeg",
-  });
-
-  return (
-    <div>
-      <div {...getRootProps()} className="file-dropzone flex">
-        <input {...getInputProps()} />
-        <button className="btn-upload flex">
-          <p>Upload</p>
-          <AiOutlineCloudUpload />
-        </button>
-      </div>
-    </div>
-  );
-};
-
-*/
-
-const FileUploader = () => {
+const FileUploader = (props) => {
   const user = useSelector((state) => state.auth.user);
   const token = useSelector((state) => state.auth.token);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [image, setImage] = useState(null);
 
   const [upscalingImage, setUpscalingImage] = useState(false);
@@ -111,18 +52,24 @@ const FileUploader = () => {
     );
 
     const userData = response.data.user;
-    const imageData = response.data.image;
+    const imageData = response.data.imageObj;
 
     setUpscalingImage(false);
 
     /* Extract The Upscaled Image from the backend */
-    setUpscaledImage(
-      `${process.env.REACT_APP_BACKEND_IMAGE_STORAGE}/${imageData}`
-    );
+    setUpscaledImage(imageData);
 
+    dispatch(setLogin({ user: userData, token: token }));
     /* Update User's Credits and Image Paths*/
     localStorage.setItem("user", JSON.stringify(userData));
   };
+
+  const handleOnDrop = (acceptedFiles) => {
+    setImage(acceptedFiles[0]);
+    props.handleUploadImage();
+    setUpscaledImage(false);
+  };
+
   return (
     <div className="file-uploader-container flex">
       {/* After Image is Uploaded */}
@@ -137,7 +84,7 @@ const FileUploader = () => {
       <Dropzone
         acceptedFiles=".jpg, .jpeg, .png"
         multiple={false}
-        onDrop={(acceptedFiles) => setImage(acceptedFiles[0])}
+        onDrop={(acceptedFiles) => handleOnDrop(acceptedFiles)}
       >
         {({ getRootProps, getInputProps }) => (
           <div className="dropzone-container" {...getRootProps()}>
@@ -160,11 +107,16 @@ const FileUploader = () => {
 
                 {/* Image After Upscaling */}
                 {upscaledImage && (
-                  <img
-                    className="dropzone-image"
-                    src={upscaledImage}
-                    alt="upscaled"
-                  />
+                  <div
+                    className="flex"
+                    style={{ flexDirection: `column`, gap: `10px` }}
+                  >
+                    <img
+                      className="dropzone-image"
+                      src={`${process.env.REACT_APP_BACKEND_URL}/upscale/Public/assets/${upscaledImage.picturePath}`}
+                      alt="upscaled"
+                    />
+                  </div>
                 )}
               </>
             ) : (
@@ -183,6 +135,15 @@ const FileUploader = () => {
           </div>
         )}
       </Dropzone>
+
+      {!image && upscaledImage && (
+        <button
+          className="download"
+          onClick={() => downloadImage(upscaledImage)}
+        >
+          Download
+        </button>
+      )}
     </div>
   );
 };

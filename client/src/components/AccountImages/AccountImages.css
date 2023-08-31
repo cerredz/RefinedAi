@@ -148,7 +148,7 @@ button {
 }
 
 .selected-upscaled-image-container {
-  position: absolute;
+  position: fixed;
   width: 95%;
   margin: 0 auto;
   top: 0px;

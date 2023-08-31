@@ -246,9 +246,14 @@
           width: 80%;
           margin: 0 auto;
           .uploader-border {
-            border: 2px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            min-height: 25vh;
+            min-height: 50vh;
+            width: 80%;
+            margin: 25px auto;
+          }
+
+          .border-fill {
+            border: 2px solid rgba(255, 255, 255, 0.2);
           }
         }
       }

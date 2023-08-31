@@ -189,11 +189,13 @@
 
     .account-settings-web {
       min-height: 70vh;
-      display: grid;
-      grid-template-columns: 1.75fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
 
       .user-information {
         padding-right: 40px;
+        border-right: 2px solid rgba(255, 255, 255, 0.1);
+        flex: 1;
 
         .user-banner {
           p {
@@ -206,6 +208,7 @@
         .user-information-content {
           margin-top: 25px;
           position: relative;
+
           .input {
             outline: none;
             border-radius: 10px;
@@ -333,6 +336,14 @@
             }
           }
 
+          .payment-id,
+          .review-description {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            margin-top: 5px;
+            border-radius: 15px;
+          }
           .user-reviews {
             padding-top: 25px;
 
@@ -347,15 +358,24 @@
               }
 
               .review-description {
-                background: rgba(0, 0, 0, 0.3);
-                border: 2px solid rgba(255, 255, 255, 0.3);
-                padding: 10px 20px;
-                margin-top: 5px;
-                border-radius: 15px;
-
                 p {
                   font-size: 0.9rem;
                 }
+              }
+            }
+          }
+
+          .user-payments {
+            width: 100%;
+            .subheader {
+              margin-bottom: 25px;
+            }
+
+            .payment-id {
+              margin: 10px 0;
+              p {
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.4);
               }
             }
           }
@@ -378,8 +398,7 @@
         }
       }
       .account-stats {
-        border-left: 2px solid rgba(255, 255, 255, 0.1);
-
+        flex: 0.75;
         .subheading {
           margin: 20px;
         }

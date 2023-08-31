@@ -17,6 +17,12 @@ const imageUrls = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 const Upscale = (props) => {
   const [expandImage, setExpandImage] = useState("");
+  const [uploadedImage, setUploadedImage] = useState(null);
+
+  const handleUploadImage = () => {
+    setUploadedImage(true);
+  };
+
   return (
     <div id="upscale" className="upscale-container">
       <div className="upscale-content flex">
@@ -30,8 +36,12 @@ const Upscale = (props) => {
             Clear
           </p>
 
-          <div className="upscale-upload flex">
-            <FileUploader />
+          <div
+            className={`upscale-upload flex ${
+              uploadedImage ? "" : "upscale-upload-fill"
+            }`}
+          >
+            <FileUploader handleUploadImage={handleUploadImage} />
           </div>
           <p className="grey-text">* Accepted Files are .pdf, .jpg, .jpeg *</p>
         </div>

@@ -273,11 +273,13 @@ button {
   }
   .account-settings-container .account-settings-web {
     min-height: 70vh;
-    display: grid;
-    grid-template-columns: 1.75fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
   }
   .account-settings-container .account-settings-web .user-information {
     padding-right: 40px;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
   }
   .account-settings-container .account-settings-web .user-information .user-banner p {
     margin-top: 5px;
@@ -406,6 +408,14 @@ button {
   .account-settings-container .account-settings-web .user-information .user-information-content .username .username-column .password-input:hover {
     border: 2px solid rgb(13, 168, 234);
   }
+  .account-settings-container .account-settings-web .user-information .user-information-content .payment-id,
+  .account-settings-container .account-settings-web .user-information .user-information-content .review-description {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    margin-top: 5px;
+    border-radius: 15px;
+  }
   .account-settings-container .account-settings-web .user-information .user-information-content .user-reviews {
     padding-top: 25px;
   }
@@ -418,15 +428,21 @@ button {
     font-weight: 700;
     margin-left: 5px;
   }
-  .account-settings-container .account-settings-web .user-information .user-information-content .user-reviews .review-container .review-description {
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    padding: 10px 20px;
-    margin-top: 5px;
-    border-radius: 15px;
-  }
   .account-settings-container .account-settings-web .user-information .user-information-content .user-reviews .review-container .review-description p {
     font-size: 0.9rem;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-payments {
+    width: 100%;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-payments .subheader {
+    margin-bottom: 25px;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-payments .payment-id {
+    margin: 10px 0;
+  }
+  .account-settings-container .account-settings-web .user-information .user-information-content .user-payments .payment-id p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
   }
   .account-settings-container .account-settings-web .user-information .user-information-content .changing-passwords-container {
     position: absolute;
@@ -445,7 +461,7 @@ button {
     background: rgba(255, 255, 255, 0.1);
   }
   .account-settings-container .account-settings-web .account-stats {
-    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    flex: 0.75;
   }
   .account-settings-container .account-settings-web .account-stats .subheading {
     margin: 20px;

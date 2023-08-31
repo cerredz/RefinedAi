@@ -321,9 +321,13 @@ button {
     margin: 0 auto;
   }
   .account-container .account-content .account-dashboard-content .account-dashboard .uploader-border {
-    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
-    min-height: 25vh;
+    min-height: 50vh;
+    width: 80%;
+    margin: 25px auto;
+  }
+  .account-container .account-content .account-dashboard-content .account-dashboard .border-fill {
+    border: 2px solid rgba(255, 255, 255, 0.2);
   }
 }
 @keyframes slideRight {

@@ -50,6 +50,7 @@ router.post("/image", upload.single("picture"), async (req, res) => {
     return res.status(200).json({
       user: user,
       image: imagePath,
+      imageObj: newImage,
     });
   } catch (error) {
     console.log(error);

@@ -43,6 +43,11 @@ const Account = () => {
   const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState("account-settings");
   const dispatch = useDispatch();
+  const [uploadedImage, setUploadedImage] = useState(false);
+
+  const handleUploadImage = () => {
+    setUploadedImage(true);
+  };
 
   return (
     <div className="account-container">
@@ -254,9 +259,15 @@ const Account = () => {
             {selectedTab === "account-settings" && <AccountSettings />}
             {selectedTab === "credits" && <Credits />}
             {selectedTab === "upscaler" && (
-              <div className="uploader-border flex">
+              <div
+                className={`${
+                  uploadedImage
+                    ? "uploader-border"
+                    : "uploader-border border-fill"
+                } flex`}
+              >
                 {" "}
-                <FileUploader />
+                <FileUploader handleUploadImage={handleUploadImage} />
               </div>
             )}
             {selectedTab === "account-images" && <AccountImages />}

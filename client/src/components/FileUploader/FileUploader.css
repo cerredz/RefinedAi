@@ -184,7 +184,21 @@ button {
 }
 .file-uploader-container .dropzone-container .dropzone-image {
   width: 100%;
+  max-height: 350px;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.file-uploader-container .download {
+  padding: 10px 25px;
+  border-radius: 20px;
+  background: rgb(13, 168, 234);
+  opacity: 0.4;
+  letter-spacing: 2px;
+  z-index: 5;
+  position: absolute;
+  bottom: -50px;
+}
+.file-uploader-container .download:hover {
+  opacity: 0.8;
 }/*# sourceMappingURL=FileUploader.css.map */

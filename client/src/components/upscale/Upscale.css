@@ -136,11 +136,14 @@ button {
 .upscale-container .upscale-content .upscale-header .upscale-upload {
   position: relative;
   width: 80%;
-  margin: 10px auto;
+  margin: 25px auto;
   margin-top: 50px;
   height: 25vh;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+}
+.upscale-container .upscale-content .upscale-header .upscale-upload-fill {
   border: dotted 4px rgba(255, 255, 255, 0.2);
-  overflow: hidden;
 }
 .upscale-container .upscale-content .upscale-images {
   display: none;

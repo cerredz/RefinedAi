@@ -16,6 +16,7 @@ export const downloadImage = async (img) => {
     });
 
     saveAs(blob, img.picturePath);
+    console.log("Image Successfully Downloaded!! ");
   } catch (error) {
     console.error("Error fetching or downloading image:", error);
   }
