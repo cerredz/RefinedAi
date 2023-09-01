@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/User");
 const Image = require("../models/Image");
+const Review = require("../models/Reviews");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
@@ -210,6 +211,39 @@ router.get("/getUser", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json("Could Not Get the User's Information");
+  }
+});
+
+/* SENDS TOTAL USERS, IMAGES UPSCALED, AND 5 STAR REVIEWS TO THE FRONTEND */
+router.get("/allStats", async (req, res) => {
+  try {
+    /* GET INFORMATION FROM BACKEND */
+    const users = await User.find();
+    if (!users) return res.status(500).json("Failed To Get User Stats");
+
+    const reviews = await Review.find();
+    if (!reviews) return res.status(500).json("Failed To Get Review Stats");
+
+    /* GET LENGTH / FILTER DATA FROM BACKEND */
+    const totalUsers = users.length;
+    let totalImages = 0;
+
+    users.forEach((user) => {
+      totalImages += user.images.length;
+    });
+    const totalFiveStarReviews = reviews.filter((rev) => rev.stars === 5);
+
+    /* SEND STATS TO FRONTEND */
+    const stats = {
+      totalUsers: totalUsers,
+      totalImagesUpscaled: totalImages,
+      totalFiveStarReviews: totalFiveStarReviews.length,
+    };
+
+    res.status(200).json(stats);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("Failed To Get Stats");
   }
 });
 

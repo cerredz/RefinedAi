@@ -5,14 +5,21 @@ import {
   Upscale,
   AdvertCards,
 } from "../../components/components";
+import "./home.css";
 
 const Home = (props) => {
   return (
     <div className="home-container">
-      <Navbar />
-      <Upscale />
+      <div className="first-page-container">
+        <Upscale />
+      </div>
+
+      <div className="second-page-container"></div>
+
+      {/* 
       <AdvertCards />
       <Features />
+      */}
     </div>
   );
 };

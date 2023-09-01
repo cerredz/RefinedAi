@@ -1,5 +1,5 @@
 @import "../variables/variables.scss";
-
+/*
 .upscale-container {
   position: relative;
   width: 90%;
@@ -160,6 +160,106 @@
           }
         }
       }
+    }
+  }
+}
+*/
+
+.upscale-container {
+  position: relative;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50vh;
+    background: linear-gradient(
+        to right,
+        #171c28,
+        rgb(10, 73, 220),
+        rgb(0, 128, 255),
+        rgb(135, 206, 250),
+        #171c28
+      ),
+      url("../../components/assets/mountain.jpg");
+    background-blend-mode: screen;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.3;
+    z-index: -1;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(50vh - 100px);
+    left: 0;
+    right: 0;
+    height: 100px;
+    filter: blur(2rem);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -2;
+  }
+
+  .upscale-content {
+    padding: 25px 10%;
+    .upscale-header {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 75px;
+      margin-bottom: 50px;
+
+      .header {
+        font-size: max(3vw, 2rem);
+        text-align: center;
+      }
+
+      .subheader {
+        text-align: center;
+        width: min(800px, 75%);
+        backdrop-filter: blur(15px);
+        letter-spacing: 2px;
+        font-size: 1rem;
+        font-weight: 800;
+      }
+    }
+
+    .upscale-info {
+      margin: 25px auto;
+      padding: 25px;
+      border-radius: 25px;
+      width: fit-content;
+      backdrop-filter: blur(15px);
+      background: rgba(0, 0, 0, 0.1);
+      gap: 20px;
+      flex-wrap: wrap;
+
+      .stat {
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 10px;
+
+        .stat-text {
+          letter-spacing: 2px;
+          font-weight: 500;
+        }
+
+        .grey-text {
+          font-size: 0.9rem;
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    .upscale-uploader {
+      margin: 25px 0;
     }
   }
 }

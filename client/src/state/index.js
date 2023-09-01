@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getStats } from "../client";
 import Axios from "axios";
 
 /* GET REVIEWS FROM BACKEND */
@@ -49,6 +50,9 @@ if (localStorage.getItem("user")) {
     });
 }
 
+/* GET TOTAL USERS, TOTAL IMAGES UPSCALED, AND TOTAL 5 STAR REVIEWS FROM THE BACKEND */
+const allStats = await getStats();
+
 const initialState = {
   user: existedUser,
   token: localStorage.getItem("token")
@@ -58,12 +62,16 @@ const initialState = {
   images: [],
   emailList: false,
   creditID: null,
+  stats: allStats,
 };
 
 export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+    setUpdateUser: (state, action) => {
+      state.user = action.payload.user;
+    },
     setLogin: (state, action) => {
       state.user = action.payload.user;
       state.token = action.payload.token;
@@ -96,10 +104,23 @@ export const authSlice = createSlice({
     setEraseCreditId: (state, action) => {
       state.creditID = null;
     },
+
+    setTotalUsers: (state, action) => {
+      state.stats.totalUsers = action.payload.totalUsers;
+    },
+
+    setTotalImagesUpscaled: (state, action) => {
+      state.stats.totalImagesUpscaled = action.payload.totalImagesUpscaled;
+    },
+
+    setTotalFiveStarReviews: (state, action) => {
+      state.stats.totalFiveStarReviews = action.payload.totalFiveStarReviews;
+    },
   },
 });
 
 export const {
+  setUpdateUser,
   setLogin,
   setLogout,
   setReviews,
@@ -108,5 +129,8 @@ export const {
   setLeaveEmailList,
   setCreditID,
   setEraseCreditId,
+  setTotalUsers,
+  setTotalImagesUpscaled,
+  setTotalFiveStarReviews,
 } = authSlice.actions;
 export default authSlice.reducer;

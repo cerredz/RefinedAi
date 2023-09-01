@@ -1,29 +1,13 @@
 import React, { useState, useEffect } from "react";
-import img1 from "../assets/8k1.jpg";
-import img2 from "../assets/8k2.jpg";
-import img3 from "../assets/8k3.jpg";
-import img4 from "../assets/8k4.jpg";
-import img5 from "../assets/8k5.jpg";
-import img6 from "../assets/8k6.jpg";
-import img7 from "../assets/8k7.jpg";
-import img8 from "../assets/8k8.jpg";
-import img9 from "../assets/8k9.jpg";
-import { BsBoxArrowInUpLeft } from "react-icons/bs";
-import { GrClose } from "react-icons/gr";
 import FileUploader from "../FileUploader/FileUploader";
 import "./Upscale.css";
-
-const imageUrls = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
+import { Navbar } from "../components";
+import { useSelector } from "react-redux";
 
 const Upscale = (props) => {
-  const [expandImage, setExpandImage] = useState("");
-  const [uploadedImage, setUploadedImage] = useState(null);
-
-  const handleUploadImage = () => {
-    setUploadedImage(true);
-  };
-
+  const stats = useSelector((state) => state.auth.stats);
   return (
+    /*
     <div id="upscale" className="upscale-container">
       <div className="upscale-content flex">
         <div className="upscale-header flex">
@@ -66,6 +50,40 @@ const Upscale = (props) => {
               )}
             </>
           ))}
+        </div>
+      </div>
+      
+    </div>
+    */
+
+    <div className="upscale-container">
+      <Navbar />
+      <div className="upscale-content">
+        <div className="upscale-header flex">
+          <h1 className="header">RefinedAI Upscaling</h1>
+          <p className="grey-text subheader">
+            Utilize World Class AI Upscaling to Create Ultra High Resolution
+            Images
+          </p>
+        </div>
+
+        <div className="upscale-info flex">
+          <div className="users-info stat flex">
+            <h1 className="stat-text">{stats.totalUsers}+</h1>
+            <p className="grey-text">Satisfied Customers</p>
+          </div>
+          <div className="images-info stat flex">
+            <h1 className="stat-text">{stats.totalImagesUpscaled}+</h1>
+            <p className="grey-text">Images Upscaled</p>
+          </div>
+          <div className="reviews-info stat flex">
+            <h1 className="stat-text">{stats.totalFiveStarReviews}+</h1>
+            <p className="grey-text">5 Star Reviews</p>
+          </div>
+        </div>
+
+        <div className="upscale-uploader">
+          <FileUploader />
         </div>
       </div>
     </div>

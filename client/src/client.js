@@ -67,3 +67,24 @@ export const getUserReviews = async (id) => {
     console.log(err);
   }
 };
+
+/* GETS TOTAL USERS, TOTAL IMAGES UPSCALED, AND TOTAL 5 STAR REVIEWS */
+export const getStats = async () => {
+  try {
+    let formattedAllStats = null;
+    const allStats = await Axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/auth/allStats`
+    );
+    const response = allStats.data;
+
+    formattedAllStats = {
+      totalUsers: response.totalUsers,
+      totalImagesUpscaled: response.totalImagesUpscaled,
+      totalFiveStarReviews: response.totalFiveStarReviews,
+    };
+
+    return formattedAllStats;
+  } catch (err) {
+    console.log(err);
+  }
+};
