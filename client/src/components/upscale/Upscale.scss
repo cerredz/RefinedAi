@@ -214,7 +214,7 @@
       flex-direction: column;
       gap: 10px;
       margin-top: 75px;
-      margin-bottom: 50px;
+      margin-bottom: 60px;
 
       .header {
         font-size: max(3vw, 2rem);
@@ -248,8 +248,18 @@
 
         .stat-text {
           letter-spacing: 2px;
-          font-weight: 500;
+          font-weight: 800;
+          background-image: linear-gradient(
+            to right,
+            rgb(0, 112, 250),
+            rgb(10, 88, 255)
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
+
+        /* CUSTOM LINEAR GRADIENT FOR EACH STAT*/
 
         .grey-text {
           font-size: 0.9rem;
@@ -260,6 +270,210 @@
 
     .upscale-uploader {
       margin: 25px 0;
+      position: relative;
+      width: 100%;
+      margin-bottom: 75px;
+    }
+
+    .upscale-cards-container {
+      gap: 50px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+      position: relative;
+
+      .card-container {
+        padding: 25px;
+        max-width: min(325px, 75%);
+        min-height: 150px;
+        position: relative;
+        border-radius: 3px;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+
+        &::before {
+          position: absolute;
+          content: "";
+          inset: 0;
+          background: linear-gradient(
+            45deg,
+            #2c323d,
+            #222732,
+            #222732,
+            #2c323d
+          );
+          border-radius: inherit;
+          z-index: -1;
+        }
+
+        /* SPAN STYLES */
+        span {
+          position: absolute;
+          height: 2px;
+          z-index: -1;
+        }
+
+        .top-right-top {
+          top: 0;
+          left: 0;
+          right: 0;
+          background: linear-gradient(
+            to right,
+            transparent,
+            transparent,
+            rgba(255, 255, 255, 0.2)
+          );
+          border-top-right-radius: 5px;
+        }
+        .top-right-right {
+          bottom: 0;
+          right: 0;
+          width: 2px;
+          height: 100%;
+          background: linear-gradient(
+            to top,
+            transparent,
+            transparent,
+            rgba(255, 255, 255, 0.2)
+          );
+          border-top-right-radius: 5px;
+        }
+
+        .bottom-left-left {
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 2px;
+          background: linear-gradient(
+            to bottom,
+            transparent,
+            transparent,
+            rgba(255, 255, 255, 0.2)
+          );
+          border-bottom-left-radius: 5px;
+        }
+
+        .bottom-left-bottom {
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(
+            to left,
+            transparent,
+            transparent,
+            rgba(255, 255, 255, 0.2)
+          );
+        }
+
+        .image-container {
+          margin-top: -50px;
+
+          img {
+            width: 50px;
+          }
+        }
+
+        .card-text {
+          .heading {
+            font-size: 1.2rem;
+            margin: 10px 0;
+          }
+
+          .grey-text {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            letter-spacing: 1px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .upscale-container {
+    .upscale-content {
+      .upscale-cards-container {
+        /* DYNAMIC POSITION FOR EACH CARD */
+
+        .image-quality {
+          transform: translateY(-40px);
+          &::after {
+            background: $lightBlue;
+          }
+
+          .glow-circle {
+            position: absolute;
+            height: 120px;
+            width: 120px;
+            left: 0;
+            top: 0;
+            z-index: -2;
+            transform: translateX(-50%) translateY(-50%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px #fff, -10px 0 30px rgb(8, 210, 237),
+              20px 0 40px blue, inset 0 0 50px #fff,
+              inset 40px 0 40px rgb(8, 210, 237), inset -20px 0 400px blue;
+          }
+        }
+
+        .ai-powered,
+        .image-quality {
+          &::after {
+            position: absolute;
+            content: "";
+            top: 110%;
+            left: -40%;
+            right: -40%;
+            height: 25px;
+
+            transform: perspective(10rem) rotateX(45deg);
+            filter: blur(2.2rem);
+            scale: 0.5;
+            opacity: 0.4;
+          }
+        }
+
+        .ai-powered {
+          transform: translateY(-25px);
+
+          &::after {
+            background: rgb(236, 30, 226);
+          }
+          .glow-circle {
+            position: absolute;
+            height: 120px;
+            width: 120px;
+            top: 0;
+            right: 0;
+            z-index: -2;
+            transform: translateX(40%) translateY(-40%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px #fff, 20px 0 40px rgb(142, 9, 230),
+              -20px 0 40px rgb(236, 30, 226), inset 0 0 50px #fff,
+              inset 50px 0 80px rgb(236, 30, 226),
+              inset -50px 0 200px rgb(142, 9, 230);
+          }
+        }
+
+        .time-saving {
+          transform: translateY(20px);
+
+          &::after {
+            position: absolute;
+            content: "";
+            inset: 10px;
+            background: linear-gradient(
+              to right,
+              $lightBlue,
+              rgb(138, 12, 184)
+            );
+            z-index: -2;
+            filter: blur(1rem);
+          }
+        }
+      }
     }
   }
 }

@@ -10,6 +10,8 @@
     z-index: 2;
     position: absolute;
     background: rgba(255, 255, 255, 0.1);
+    font-size: 1.4rem;
+    padding: 10px 20px;
 
     &:hover {
       box-shadow: 0 0 4rem rgba(0, 0, 0, 0.8);
@@ -18,12 +20,32 @@
     }
   }
 
+  .cancel {
+    position: absolute;
+    z-index: 3;
+    top: 25px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.4);
+      scale: 1.1;
+    }
+  }
   .upload {
     position: relative;
     background: linear-gradient(to right, $primaryBlue, rgb(9, 98, 231));
     opacity: 0.4;
-    gap: 5px;
+    gap: 10px;
     border-radius: 40px;
+    font-size: 2rem;
+    padding: 10px 30px;
+
     &:hover {
       opacity: 0.8;
 
@@ -45,13 +67,11 @@
 
   .upscale,
   .upload {
-    padding: 10px 20px;
     border-radius: 1px;
     border: none;
     cursor: pointer;
     backdrop-filter: blur(15px);
     letter-spacing: 2px;
-    font-size: 1.4rem;
   }
 
   .err-credits {

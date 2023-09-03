@@ -106,6 +106,6 @@ button {
     transform: rotate(360deg);
   }
 }
-.home-container {
-  min-height: 100vh;
+.home-container .first-page-container {
+  padding-bottom: 50px;
 }/*# sourceMappingURL=home.css.map */

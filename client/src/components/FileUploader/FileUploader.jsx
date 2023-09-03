@@ -8,6 +8,7 @@ import {
   AiOutlineCloudUpload,
   AiOutlineLoading3Quarters,
 } from "react-icons/ai";
+import { GrClose } from "react-icons/gr";
 import Dropzone from "react-dropzone";
 import { downloadImage } from "../../client";
 import "./FileUploader.css";
@@ -74,9 +75,12 @@ const FileUploader = (props) => {
     <div className="file-uploader-container flex">
       {/* After Image is Uploaded */}
       {image && (
-        <button className="upscale" onClick={handleUpscale}>
-          Upscale
-        </button>
+        <>
+          <button className="upscale" onClick={handleUpscale}>
+            Upscale
+          </button>
+          <GrClose className="cancel" onClick={() => setImage(null)} />
+        </>
       )}
       {creditsError && (
         <p className="err-credits">* Error: Not Enough Credits *</p>

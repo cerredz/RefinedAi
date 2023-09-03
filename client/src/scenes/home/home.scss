@@ -1,5 +1,7 @@
 @import "../../components/variables/variables.scss";
 
 .home-container {
-  min-height: 100vh;
+  .first-page-container {
+    padding-bottom: 50px;
+  }
 }
