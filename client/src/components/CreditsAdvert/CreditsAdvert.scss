@@ -1,0 +1,227 @@
+@import "../variables/variables.scss";
+
+.credits-advert-container {
+  margin: 75px auto;
+  position: relative;
+
+  .credit-advert-content {
+    flex-direction: column;
+    padding: 25px 10%;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    .img-container {
+      max-width: 100%;
+      position: relative;
+      z-index: 1;
+      border-radius: 100px;
+
+      &::before {
+        position: absolute;
+        content: "";
+        inset: 0;
+        z-index: 2;
+        border-radius: inherit;
+        box-shadow: inset 150px 0 150px #171c28, inset -150px 0 150px #171c28,
+          inset -25px 0 50px black, inset 25px 0 50px black,
+          inset 0 25px 25px #171c28, inset 0 -25px 25px #171c28;
+      }
+
+      .glow {
+        position: absolute;
+        inset: 0;
+        border-radius: 40%;
+        box-shadow: -10px 0 80px rgb(238, 6, 238), 0 0 20px #fff,
+          10px 0 80px aqua, 0 -10px 20px rgb(119, 1, 255),
+          0 10px 20px rgb(118, 0, 252);
+        opacity: 0.7;
+      }
+
+      img {
+        width: 100%;
+        border-radius: 100px;
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    .credit-advert-text {
+      gap: 15px;
+      flex-direction: column;
+      margin: 25px 0;
+
+      .credit-advert-heading {
+        text-align: center;
+        flex-direction: column;
+        gap: 10px;
+        margin: 15px 0;
+        .header {
+          font-size: 1.5rem;
+          font-weight: 600;
+          span {
+            background: linear-gradient(225deg, $primaryPink, $lightBlue);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+          }
+        }
+
+        .grey-text {
+          max-width: 80%;
+          margin: 0 auto;
+          font-size: 0.9rem;
+        }
+      }
+
+      .credit-advert-buttons {
+        gap: 40px;
+        justify-content: space-around;
+        margin-top: 10px;
+        button {
+          background: #171c28;
+          letter-spacing: 2px;
+          font-weight: 400px;
+        }
+
+        .explore {
+          position: relative;
+          border-radius: 10px;
+          z-index: 1;
+          font-size: 1rem;
+          padding: 10px 25px;
+
+          &:hover {
+            .glow {
+              filter: blur(15px);
+            }
+          }
+
+          &::before {
+            position: absolute;
+            content: "";
+            inset: 0;
+            border-radius: inherit;
+            background: #171c28;
+            z-index: -1;
+          }
+
+          &::after {
+            position: absolute;
+            content: "";
+            border-radius: inherit;
+            inset: -2px;
+            background: linear-gradient(
+              to right,
+              $primaryPink,
+              #31323b,
+              $lightBlue
+            );
+            opacity: 0.6;
+            z-index: -2;
+          }
+
+          .glow {
+            position: absolute;
+            inset: 0;
+            z-index: -3;
+            background: linear-gradient(
+              to right,
+              $primaryPink,
+              #31323b,
+              $lightBlue
+            );
+            filter: blur(5px);
+            border-radius: inherit;
+          }
+        }
+
+        .view {
+          gap: 5px;
+          position: relative;
+          padding: 10px 0;
+
+          &:hover {
+            svg {
+              transform: translateX(5px);
+            }
+
+            &::before {
+              width: 100%;
+              transition: 0.4s ease-in-out;
+            }
+          }
+          &::before {
+            position: absolute;
+            content: "";
+            bottom: 2px;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: $primaryPink;
+            transition: 0.4s ease-in-out;
+          }
+
+          p {
+            margin: 0;
+            padding: 0;
+            color: $primaryPink;
+            font-size: 0.9rem;
+            font-weight: 800;
+          }
+          svg {
+            font-size: 0.9rem;
+            fill: $primaryPink;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .credits-advert-container {
+    .credit-advert-content {
+      .img-container {
+        max-width: 70%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .credits-advert-container {
+    margin-top: 150px;
+    .credit-advert-content {
+      display: grid;
+      place-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+
+      .img-container {
+        max-width: 100%;
+      }
+
+      .credit-advert-text {
+        margin: 0;
+        height: 100%;
+
+        .credit-advert-heading {
+          .header {
+            font-size: 2.5rem;
+          }
+          .grey-text {
+            font-size: 1rem;
+            letter-spacing: 2px;
+          }
+        }
+      }
+    }
+  }
+}

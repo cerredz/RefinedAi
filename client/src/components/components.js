@@ -10,6 +10,7 @@ import AccountImages from "./AccountImages/AccountImages";
 import EmailList from "./EmailList/EmailList";
 import Credits from "./Credits/Credits";
 import PaymentSuccess from "./paymentSucess/PaymentSuccess";
+import CreditsAdvert from "./CreditsAdvert/CreditsAdvert";
 
 export {
   AccountImages,
@@ -24,4 +25,5 @@ export {
   EmailList,
   Credits,
   PaymentSuccess,
+  CreditsAdvert,
 };

@@ -4,6 +4,7 @@ import {
   Navbar,
   Upscale,
   AdvertCards,
+  CreditsAdvert,
 } from "../../components/components";
 import "./home.css";
 
@@ -12,6 +13,7 @@ const Home = (props) => {
     <div className="home-container">
       <div className="first-page-container">
         <Upscale />
+        <CreditsAdvert />
       </div>
 
       <div className="second-page-container"></div>
