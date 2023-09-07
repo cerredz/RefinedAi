@@ -1,0 +1,53 @@
+@import "../../components//variables/variables.scss";
+
+.homepage-return-container {
+  position: relative;
+  width: 100%;
+  margin: 25px 0;
+  padding: 10px;
+
+  .btn-home {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 25px;
+    border-radius: 10px;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    p,
+    svg {
+      font-size: 1rem;
+    }
+
+    p {
+      font-weight: 400;
+      letter-spacing: 3px;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -2px;
+      bottom: -2px;
+      width: 0;
+      filter: blur(2px);
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+      z-index: -1;
+      transition: 0.25s ease-in-out;
+      border-radius: inherit;
+    }
+
+    &:hover {
+      transition: 0.25s ease-in-out;
+      &::before {
+        width: 125%;
+      }
+    }
+  }
+}

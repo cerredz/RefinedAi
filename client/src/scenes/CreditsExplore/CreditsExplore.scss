@@ -1,0 +1,144 @@
+@import "../../components/variables/variables.scss";
+
+.credits-explore-container {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 75px;
+
+  .glow {
+    display: none;
+  }
+
+  .credits-explore-banner {
+    margin-top: 75px;
+    text-align: center;
+    p {
+      width: 60%;
+      margin: 20px auto;
+      max-width: 700px;
+    }
+
+    .header {
+      font-size: 1.9rem;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+
+    .grey-text {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .credits-explore-container {
+    .credits-explore-banner {
+      .header {
+        font-size: 2.5rem;
+        span {
+          position: relative;
+          z-index: 1;
+          background-image: linear-gradient(45deg, $lightBlue, $primaryPink);
+          -webkit-background-clip: text;
+          color: transparent;
+          display: inline-block;
+
+          &::before {
+            position: absolute;
+            content: "";
+            inset: 0;
+            background: linear-gradient(45deg, $lightBlue, $primaryPink);
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(2rem);
+          }
+        }
+      }
+
+      .grey-text {
+        font-size: 1rem;
+        max-width: 850px;
+      }
+    }
+  }
+}
+
+/* ONCE WE GET ONLY 2 ROWS OF CARDS, ADD THE CUSTOM GLOWING CIRCLES */
+@media (min-width: 1275px) {
+  .credits-explore-container {
+    /* CUSTOM GLOWING CIRCLES STYLE */
+    .glow {
+      display: block;
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.8;
+    }
+
+    .small {
+      height: 75px;
+      width: 75px;
+    }
+
+    .medium {
+      height: 125px;
+      width: 125px;
+    }
+
+    .big {
+      height: 200px;
+      width: 200px;
+    }
+
+    .small-left {
+      top: 0;
+      left: 0;
+      border: 2px solid $secondaryBlue;
+      box-shadow: 0 0 5px $secondaryBlue, inset 0 0 5px $secondaryBlue,
+        inset 0 0 50px $secondaryBlue, 0 0 25px $secondaryBlue;
+    }
+
+    .medium-left {
+      top: 500px;
+      left: 50px;
+      border: 2px solid rgb(0, 89, 255);
+      box-shadow: 0 0 5px rgb(0, 89, 255), inset 0 0 5px rgb(0, 89, 255),
+        inset 0 0 75px rgb(0, 89, 255), 0 0 25px rgb(0, 89, 255);
+    }
+    .big-left {
+      top: 200px;
+      left: -15%;
+      border: 2px solid $lightBlue;
+      box-shadow: 0 0 5px $lightBlue, inset 0 0 5px $lightBlue,
+        0 0 25px $lightBlue, inset 0 0 100px $lightBlue;
+    }
+
+    .medium-right {
+      right: 0;
+      top: 125px;
+      border: 2px solid $primaryBlue;
+      box-shadow: 0 0 5px $primaryBlue, inset 0 0 5px $primaryBlue,
+        inset 0 0 75px $primaryBlue, 0 0 25px $primaryBlue;
+    }
+
+    .small-right {
+      right: 75px;
+      top: 400px;
+      border: 2px solid $primaryPurple;
+      box-shadow: 0 0 5px $primaryPurple, inset 0 0 5px $primaryPurple,
+        inset 0 0 60px $primaryPurple, 0 0 30px $primaryPurple;
+    }
+
+    .big-right {
+      height: 125px;
+      width: 125px;
+      top: 650px;
+      right: -30px;
+      position: absolute;
+      border: 2px solid $primaryPink;
+      box-shadow: 0 0 25px $primaryPink, inset 0 0 75px $primaryPink,
+        inset 0 0 25px #fff;
+    }
+  }
+}

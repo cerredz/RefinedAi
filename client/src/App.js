@@ -7,6 +7,7 @@ import {
   Home,
   Login,
   Support,
+  CreditsExplore,
 } from "./scenes/scenes";
 
 import { PaymentSuccess } from "./components/components";
@@ -16,6 +17,12 @@ const App = (props) => {
     //localStorage.setItem("user", JSON.stringify(null));
     //localStorage.setItem("token", JSON.stringify(null));
     //localStorage.removeItem("account-created");
+
+    /* Whenever returning to home page, we want to scroll to the top of the screen */
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, []);
   return (
     <div style={{ background: `#171C28` }}>
@@ -30,6 +37,14 @@ const App = (props) => {
           <Route
             path="/success/:credits/:paymentID/:price/:type"
             element={<PaymentSuccess />}
+          />
+          <Route
+            path="/credits"
+            element={
+              <>
+                <CreditsExplore />
+              </>
+            }
           />
         </Routes>
       </BrowserRouter>

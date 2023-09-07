@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s ease-in-out;
+  color: rgb(225, 225, 225);
+  font-family: "Roboto Mono", monospace;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grey-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hide {
+  display: none;
+}
+
+.btn-glow-hover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
+}
+.btn-glow-hover::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transform: skewX(45deg);
+  filter: blur(1rem);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
+}
+.btn-glow-hover:hover {
+  box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.3);
+}
+.btn-glow-hover:hover::before {
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.smooth-btn {
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+
+.center-outwards-hover::before, .center-outwards-hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.2);
+  width: 0;
+  transition: 0.4s ease-in-out;
+}
+.center-outwards-hover::before {
+  right: 50%;
+}
+.center-outwards-hover::after {
+  left: 50%;
+}
+.center-outwards-hover:hover::after, .center-outwards-hover:hover::before {
+  width: 50%;
+  transition: 0.4s ease-in-out;
+}
+
+.pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.credits-explore-container {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 75px;
+}
+.credits-explore-container .glow {
+  display: none;
+}
+.credits-explore-container .credits-explore-banner {
+  margin-top: 75px;
+  text-align: center;
+}
+.credits-explore-container .credits-explore-banner p {
+  width: 60%;
+  margin: 20px auto;
+  max-width: 700px;
+}
+.credits-explore-container .credits-explore-banner .header {
+  font-size: 1.9rem;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+.credits-explore-container .credits-explore-banner .grey-text {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+@media (min-width: 1000px) {
+  .credits-explore-container .credits-explore-banner .header {
+    font-size: 2.5rem;
+  }
+  .credits-explore-container .credits-explore-banner .header span {
+    position: relative;
+    z-index: 1;
+    background-image: linear-gradient(45deg, rgb(13, 168, 234), rgb(238, 6, 238));
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  .credits-explore-container .credits-explore-banner .header span::before {
+    position: absolute;
+    content: "";
+    inset: 0;
+    background: linear-gradient(45deg, rgb(13, 168, 234), rgb(238, 6, 238));
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(2rem);
+  }
+  .credits-explore-container .credits-explore-banner .grey-text {
+    font-size: 1rem;
+    max-width: 850px;
+  }
+}
+/* ONCE WE GET ONLY 2 ROWS OF CARDS, ADD THE CUSTOM GLOWING CIRCLES */
+@media (min-width: 1275px) {
+  .credits-explore-container {
+    /* CUSTOM GLOWING CIRCLES STYLE */
+  }
+  .credits-explore-container .glow {
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+  }
+  .credits-explore-container .small {
+    height: 75px;
+    width: 75px;
+  }
+  .credits-explore-container .medium {
+    height: 125px;
+    width: 125px;
+  }
+  .credits-explore-container .big {
+    height: 200px;
+    width: 200px;
+  }
+  .credits-explore-container .small-left {
+    top: 0;
+    left: 0;
+    border: 2px solid rgb(5, 220, 235);
+    box-shadow: 0 0 5px rgb(5, 220, 235), inset 0 0 5px rgb(5, 220, 235), inset 0 0 50px rgb(5, 220, 235), 0 0 25px rgb(5, 220, 235);
+  }
+  .credits-explore-container .medium-left {
+    top: 500px;
+    left: 50px;
+    border: 2px solid rgb(0, 89, 255);
+    box-shadow: 0 0 5px rgb(0, 89, 255), inset 0 0 5px rgb(0, 89, 255), inset 0 0 75px rgb(0, 89, 255), 0 0 25px rgb(0, 89, 255);
+  }
+  .credits-explore-container .big-left {
+    top: 200px;
+    left: -15%;
+    border: 2px solid rgb(13, 168, 234);
+    box-shadow: 0 0 5px rgb(13, 168, 234), inset 0 0 5px rgb(13, 168, 234), 0 0 25px rgb(13, 168, 234), inset 0 0 100px rgb(13, 168, 234);
+  }
+  .credits-explore-container .medium-right {
+    right: 0;
+    top: 125px;
+    border: 2px solid rgb(6, 36, 233);
+    box-shadow: 0 0 5px rgb(6, 36, 233), inset 0 0 5px rgb(6, 36, 233), inset 0 0 75px rgb(6, 36, 233), 0 0 25px rgb(6, 36, 233);
+  }
+  .credits-explore-container .small-right {
+    right: 75px;
+    top: 400px;
+    border: 2px solid rgb(99, 11, 214);
+    box-shadow: 0 0 5px rgb(99, 11, 214), inset 0 0 5px rgb(99, 11, 214), inset 0 0 60px rgb(99, 11, 214), 0 0 30px rgb(99, 11, 214);
+  }
+  .credits-explore-container .big-right {
+    height: 125px;
+    width: 125px;
+    top: 650px;
+    right: -30px;
+    position: absolute;
+    border: 2px solid rgb(238, 6, 238);
+    box-shadow: 0 0 25px rgb(238, 6, 238), inset 0 0 75px rgb(238, 6, 238), inset 0 0 25px #fff;
+  }
+}/*# sourceMappingURL=CreditsExplore.css.map */

@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s ease-in-out;
+  color: rgb(225, 225, 225);
+  font-family: "Roboto Mono", monospace;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grey-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hide {
+  display: none;
+}
+
+.btn-glow-hover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
+}
+.btn-glow-hover::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transform: skewX(45deg);
+  filter: blur(1rem);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
+}
+.btn-glow-hover:hover {
+  box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.3);
+}
+.btn-glow-hover:hover::before {
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.smooth-btn {
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+
+.center-outwards-hover::before, .center-outwards-hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.2);
+  width: 0;
+  transition: 0.4s ease-in-out;
+}
+.center-outwards-hover::before {
+  right: 50%;
+}
+.center-outwards-hover::after {
+  left: 50%;
+}
+.center-outwards-hover:hover::after, .center-outwards-hover:hover::before {
+  width: 50%;
+  transition: 0.4s ease-in-out;
+}
+
+.pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.homepage-return-container {
+  position: relative;
+  width: 100%;
+  margin: 25px 0;
+  padding: 10px;
+}
+.homepage-return-container .btn-home {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 25px;
+  border-radius: 10px;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.homepage-return-container .btn-home p,
+.homepage-return-container .btn-home svg {
+  font-size: 1rem;
+}
+.homepage-return-container .btn-home p {
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+.homepage-return-container .btn-home::before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  width: 0;
+  filter: blur(2px);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+  z-index: -1;
+  transition: 0.25s ease-in-out;
+  border-radius: inherit;
+}
+.homepage-return-container .btn-home:hover {
+  transition: 0.25s ease-in-out;
+}
+.homepage-return-container .btn-home:hover::before {
+  width: 125%;
+}/*# sourceMappingURL=HomepageReturn.css.map */

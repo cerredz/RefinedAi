@@ -30,7 +30,7 @@ const CreditsAdvert = () => {
           </div>
 
           <div className="credit-advert-buttons flex">
-            <button className="explore">
+            <button onClick={() => navigate("/credits")} className="explore">
               Explore <span className="glow"></span>
             </button>
             <button
