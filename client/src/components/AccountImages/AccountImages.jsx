@@ -11,6 +11,7 @@ import upscaleIcon from "../assets/check.png";
 import downloadIcon from "../assets/download.png";
 import { saveAs } from "file-saver";
 import { downloadImage } from "../../client";
+import { SmoothDarkButton } from "../../widgets/widgets";
 
 const AccountImages = () => {
   const user = useSelector((state) => state.auth.user);
@@ -18,18 +19,11 @@ const AccountImages = () => {
   const dispatch = useDispatch();
 
   const [isSelectedImage, setIsSelectedImage] = useState();
-  const [imgWidth, setImgWidth] = useState(0);
-  const [imgHeight, setImgHeight] = useState(0);
-  const [fileSize, setFileSize] = useState(0);
-  const [aspectRatio, setAspectRatio] = useState(0);
+  const [imgSize, setImgSize] = useState(null);
 
   useEffect(() => {
     getUserImages();
   }, []);
-
-  useEffect(() => {
-    console.log(isSelectedImage);
-  }, [isSelectedImage]);
 
   /* GET ALL IMAGES THER USER HAS UPSCALED */
   const getUserImages = async () => {
@@ -47,6 +41,16 @@ const AccountImages = () => {
   /* USER CLICKED AN IMAGE TO EXPAND */
   const handleImageClick = (img) => {
     setIsSelectedImage(img);
+
+    const imgSize = img.size;
+    const kiloBytes = Math.round(img.size / 1024);
+
+    if (kiloBytes > 1000) {
+      const megaBytes = (kiloBytes / 1024).toFixed(1);
+      setImgSize(`${megaBytes} MB`);
+    } else {
+      setImgSize(`${kiloBytes} KB`);
+    }
   };
 
   return (
@@ -72,6 +76,7 @@ const AccountImages = () => {
             </div>
           ))}
       </div>
+
       {isSelectedImage && (
         <div className="selected-upscaled-image-container">
           {/* EXPANDED IMAGE CONTAINER */}
@@ -117,10 +122,45 @@ const AccountImages = () => {
             <img className="pfp" src={user.picturePath} alt=""></img>
             <p>{user.username}</p>
           </div>
+
           {/* IMAGE INFO */}
-          <div className="image-info-container">
-            <h3>Image Stats</h3>
+          <div className="image-info-container flex">
+            <div className="header-container flex">
+              <h3 className="header">Image Stats</h3>
+            </div>
+
+            <div className="image-info-content flex">
+              <div className="image-info ">
+                <h3 className="subheader">{isSelectedImage.width}</h3>
+                <p className="grey-text">Width</p>
+              </div>
+
+              <div className="image-info ">
+                <h3 className="subheader">{isSelectedImage.height}</h3>
+                <p className="grey-text">Height</p>
+              </div>
+
+              <div className="image-info ">
+                <h3 className="subheader">{imgSize}</h3>
+                <p className="grey-text">Size</p>
+              </div>
+
+              <div className="image-info ">
+                <h3 className="subheader">{isSelectedImage.aspectRatio}</h3>
+                <p className="grey-text">Aspect Ratio</p>
+              </div>
+
+              <div className="image-info ">
+                <h3 className="subheader">{isSelectedImage.format}</h3>
+                <p className="grey-text">File Type</p>
+              </div>
+            </div>
           </div>
+
+          <SmoothDarkButton
+            handleClick={() => setIsSelectedImage(null)}
+            text={"Back"}
+          />
         </div>
       )}
     </>
