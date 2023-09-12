@@ -20,7 +20,7 @@ const CreditsAdvert = () => {
         <div className="credit-advert-text flex">
           <div className="credit-advert-heading flex">
             <h1 className="header">
-              Unlock Enahanced Images with <span>Credits</span>
+              Unlock Upscaled Images with <span>Credits</span>
             </h1>
             <p className="grey-text">
               Buying credits give you the ability to upscale an abundance of

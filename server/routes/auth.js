@@ -59,7 +59,7 @@ router.post("/register", async (req, res) => {
       email,
       password: passwordHash,
       picturePath: "",
-      credits: accountCreated ? 0 : 20,
+      credits: accountCreated ? 0 : 5,
     });
 
     const savedUser = await newUser.save();

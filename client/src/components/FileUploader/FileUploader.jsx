@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone";
 import Axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setLogin } from "../../state";
+import { setUpdateUser } from "../../state";
 import {
   AiOutlineCloudUpload,
   AiOutlineLoading3Quarters,
@@ -15,20 +15,23 @@ import "./FileUploader.css";
 
 const FileUploader = (props) => {
   const user = useSelector((state) => state.auth.user);
-  const token = useSelector((state) => state.auth.token);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
+  const [imageHeight, setImageHeight] = useState(null);
 
   const [upscalingImage, setUpscalingImage] = useState(false);
   const [upscaledImage, setUpscaledImage] = useState(null);
-  const [creditsError, setCreditsError] = useState(false);
+  const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    console.log(image);
+  }, [image]);
   // Function to Upscale an Image for a User
   const handleUpscale = async () => {
     if (user.credits < 1) {
       //user does not have enought credits
-      setCreditsError(true);
+      navigate("/credits");
       return;
     }
 
@@ -47,27 +50,32 @@ const FileUploader = (props) => {
     setUpscalingImage(true);
     setImage(null);
 
-    const response = await Axios.post(
+    const request = await Axios.post(
       `${process.env.REACT_APP_BACKEND_URL}/upscale/image`,
       formData
     );
 
-    const userData = response.data.user;
-    const imageData = response.data.imageObj;
+    const response = request.data;
+
+    if (response.message === "Image Input Too Big") {
+      setErrors({ upscale: true });
+      return;
+    }
+
+    /* IMAGE UPSCALED, UPDATE FRONTEND */
+    const userData = response.user;
+    const imageData = response.imageObj;
 
     setUpscalingImage(false);
-
-    /* Extract The Upscaled Image from the backend */
     setUpscaledImage(imageData);
 
-    dispatch(setLogin({ user: userData, token: token }));
-    /* Update User's Credits and Image Paths*/
+    dispatch(setUpdateUser({ user: userData }));
     localStorage.setItem("user", JSON.stringify(userData));
   };
 
+  /* UPDATE IMAGE AND IMAGE HIEGHT WHEN USER UPLOADS IMAGE */
   const handleOnDrop = (acceptedFiles) => {
     setImage(acceptedFiles[0]);
-    props.handleUploadImage();
     setUpscaledImage(false);
   };
 
@@ -82,9 +90,8 @@ const FileUploader = (props) => {
           <GrClose className="cancel" onClick={() => setImage(null)} />
         </>
       )}
-      {creditsError && (
-        <p className="err-credits">* Error: Not Enough Credits *</p>
-      )}
+      {errors.upscale && <p>Input Image Too Big</p>}
+
       <Dropzone
         acceptedFiles=".jpg, .jpeg, .png"
         multiple={false}
@@ -117,7 +124,7 @@ const FileUploader = (props) => {
                   >
                     <img
                       className="dropzone-image"
-                      src={`${process.env.REACT_APP_BACKEND_URL}/upscale/Public/assets/${upscaledImage.picturePath}`}
+                      src={`${process.env.REACT_APP_BACKEND_URL}/upscale/Public/assets/upscaled/${upscaledImage.picturePath}`}
                       alt="upscaled"
                     />
                   </div>

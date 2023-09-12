@@ -5,7 +5,30 @@ const imageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  picturePath: String,
+  picturePath: {
+    type: String,
+    required: true,
+  },
+  width: {
+    type: Number,
+    required: true,
+  },
+  height: {
+    type: Number,
+    required: true,
+  },
+  size: {
+    type: Number,
+    required: true,
+  },
+  aspectRatio: {
+    type: String,
+    required: true,
+  },
+  format: {
+    type: String,
+    required: true,
+  },
 });
 
 const Image = mongoose.model("Image", imageSchema);

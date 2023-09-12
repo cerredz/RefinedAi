@@ -89,4 +89,10 @@ export const getStats = async () => {
   }
 };
 
-/* */
+/* SCROLLS TO THE OF PAGE, MAINLY USED ON SCENES WHEN USER IS REDIRECTED */
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};

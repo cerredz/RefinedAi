@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLogin } from "../../state";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
+import { scrollToTop } from "../../client";
 
 /* MOBILE ICONS*/
 import profileIcon from "../../components/assets/profilePicture.png";
@@ -38,7 +39,6 @@ const Account = () => {
         - Buy Credits ()
         
     */
-
   const user = useSelector((state) => state.auth.user);
   const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState("account-settings");
@@ -49,6 +49,9 @@ const Account = () => {
     setUploadedImage(true);
   };
 
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <div className="account-container">
       {/* MOBILE DESIGN */}
@@ -132,7 +135,7 @@ const Account = () => {
           <div>
             <ul className="flex">
               <li onClick={() => navigate("/")}>Home</li>
-              <li onClick={() => navigate("/")}>Pricing</li>
+              <li onClick={() => navigate("/credits")}>Pricing</li>
               <li onClick={() => setSelectedTab("support")}>Support</li>
               <li>Collection</li>
             </ul>

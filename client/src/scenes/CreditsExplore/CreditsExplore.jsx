@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import { Navbar, Credits } from "../../components/components";
 import { HomepageReturn } from "../../widgets/widgets";
+import { scrollToTop } from "../../client";
 
 import "./CreditsExplore.css";
 
 const CreditsExplore = (props) => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   return (
     <>
