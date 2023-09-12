@@ -18,7 +18,6 @@ const FileUploader = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
-  const [imageHeight, setImageHeight] = useState(null);
 
   const [upscalingImage, setUpscalingImage] = useState(false);
   const [upscaledImage, setUpscaledImage] = useState(null);
@@ -59,6 +58,7 @@ const FileUploader = (props) => {
 
     if (response.message === "Image Input Too Big") {
       setErrors({ upscale: true });
+
       return;
     }
 
@@ -79,6 +79,13 @@ const FileUploader = (props) => {
     setUpscaledImage(false);
   };
 
+  const handleRetryUpscale = () => {
+    setUpscalingImage(false);
+    setErrors({});
+    setUpscaledImage(null);
+    setImage(null);
+  };
+
   return (
     <div className="file-uploader-container flex">
       {/* After Image is Uploaded */}
@@ -90,7 +97,6 @@ const FileUploader = (props) => {
           <GrClose className="cancel" onClick={() => setImage(null)} />
         </>
       )}
-      {errors.upscale && <p>Input Image Too Big</p>}
 
       <Dropzone
         acceptedFiles=".jpg, .jpeg, .png"
@@ -108,12 +114,30 @@ const FileUploader = (props) => {
                     Upload <AiOutlineCloudUpload />
                   </button>
                 ) : (
-                  <>
+                  <div className="upscale-loading-container">
                     {/* Loading Screen While Image is Upscaling */}
                     {upscalingImage && (
                       <AiOutlineLoading3Quarters className="loading" />
                     )}
-                  </>
+
+                    {errors.upscale && (
+                      <div className="error-container">
+                        <p className="grey-text ">Input Image Too Big</p>
+                        <p className="grey-text">
+                          {" "}
+                          Maximum Input Image size: 2,097,152 pixels (1024x1024)
+                          / (2048x512)
+                        </p>
+
+                        <button
+                          className="btn-back"
+                          onClick={handleRetryUpscale}
+                        >
+                          Back
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 )}
 
                 {/* Image After Upscaling */}
@@ -148,12 +172,17 @@ const FileUploader = (props) => {
       </Dropzone>
 
       {!image && upscaledImage && (
-        <button
-          className="download"
-          onClick={() => downloadImage(upscaledImage)}
-        >
-          Download
-        </button>
+        <>
+          <button
+            className="download"
+            onClick={() => downloadImage(upscaledImage)}
+          >
+            Download
+          </button>
+          <button onClick={handleRetryUpscale} className="btn-upscale-back">
+            Back
+          </button>
+        </>
       )}
     </div>
   );

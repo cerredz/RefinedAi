@@ -84,9 +84,30 @@
     color: red;
   }
 
-  .loading {
-    font-size: 2rem;
-    animation: spin 2s linear infinite forwards;
+  .upscale-loading-container {
+    text-align: center;
+    .loading {
+      font-size: 5rem;
+      animation: spin 2s linear infinite forwards;
+    }
+
+    .error-container {
+      .grey-text {
+        font-size: 0.8rem;
+      }
+
+      .btn-back {
+        margin: 10px 0;
+        padding: 10px 25px;
+        border-radius: 10px;
+        letter-spacing: 2px;
+        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
   }
 
   @keyframes spin {
@@ -104,24 +125,38 @@
     max-width: 100%;
 
     .dropzone-image {
-      width: 100%;
+      max-width: 100%;
       max-height: 350px;
       height: 100%;
       object-fit: contain;
     }
   }
-  .download {
+
+  .download,
+  .btn-upscale-back {
     padding: 10px 25px;
-    border-radius: 20px;
-    background: $lightBlue;
-    opacity: 0.4;
+    border-radius: 10px;
     letter-spacing: 2px;
     z-index: 5;
     position: absolute;
-    bottom: -50px;
+  }
 
+  .download {
+    background: $lightBlue;
+    opacity: 0.4;
+    bottom: -50px;
+    transform: translateX(-65px);
     &:hover {
       opacity: 0.8;
+    }
+  }
+
+  .btn-upscale-back {
+    background: rgba(0, 0, 0, 0.2);
+    bottom: -50px;
+    transform: translateX(65px);
+    &:hover {
+      background: rgba(0, 0, 0, 0.5);
     }
   }
 }

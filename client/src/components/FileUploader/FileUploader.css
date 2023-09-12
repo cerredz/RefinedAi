@@ -184,9 +184,26 @@ button {
   background: rgba(255, 255, 255, 0.2);
   color: red;
 }
-.file-uploader-container .loading {
-  font-size: 2rem;
+.file-uploader-container .upscale-loading-container {
+  text-align: center;
+}
+.file-uploader-container .upscale-loading-container .loading {
+  font-size: 5rem;
   animation: spin 2s linear infinite forwards;
+}
+.file-uploader-container .upscale-loading-container .error-container .grey-text {
+  font-size: 0.8rem;
+}
+.file-uploader-container .upscale-loading-container .error-container .btn-back {
+  margin: 10px 0;
+  padding: 10px 25px;
+  border-radius: 10px;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+.file-uploader-container .upscale-loading-container .error-container .btn-back:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 @keyframes spin {
   0% {
@@ -201,22 +218,34 @@ button {
   max-width: 100%;
 }
 .file-uploader-container .dropzone-container .dropzone-image {
-  width: 100%;
+  max-width: 100%;
   max-height: 350px;
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
-.file-uploader-container .download {
+.file-uploader-container .download,
+.file-uploader-container .btn-upscale-back {
   padding: 10px 25px;
-  border-radius: 20px;
-  background: rgb(13, 168, 234);
-  opacity: 0.4;
+  border-radius: 10px;
   letter-spacing: 2px;
   z-index: 5;
   position: absolute;
+}
+.file-uploader-container .download {
+  background: rgb(13, 168, 234);
+  opacity: 0.4;
   bottom: -50px;
+  transform: translateX(-65px);
 }
 .file-uploader-container .download:hover {
   opacity: 0.8;
+}
+.file-uploader-container .btn-upscale-back {
+  background: rgba(0, 0, 0, 0.2);
+  bottom: -50px;
+  transform: translateX(65px);
+}
+.file-uploader-container .btn-upscale-back:hover {
+  background: rgba(0, 0, 0, 0.5);
 }/*# sourceMappingURL=FileUploader.css.map */
