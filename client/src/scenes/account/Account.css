@@ -320,6 +320,7 @@ button {
   .account-container .account-content .account-dashboard-content .account-dashboard {
     width: 80%;
     margin: 0 auto;
+    min-height: 75vh;
   }
   .account-container .account-content .account-dashboard-content .account-dashboard .uploader-border {
     border-radius: 10px;
@@ -343,7 +344,7 @@ button {
     border-radius: 50%;
   }
   .bottom-right-circle {
-    background: rgb(22, 53, 87);
+    box-shadow: inset 30px 0 90px rgb(99, 11, 214), inset -30px 0 90px rgb(238, 6, 238), -30px 0 90px rgb(99, 11, 214), 0 0 1px #fff, 30px 0 90px rgb(238, 6, 238);
     bottom: 0;
     right: 25px;
     height: 200px;
@@ -355,6 +356,7 @@ button {
     height: 200px;
     width: 200px;
     background: rgb(2, 44, 88);
+    box-shadow: inset 30px 0 80px rgb(6, 36, 233), inset -30px 0 80px rgb(13, 168, 234), inset 0 0 15px #fff, 0 0 1px #fff, -30px 0 80px rgb(6, 36, 233), 30px 0 80px rgb(13, 168, 234);
   }
 }
 @keyframes slideRight {

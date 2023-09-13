@@ -1,6 +1,7 @@
 import imageQualityIcon from "../assets/painting.png";
 import timeSavingIcon from "../assets/card2.png";
 import aiPoweredIcon from "../assets/card3.png";
+
 export const cardData = [
   {
     heading: "Enhanced Image Quality",

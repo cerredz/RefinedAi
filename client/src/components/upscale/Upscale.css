@@ -109,7 +109,6 @@ button {
 .upscale-container {
   position: relative;
   z-index: 1;
-  margin-bottom: 75px;
 }
 .upscale-container::before {
   position: absolute;
@@ -272,6 +271,26 @@ button {
   line-height: 1.4;
   letter-spacing: 1px;
   font-weight: 400;
+}
+.upscale-container .upscale-content .upscale-companies-container {
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 75px;
+  gap: 5%;
+  flex-wrap: wrap;
+}
+.upscale-container .upscale-content .upscale-companies-container .company-container {
+  padding: 10px 25px;
+  border-radius: 20px;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.01);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  margin: 10px 0;
+}
+.upscale-container .upscale-content .upscale-companies-container .company-container img {
+  width: 20px;
+  fill: #fff;
 }
 
 @media (min-width: 1300px) {

@@ -6,7 +6,7 @@ const Features = () => {
       {/* HEADING / SUBHEADING*/}
       <div className="features-heading">
         <h1 className="heading">
-          RefinedAI <span>Features</span>
+          Our <span>Features</span>
         </h1>
 
         <p className="grey-text">

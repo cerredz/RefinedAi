@@ -5,6 +5,7 @@ import { setLogin } from "../../state";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { scrollToTop } from "../../client";
+import { SmoothDarkButton } from "../../widgets/widgets";
 
 /* MOBILE ICONS*/
 import profileIcon from "../../components/assets/profilePicture.png";
@@ -286,6 +287,12 @@ const Account = () => {
                 </p>
               </div>
             )}
+            <div className="flex">
+              <SmoothDarkButton
+                handleClick={() => navigate("/")}
+                text={"Home"}
+              />
+            </div>
           </div>
         </div>
       </div>

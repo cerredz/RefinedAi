@@ -12,6 +12,7 @@ const Home = (props) => {
       <div className="first-page-container">
         <Upscale />
         <CreditsAdvert />
+        <Features />
       </div>
 
       <div className="second-page-container"></div>

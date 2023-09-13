@@ -56,11 +56,11 @@ const Credits = (props) => {
                 </li>
                 <li className="flex">
                   <img src={checkmark} alt="" />
-                  <p>8k Image Quality</p>
+                  <p>4k Image Quality</p>
                 </li>
                 <li className="flex">
                   <img src={checkmark} alt="" />
-                  <p>Advanced Artificial Intelligence</p>
+                  <p>Latest AI Technology</p>
                 </li>
                 <li className="flex">
                   <img src={checkmark} alt="" />

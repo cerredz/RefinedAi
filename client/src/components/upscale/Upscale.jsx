@@ -8,55 +8,6 @@ import { cardData } from "./Cards";
 const Upscale = (props) => {
   const stats = useSelector((state) => state.auth.stats);
   return (
-    /*
-    <div id="upscale" className="upscale-container">
-      <div className="upscale-content flex">
-        <div className="upscale-header flex">
-          <h1>
-            <span className="upscale-text">Upscale</span> Your Images To The
-            Next Level
-          </h1>
-          <p className="grey-text">
-            Use Revolutionizing AI Technology to Make Your Pictures Crystal
-            Clear
-          </p>
-
-          <div
-            className={`upscale-upload flex ${
-              uploadedImage ? "" : "upscale-upload-fill"
-            }`}
-          >
-            <FileUploader handleUploadImage={handleUploadImage} />
-          </div>
-          <p className="grey-text">* Accepted Files are .pdf, .jpg, .jpeg *</p>
-        </div>
-
-        <div className="upscale-images">
-          {imageUrls.map((imgUrl, index) => (
-            <>
-              <div
-                className={`image-container ${
-                  expandImage === imgUrl ? "hide" : ""
-                }`}
-              >
-                <img key={index} src={imgUrl} alt="4k"></img>
-                <BsBoxArrowInUpLeft onClick={() => setExpandImage(imgUrl)} />
-              </div>
-
-              {expandImage === imgUrl && (
-                <div className="expanded-image-container">
-                  <img key={index} src={imgUrl} alt="4k"></img>
-                  <GrClose onClick={() => setExpandImage("")} />
-                </div>
-              )}
-            </>
-          ))}
-        </div>
-      </div>
-      
-    </div>
-    */
-
     <div className="upscale-container">
       <Navbar />
       <div className="upscale-content">

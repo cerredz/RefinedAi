@@ -4,11 +4,111 @@
   margin: 75px auto;
   position: relative;
 
+  .credits-advert-companies {
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    gap: 25px;
+    background: #131824;
+    padding: 25px 0;
+
+    .company-card {
+      background: #171c28;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+      gap: 10px;
+      padding: 10px 25px;
+      border-radius: 20px;
+      z-index: 1;
+      cursor: pointer;
+      position: relative;
+      img {
+        width: 20px;
+      }
+      p {
+        letter-spacing: 2px;
+        font-weight: 400;
+        font-size: 0.9rem;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        border-radius: inherit;
+        background: inherit;
+        inset: 0;
+        z-index: -1;
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: calc(100% - 2px);
+        left: 5%;
+        width: 90%;
+        height: 0;
+
+        z-index: -2;
+        border-radius: inherit;
+        filter: blur(2px);
+        transition: 0.4s ease-in-out;
+      }
+
+      &:hover {
+        box-shadow: none;
+        &::before {
+          height: 2px;
+          filter: blur(5px);
+          transition: 0.4s ease-in-out;
+        }
+      }
+    }
+
+    /* CUSTOM BOX SHADOW ON HOVER FOR EACH COMPANY */
+    .google {
+      &::before {
+        background: linear-gradient(
+          to right,
+          rgb(233, 66, 53),
+          #fabb05,
+          #34a853,
+          #4285f4
+        );
+      }
+    }
+
+    .microsoft {
+      &::before {
+        background: #188017;
+      }
+    }
+
+    .nvidia {
+      &::before {
+        background: #7abb08;
+      }
+    }
+
+    .netflix {
+      &::before {
+        background: $lightBlue;
+      }
+    }
+  }
   .credit-advert-content {
     flex-direction: column;
-    padding: 25px 10%;
+    padding: 75px 10%;
     flex-wrap: wrap;
     gap: 25px;
+    z-index: 1;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 0;
+      background: #131824;
+      z-index: -1;
+    }
 
     .img-container {
       max-width: 100%;
@@ -142,6 +242,7 @@
           gap: 5px;
           position: relative;
           padding: 10px 0;
+          background: inherit;
 
           &:hover {
             svg {
@@ -197,15 +298,15 @@
 
 @media (min-width: 1200px) {
   .credits-advert-container {
-    margin-top: 150px;
     .credit-advert-content {
       display: grid;
       place-items: center;
       grid-template-columns: 1fr 1fr;
-      gap: 100px;
+
+      gap: 0;
 
       .img-container {
-        max-width: 100%;
+        max-width: 80%;
       }
 
       .credit-advert-text {
@@ -216,6 +317,7 @@
           margin: 0;
           .header {
             font-size: 2.5rem;
+            max-width: 75%;
           }
           .grey-text {
             font-size: 1rem;

@@ -3,7 +3,6 @@
 .upscale-container {
   position: relative;
   z-index: 1;
-  margin-bottom: 75px;
 
   &::before {
     position: absolute;
@@ -220,6 +219,31 @@
             letter-spacing: 1px;
             font-weight: 400;
           }
+        }
+      }
+    }
+
+    .upscale-companies-container {
+      //justify-content: space-around;
+      width: 80%;
+      position: relative;
+      margin: 0 auto;
+      margin-top: 75px;
+      gap: 5%;
+      flex-wrap: wrap;
+
+      .company-container {
+        //background: rgba(255, 255, 255, 0.05);
+        padding: 10px 25px;
+        border-radius: 20px;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.01);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        margin: 10px 0;
+
+        img {
+          width: 20px;
+          fill: #fff;
         }
       }
     }

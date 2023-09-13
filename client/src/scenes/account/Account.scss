@@ -246,6 +246,7 @@
         .account-dashboard {
           width: 80%;
           margin: 0 auto;
+          min-height: 75vh;
           .uploader-border {
             border-radius: 10px;
             min-height: 50vh;
@@ -275,7 +276,9 @@
     border-radius: 50%;
   }
   .bottom-right-circle {
-    background: rgb(22, 53, 87);
+    box-shadow: inset 30px 0 90px $primaryPurple,
+      inset -30px 0 90px $primaryPink, -30px 0 90px $primaryPurple, 0 0 1px #fff,
+      30px 0 90px $primaryPink;
     bottom: 0;
     right: 25px;
     height: 200px;
@@ -288,6 +291,9 @@
     height: 200px;
     width: 200px;
     background: rgb(2, 44, 88);
+    box-shadow: inset 30px 0 80px $primaryBlue, inset -30px 0 80px $lightBlue,
+      inset 0 0 15px #fff, 0 0 1px #fff, -30px 0 80px $primaryBlue,
+      30px 0 80px $lightBlue;
   }
 }
 

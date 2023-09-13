@@ -4,6 +4,7 @@ import space from "../assets/creditsAdvert.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { companiesData } from "./data";
 
 const CreditsAdvert = () => {
   const navigate = useNavigate("");
@@ -11,6 +12,15 @@ const CreditsAdvert = () => {
 
   return (
     <div className="credits-advert-container">
+      <div className="credits-advert-companies flex">
+        {/* COMPANIES THAT USE / DEVELOPE AI IMAGE UPSCALING */}
+        {companiesData.map((company, index) => (
+          <div className={`company-card flex ${company.classname}`} key={index}>
+            <img src={company.icon} alt="" />
+            <p className="grey-text"> {company.company}</p>
+          </div>
+        ))}
+      </div>
       <div className="credit-advert-content flex">
         <div className="img-container flex">
           <img src={space} alt="credit-advert" />
