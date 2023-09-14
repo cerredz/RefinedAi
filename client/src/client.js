@@ -6,7 +6,7 @@ import { saveAs } from "file-saver";
 /* DOWNLOADS THE INPUTTED IMAGE */
 export const downloadImage = async (img) => {
   try {
-    const imageUrl = `${process.env.REACT_APP_BACKEND_URL}/upscale/public/assets/${img.picturePath}`;
+    const imageUrl = `${process.env.REACT_APP_BACKEND_URL}/upscale/public/assets/upscaled/${img.picturePath}`;
     const response = await Axios.get(imageUrl, {
       responseType: "arraybuffer",
     });
@@ -95,4 +95,17 @@ export const scrollToTop = () => {
     top: 0,
     behavior: "smooth",
   });
+};
+
+/* GETS BEST QUALITY UPSCALED IMAGES FROM THE BACKEND */
+export const getUpscaledImages = async () => {
+  try {
+    const response = await Axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/upscale/getUpscaledImages`
+    );
+
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
 };

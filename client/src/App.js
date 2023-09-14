@@ -8,7 +8,9 @@ import {
   Login,
   Support,
   CreditsExplore,
+  Collection,
 } from "./scenes/scenes";
+import AOS from "aos";
 
 import { PaymentSuccess } from "./components/components";
 
@@ -23,6 +25,8 @@ const App = (props) => {
       top: 0,
       behavior: "smooth",
     });
+
+    AOS.init({ duration: 1000 });
   }, []);
   return (
     <div style={{ background: `#171C28`, overflow: "hidden" }}>
@@ -46,6 +50,8 @@ const App = (props) => {
               </>
             }
           />
+
+          <Route path="/collection" element={<Collection />} />
         </Routes>
       </BrowserRouter>
     </div>

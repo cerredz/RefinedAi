@@ -1,8 +1,9 @@
 import React from "react";
 import "./CollectionAdvert.css";
-import computerChip from "../assets/computerChip.png";
-import { socialMediaIcons, spanNames } from "./data";
+import { spanNames } from "./data";
+import { useNavigate } from "react-router-dom";
 const CollectionAdvert = (props) => {
+  const navigate = useNavigate();
   return (
     <div className="collection-advert-container">
       {spanNames.map((span, index) => (
@@ -21,7 +22,10 @@ const CollectionAdvert = (props) => {
           </p>
 
           <div className="btn-container flex">
-            <button className="btn-collection smooth-btn">
+            <button
+              onClick={() => navigate("/collection")}
+              className="btn-collection smooth-btn"
+            >
               View Collection
             </button>
             <button className="btn-user-images smooth-btn">

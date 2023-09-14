@@ -5,6 +5,14 @@ const imageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  username: {
+    type: String,
+    required: true,
+  },
+  userProfilePicture: {
+    type: String,
+    required: true,
+  },
   picturePath: {
     type: String,
     required: true,

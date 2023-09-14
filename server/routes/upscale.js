@@ -106,13 +106,14 @@ router.post("/image", upload.single("picture"), async (req, res) => {
     /* STORE IMAGE INFORMATION INTO DATABASE */
 
     const user = await User.findById(userId);
-
     if (!user) return res.status(404).json({ msg: "User Not Found" });
 
     /* STORE UPSCALED IMAGE INTO DATABASE */
 
     const newImage = new Image({
       userID: userId,
+      username: user.username,
+      userProfilePicture: user.picturePath,
       picturePath: path.basename(imagePath),
       width: imgWidth,
       height: imgHeight,
@@ -189,6 +190,39 @@ router.get("/Public/assets/upscaled/:path", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json("Failed to Extract Image");
+  }
+});
+
+/* RETURNS BEST QUALITY IMAGES TO THE FRONTEND */
+router.post("/getUpscaledImages", async (req, res) => {
+  try {
+    const images = await Image.find();
+    if (!images) return res.status(404).json("Upscaled Images Not Found");
+
+    let collection = new Map();
+    let frontendFormat = [];
+
+    /* 
+      - MAX IMAGES INCLUDED FOR EACH USER IS 5
+      - IMAGES MUST BE 2000 PIXELS IN EITHER WIDTH OR HEIGHT
+    */
+    images.forEach((image) => {
+      if (image.width >= 2000 || image.height >= 2000) {
+        if (!collection.has(image.username)) {
+          collection.set(image.username, []);
+        }
+
+        if (collection.get(image.username).length < 5) {
+          collection.get(image.username).push(image);
+          frontendFormat.push(image);
+        }
+      }
+    });
+
+    res.status(200).json({ frontendFormat });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("Failed to Get Upscaled Images");
   }
 });
 

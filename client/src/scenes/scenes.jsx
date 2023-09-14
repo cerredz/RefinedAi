@@ -5,4 +5,14 @@ import Reviews from "./reviews/Reviews";
 import Account from "./account/Account";
 import Purchase from "./Purchase/Purchase";
 import CreditsExplore from "./CreditsExplore/CreditsExplore";
-export { Purchase, Account, Home, Login, Support, Reviews, CreditsExplore };
+import Collection from "./Collection/Collection";
+export {
+  Purchase,
+  Account,
+  Home,
+  Login,
+  Support,
+  Reviews,
+  CreditsExplore,
+  Collection,
+};
