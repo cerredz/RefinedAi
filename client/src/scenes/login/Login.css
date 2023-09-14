@@ -68,7 +68,7 @@ button {
 
 .smooth-btn {
   padding: 10px 25px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .center-outwards-hover::before, .center-outwards-hover::after {

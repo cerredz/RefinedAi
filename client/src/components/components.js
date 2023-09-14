@@ -11,6 +11,7 @@ import EmailList from "./EmailList/EmailList";
 import Credits from "./Credits/Credits";
 import PaymentSuccess from "./paymentSucess/PaymentSuccess";
 import CreditsAdvert from "./CreditsAdvert/CreditsAdvert";
+import CollectionAdvert from "./CollectionAdvert/CollectionAdvert";
 
 export {
   AccountImages,
@@ -26,4 +27,5 @@ export {
   Credits,
   PaymentSuccess,
   CreditsAdvert,
+  CollectionAdvert,
 };

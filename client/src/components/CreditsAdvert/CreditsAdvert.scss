@@ -90,7 +90,7 @@
 
     .netflix {
       &::before {
-        background: $lightBlue;
+        background: #b30e17;
       }
     }
   }
@@ -102,6 +102,9 @@
     z-index: 1;
     position: relative;
 
+    .bottom {
+      display: none;
+    }
     &::before {
       position: absolute;
       content: "";
@@ -114,32 +117,35 @@
       max-width: 100%;
       position: relative;
       z-index: 1;
-      border-radius: 100px;
+      background: transparent;
 
       &::before {
         position: absolute;
         content: "";
         inset: 0;
         z-index: 2;
-        border-radius: inherit;
-        box-shadow: inset 150px 0 150px #171c28, inset -150px 0 150px #171c28,
-          inset -25px 0 50px black, inset 25px 0 50px black,
-          inset 0 25px 25px #171c28, inset 0 -25px 25px #171c28;
+        border-radius: 50%;
+        box-shadow: inset 0 0 150px #171c28;
       }
 
       .glow {
         position: absolute;
-        inset: 0;
-        border-radius: 40%;
-        box-shadow: -10px 0 80px rgb(238, 6, 238), 0 0 20px #fff,
-          10px 0 80px aqua, 0 -10px 20px rgb(119, 1, 255),
-          0 10px 20px rgb(118, 0, 252);
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        height: 100%;
+        width: 100%;
+
+        border-radius: 50%;
+        background: linear-gradient(to right, $primaryPink, $lightBlue);
+        filter: blur(3rem);
         opacity: 0.7;
+        z-index: -1;
       }
 
       img {
         width: 100%;
-        border-radius: 100px;
+        border-radius: 50%;
         position: relative;
         z-index: 1;
       }
@@ -269,8 +275,9 @@
             margin: 0;
             padding: 0;
             color: $primaryPink;
+
             font-size: 0.9rem;
-            font-weight: 800;
+            font-weight: 500;
           }
           svg {
             font-size: 0.9rem;
@@ -299,25 +306,48 @@
 @media (min-width: 1200px) {
   .credits-advert-container {
     .credit-advert-content {
-      display: grid;
-      place-items: center;
-      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      flex-direction: row;
 
-      gap: 0;
+      .bottom {
+        display: block;
+        position: absolute;
+        z-index: -2;
+        bottom: -100px;
+        width: 0;
+        height: 0;
+        border-bottom: 50px solid #131824;
+      }
+
+      .bottom-left {
+        left: 0;
+        border-left: 40px solid transparent;
+        border-right: 75px 25px solid transparent;
+        transform: rotate(180deg) scale(3);
+      }
+
+      .bottom-right {
+        right: 0;
+        border-left: 75px 25px solid transparent;
+        border-right: 40px solid transparent;
+        transform: rotate(-180deg) scale(3);
+      }
 
       .img-container {
-        max-width: 80%;
+        max-width: 450px;
       }
 
       .credit-advert-text {
         margin: 0;
         height: 100%;
+        max-width: 500px;
 
         .credit-advert-heading {
           margin: 0;
           .header {
             font-size: 2.5rem;
-            max-width: 75%;
+            width: 100%;
+            font-weight: 400;
           }
           .grey-text {
             font-size: 1rem;

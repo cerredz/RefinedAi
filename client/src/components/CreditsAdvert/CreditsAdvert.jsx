@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./CreditsAdvert.css";
-import space from "../assets/creditsAdvert.jpg";
+import space from "../assets/creditAdvert.png";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -22,6 +22,8 @@ const CreditsAdvert = () => {
         ))}
       </div>
       <div className="credit-advert-content flex">
+        <span className="bottom-left bottom"></span>
+        <span className="bottom-right bottom"></span>
         <div className="img-container flex">
           <img src={space} alt="credit-advert" />
           <span className="glow"></span>
@@ -30,12 +32,12 @@ const CreditsAdvert = () => {
         <div className="credit-advert-text flex">
           <div className="credit-advert-heading flex">
             <h1 className="header">
-              Unlock Upscaled Images with <span>Credits</span>
+              Unlock Upscaled Images With <span>Credits</span>
             </h1>
             <p className="grey-text">
-              Buying credits give you the ability to upscale an abundance of
-              images all your favorite images. Achieve superior image
-              enhancement with the help of credits
+              Buying credits give you the ability to upscale more images. Click
+              below to achieve world class image upscaling with the help of
+              credits
             </p>
           </div>
 

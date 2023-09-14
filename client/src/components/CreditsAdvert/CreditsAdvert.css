@@ -68,7 +68,7 @@ button {
 
 .smooth-btn {
   padding: 10px 25px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .center-outwards-hover::before, .center-outwards-hover::after {
@@ -175,7 +175,7 @@ button {
   background: #7abb08;
 }
 .credits-advert-container .credits-advert-companies .netflix::before {
-  background: rgb(13, 168, 234);
+  background: #b30e17;
 }
 .credits-advert-container .credit-advert-content {
   flex-direction: column;
@@ -184,6 +184,9 @@ button {
   gap: 25px;
   z-index: 1;
   position: relative;
+}
+.credits-advert-container .credit-advert-content .bottom {
+  display: none;
 }
 .credits-advert-container .credit-advert-content::before {
   position: absolute;
@@ -196,26 +199,32 @@ button {
   max-width: 100%;
   position: relative;
   z-index: 1;
-  border-radius: 100px;
+  background: transparent;
 }
 .credits-advert-container .credit-advert-content .img-container::before {
   position: absolute;
   content: "";
   inset: 0;
   z-index: 2;
-  border-radius: inherit;
-  box-shadow: inset 150px 0 150px #171c28, inset -150px 0 150px #171c28, inset -25px 0 50px black, inset 25px 0 50px black, inset 0 25px 25px #171c28, inset 0 -25px 25px #171c28;
+  border-radius: 50%;
+  box-shadow: inset 0 0 150px #171c28;
 }
 .credits-advert-container .credit-advert-content .img-container .glow {
   position: absolute;
-  inset: 0;
-  border-radius: 40%;
-  box-shadow: -10px 0 80px rgb(238, 6, 238), 0 0 20px #fff, 10px 0 80px aqua, 0 -10px 20px rgb(119, 1, 255), 0 10px 20px rgb(118, 0, 252);
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  background: linear-gradient(to right, rgb(238, 6, 238), rgb(13, 168, 234));
+  filter: blur(3rem);
   opacity: 0.7;
+  z-index: -1;
 }
 .credits-advert-container .credit-advert-content .img-container img {
   width: 100%;
-  border-radius: 100px;
+  border-radius: 50%;
   position: relative;
   z-index: 1;
 }
@@ -321,7 +330,7 @@ button {
   padding: 0;
   color: rgb(238, 6, 238);
   font-size: 0.9rem;
-  font-weight: 800;
+  font-weight: 500;
 }
 .credits-advert-container .credit-advert-content .credit-advert-text .credit-advert-buttons .view svg {
   font-size: 0.9rem;
@@ -339,24 +348,45 @@ button {
 }
 @media (min-width: 1200px) {
   .credits-advert-container .credit-advert-content {
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
+    gap: 25px;
+    flex-direction: row;
+  }
+  .credits-advert-container .credit-advert-content .bottom {
+    display: block;
+    position: absolute;
+    z-index: -2;
+    bottom: -100px;
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid #131824;
+  }
+  .credits-advert-container .credit-advert-content .bottom-left {
+    left: 0;
+    border-left: 40px solid transparent;
+    border-right: 75px 25px solid transparent;
+    transform: rotate(180deg) scale(3);
+  }
+  .credits-advert-container .credit-advert-content .bottom-right {
+    right: 0;
+    border-left: 75px 25px solid transparent;
+    border-right: 40px solid transparent;
+    transform: rotate(-180deg) scale(3);
   }
   .credits-advert-container .credit-advert-content .img-container {
-    max-width: 80%;
+    max-width: 450px;
   }
   .credits-advert-container .credit-advert-content .credit-advert-text {
     margin: 0;
     height: 100%;
+    max-width: 500px;
   }
   .credits-advert-container .credit-advert-content .credit-advert-text .credit-advert-heading {
     margin: 0;
   }
   .credits-advert-container .credit-advert-content .credit-advert-text .credit-advert-heading .header {
     font-size: 2.5rem;
-    max-width: 75%;
+    width: 100%;
+    font-weight: 400;
   }
   .credits-advert-container .credit-advert-content .credit-advert-text .credit-advert-heading .grey-text {
     font-size: 1rem;

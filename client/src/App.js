@@ -25,7 +25,7 @@ const App = (props) => {
     });
   }, []);
   return (
-    <div style={{ background: `#171C28` }}>
+    <div style={{ background: `#171C28`, overflow: "hidden" }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
