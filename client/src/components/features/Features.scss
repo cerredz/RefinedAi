@@ -2,23 +2,183 @@
 
 .features-container {
   position: relative;
-  width: 80%;
   margin: 0 auto;
-  padding: 25px 0;
+  padding: 25px 10%;
+  background: #131824;
+  z-index: 1;
+
+  .right-triangle,
+  .left-triangle {
+    display: none;
+  }
 
   .features-heading {
     text-align: center;
+    margin-top: 50px;
 
     .heading {
-      margin: 5px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-size: 1.7rem;
+      margin: 10px 0;
+      position: relative;
 
-      span {
-        background: linear-gradient(45deg, #ff2200, #ffd903);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        text-shadow: 0 0 3rem orange;
+      &::before {
+        position: absolute;
+        content: "";
+        inset: 5px;
+        background: linear-gradient(to right, $lightBlue, $primaryPink);
+        filter: blur(3rem);
+        z-index: -1;
       }
+    }
+  }
+
+  .features-content {
+    margin: 50px 0;
+    flex-wrap: wrap;
+    gap: 25px;
+    position: relative;
+
+    .feature {
+      max-width: 300px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 25px;
+      position: relative;
+      z-index: 1;
+      border: 2px solid rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      transition: 0.4s ease-in-out;
+
+      &::before {
+        position: absolute;
+        content: "";
+        border-radius: inherit;
+        inset: 0;
+        background: linear-gradient(to top, #1e1f2f, #171c28);
+        z-index: -2;
+      }
+
+      .feature-header {
+        margin: 5px 0;
+        h3 {
+          letter-spacing: 2px;
+          font-weight: 400;
+          font-size: 1.2rem;
+          color: #fff;
+        }
+      }
+
+      .feature-text {
+        position: relative;
+
+        .grey-text {
+          letter-spacing: 1px;
+          font-size: 0.8rem;
+          margin: 5px 0;
+          line-height: 1.3;
+        }
+
+        .btn-read-more {
+          background: transparent;
+          margin: 10px 0;
+          gap: 5px;
+          font-size: 0.9rem;
+          letter-spacing: 2px;
+          position: relative;
+
+          &::before {
+            position: absolute;
+            content: "";
+            top: 100%;
+            left: 0;
+            height: 2px;
+            background: #fff;
+            width: 0;
+            transition: 0.4s ease-in-out;
+          }
+
+          &:hover {
+            svg {
+              transform: translateX(5px);
+            }
+            &::before {
+              width: 100%;
+              transition: 0.4s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+
+    /* CUSTOM NEON HEADERS */
+    .feature-1 {
+      .feature-header {
+        h3 {
+          color: aqua;
+          text-shadow: 0 0 0.5rem aqua;
+        }
+      }
+    }
+    .feature-2 {
+      .feature-header {
+        h3 {
+          color: $lightBlue;
+          text-shadow: 0 0 0.5rem $lightBlue;
+        }
+      }
+    }
+    .feature-3 {
+      .feature-header {
+        h3 {
+          color: rgb(9, 65, 219);
+          text-shadow: 0 0 0.5rem rgb(9, 65, 219);
+        }
+      }
+    }
+    .feature-4 {
+      .feature-header {
+        h3 {
+          color: rgb(59, 17, 227);
+          text-shadow: 0 0 0.5rem rgb(59, 17, 227);
+        }
+      }
+    }
+
+    .feature-5 {
+      .feature-header {
+        h3 {
+          color: $primaryPurple;
+          text-shadow: 0 0 0.5rem $primaryPurple;
+        }
+      }
+    }
+
+    .feature-6 {
+      .feature-header {
+        h3 {
+          color: $primaryPink;
+          text-shadow: 0 0 0.5rem $primaryPink;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .features-container {
+    .features-heading {
+      .heading {
+        font-size: 2.5rem;
+      }
+    }
+
+    .features-content {
     }
   }
 }

@@ -1,7 +1,8 @@
 @import "../variables/variables.scss";
 
 .credits-advert-container {
-  margin: 75px auto;
+  margin: 0 auto;
+  margin-top: 75px;
   position: relative;
 
   .credits-advert-companies {
@@ -102,7 +103,8 @@
     z-index: 1;
     position: relative;
 
-    .bottom {
+    .left-triangle,
+    .right-triangle {
       display: none;
     }
     &::before {
@@ -309,29 +311,28 @@
       gap: 25px;
       flex-direction: row;
 
-      .bottom {
+      /*
+      .left-triangle,
+      .right-triangle {
         display: block;
         position: absolute;
-        z-index: -2;
-        bottom: -100px;
-        width: 0;
-        height: 0;
-        border-bottom: 50px solid #131824;
+        bottom: 0;
+        background: #131824;
+        width: 150px;
+        height: 150px;
+        z-index: 1;
       }
 
-      .bottom-left {
+      .left-triangle {
         left: 0;
-        border-left: 40px solid transparent;
-        border-right: 75px 25px solid transparent;
-        transform: rotate(180deg) scale(3);
+        transform: skewX(-30deg) translateY(100%) translateX(-30px);
       }
 
-      .bottom-right {
+      .right-triangle {
         right: 0;
-        border-left: 75px 25px solid transparent;
-        border-right: 40px solid transparent;
-        transform: rotate(-180deg) scale(3);
+        transform: skewX(30deg) translateY(100%) translateX(30px);
       }
+      */
 
       .img-container {
         max-width: 450px;

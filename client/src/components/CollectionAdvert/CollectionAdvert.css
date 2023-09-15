@@ -109,7 +109,7 @@ button {
 .collection-advert-container {
   position: relative;
   margin: 0 auto;
-  padding: 25px 10%;
+  padding: 100px 10%;
   z-index: 1;
 }
 .collection-advert-container .beam,
@@ -118,6 +118,7 @@ button {
 }
 .collection-advert-container .collection-advert-content {
   flex-direction: column-reverse;
+  z-index: 1;
 }
 .collection-advert-container .collection-advert-content .content-text {
   text-align: center;
@@ -221,7 +222,7 @@ button {
   width: 100%;
   max-width: 400px;
   z-index: 1;
-  min-height: 240px;
+  min-height: 250px;
 }
 .collection-advert-container .collection-advert-content .content-image::before {
   position: absolute;
@@ -255,6 +256,122 @@ button {
   }
 }
 @media (min-width: 1300px) {
+  .collection-advert-container {
+    /*
+    .beam-2,
+    .beam-3 {
+      left: 15%;
+    }
+
+    .beam-4,
+    .beam-5 {
+      left: 11%;
+    }
+
+    .beam-1,
+    .beam-6 {
+      left: 7%;
+    }
+
+    .beam-1,
+    .beam-2,
+    .beam-3,
+    .beam-4,
+    .beam-5,
+    .beam-6,
+    .beam-7,
+    .beam-8,
+    .beam-9,
+    .beam-10,
+    .beam-11,
+    .beam-12 {
+      filter: blur(1px);
+      height: calc(50% + 75px);
+    }
+
+    .beam-2,
+    .beam-4,
+    .beam-6 {
+      top: -75px;
+      transform: skewX(-30deg);
+      background: linear-gradient(to top, rgb(10, 47, 212), $lightBlue);
+    }
+
+    .beam-3,
+    .beam-5,
+    .beam-1 {
+      bottom: -75px;
+      background: linear-gradient(to bottom, rgb(10, 47, 212), $lightBlue);
+      transform: skewX(30deg);
+    }
+
+    .glow-1 {
+      left: 10%;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(
+        to top,
+        $lightBlue,
+        rgb(10, 47, 212),
+        $lightBlue
+      );
+      border-radius: 50%;
+      top: 50%;
+
+      transform: translateX(-50%) translateY(-50%);
+      filter: blur(4rem);
+    }
+
+    .glow-2 {
+      right: 10%;
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(
+        to top,
+        $primaryPurple,
+        $primaryPink,
+        $primaryPink,
+        $primaryPurple
+      );
+      border-radius: 50%;
+      top: 50%;
+
+      transform: translateX(50%) translateY(-50%);
+      filter: blur(4rem);
+    }
+
+    .beam-7,
+    .beam-8 {
+      right: 15%;
+    }
+
+    .beam-9,
+    .beam-10 {
+      right: 11%;
+    }
+
+    .beam-11,
+    .beam-12 {
+      right: 7%;
+    }
+
+    .beam-8,
+    .beam-10,
+    .beam-12 {
+      bottom: -75px;
+      transform: skewX(-30deg);
+      background: linear-gradient(to top, $primaryPurple, $primaryPink);
+    }
+
+    .beam-7,
+    .beam-9,
+    .beam-11 {
+      background: linear-gradient(to bottom, $primaryPurple, $primaryPink);
+      top: -75px;
+      transform: skewX(30deg);
+    }
+    */
+  }
   .collection-advert-container .beam {
     display: block;
     position: absolute;
@@ -264,92 +381,5 @@ button {
   .collection-advert-container .glow {
     display: block;
     position: absolute;
-  }
-  .collection-advert-container .beam-2,
-  .collection-advert-container .beam-3 {
-    left: 15%;
-  }
-  .collection-advert-container .beam-4,
-  .collection-advert-container .beam-5 {
-    left: 11%;
-  }
-  .collection-advert-container .beam-1,
-  .collection-advert-container .beam-6 {
-    left: 7%;
-  }
-  .collection-advert-container .beam-1,
-  .collection-advert-container .beam-2,
-  .collection-advert-container .beam-3,
-  .collection-advert-container .beam-4,
-  .collection-advert-container .beam-5,
-  .collection-advert-container .beam-6,
-  .collection-advert-container .beam-7,
-  .collection-advert-container .beam-8,
-  .collection-advert-container .beam-9,
-  .collection-advert-container .beam-10,
-  .collection-advert-container .beam-11,
-  .collection-advert-container .beam-12 {
-    filter: blur(1px);
-    height: calc(50% + 75px);
-  }
-  .collection-advert-container .beam-2,
-  .collection-advert-container .beam-4,
-  .collection-advert-container .beam-6 {
-    top: -75px;
-    transform: skewX(-30deg);
-    background: linear-gradient(to top, rgb(10, 47, 212), rgb(13, 168, 234));
-  }
-  .collection-advert-container .beam-3,
-  .collection-advert-container .beam-5,
-  .collection-advert-container .beam-1 {
-    bottom: -75px;
-    background: linear-gradient(to bottom, rgb(10, 47, 212), rgb(13, 168, 234));
-    transform: skewX(30deg);
-  }
-  .collection-advert-container .glow-1 {
-    left: 10%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(to top, rgb(13, 168, 234), rgb(10, 47, 212), rgb(13, 168, 234));
-    border-radius: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    filter: blur(4rem);
-  }
-  .collection-advert-container .glow-2 {
-    right: 10%;
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(to top, rgb(99, 11, 214), rgb(238, 6, 238), rgb(238, 6, 238), rgb(99, 11, 214));
-    border-radius: 50%;
-    top: 50%;
-    transform: translateX(50%) translateY(-50%);
-    filter: blur(4rem);
-  }
-  .collection-advert-container .beam-7,
-  .collection-advert-container .beam-8 {
-    right: 15%;
-  }
-  .collection-advert-container .beam-9,
-  .collection-advert-container .beam-10 {
-    right: 11%;
-  }
-  .collection-advert-container .beam-11,
-  .collection-advert-container .beam-12 {
-    right: 7%;
-  }
-  .collection-advert-container .beam-8,
-  .collection-advert-container .beam-10,
-  .collection-advert-container .beam-12 {
-    bottom: -75px;
-    transform: skewX(-30deg);
-    background: linear-gradient(to top, rgb(99, 11, 214), rgb(238, 6, 238));
-  }
-  .collection-advert-container .beam-7,
-  .collection-advert-container .beam-9,
-  .collection-advert-container .beam-11 {
-    background: linear-gradient(to bottom, rgb(99, 11, 214), rgb(238, 6, 238));
-    top: -75px;
-    transform: skewX(30deg);
   }
 }/*# sourceMappingURL=CollectionAdvert.css.map */

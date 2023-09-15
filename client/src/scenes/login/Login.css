@@ -111,7 +111,7 @@ button {
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
-  background: linear-gradient(to bottom right, #1e222c, rgb(4, 39, 39));
+  background: linear-gradient(to bottom right, #171c28, rgb(4, 39, 39));
 }
 .login-container .logo-container .logo {
   border-radius: 50%;

@@ -17,15 +17,15 @@ const Home = (props) => {
       <div className="first-page-container">
         <Upscale />
         <CreditsAdvert />
-
         <CollectionAdvert />
+        <Features />
       </div>
 
       <div className="second-page-container"></div>
 
       {/* 
       <AdvertCards />
-      <Features />
+      
       */}
     </div>
   );

@@ -107,7 +107,8 @@ button {
   }
 }
 .credits-advert-container {
-  margin: 75px auto;
+  margin: 0 auto;
+  margin-top: 75px;
   position: relative;
 }
 .credits-advert-container .credits-advert-companies {
@@ -185,7 +186,8 @@ button {
   z-index: 1;
   position: relative;
 }
-.credits-advert-container .credit-advert-content .bottom {
+.credits-advert-container .credit-advert-content .left-triangle,
+.credits-advert-container .credit-advert-content .right-triangle {
   display: none;
 }
 .credits-advert-container .credit-advert-content::before {
@@ -350,27 +352,28 @@ button {
   .credits-advert-container .credit-advert-content {
     gap: 25px;
     flex-direction: row;
-  }
-  .credits-advert-container .credit-advert-content .bottom {
-    display: block;
-    position: absolute;
-    z-index: -2;
-    bottom: -100px;
-    width: 0;
-    height: 0;
-    border-bottom: 50px solid #131824;
-  }
-  .credits-advert-container .credit-advert-content .bottom-left {
-    left: 0;
-    border-left: 40px solid transparent;
-    border-right: 75px 25px solid transparent;
-    transform: rotate(180deg) scale(3);
-  }
-  .credits-advert-container .credit-advert-content .bottom-right {
-    right: 0;
-    border-left: 75px 25px solid transparent;
-    border-right: 40px solid transparent;
-    transform: rotate(-180deg) scale(3);
+    /*
+    .left-triangle,
+    .right-triangle {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      background: #131824;
+      width: 150px;
+      height: 150px;
+      z-index: 1;
+    }
+
+    .left-triangle {
+      left: 0;
+      transform: skewX(-30deg) translateY(100%) translateX(-30px);
+    }
+
+    .right-triangle {
+      right: 0;
+      transform: skewX(30deg) translateY(100%) translateX(30px);
+    }
+    */
   }
   .credits-advert-container .credit-advert-content .img-container {
     max-width: 450px;

@@ -22,8 +22,8 @@ const CreditsAdvert = () => {
         ))}
       </div>
       <div className="credit-advert-content flex">
-        <span className="bottom-left bottom"></span>
-        <span className="bottom-right bottom"></span>
+        <span className="left-triangle"></span>
+        <span className="right-triangle"></span>
         <div className="img-container flex">
           <img src={space} alt="credit-advert" />
           <span className="glow"></span>
