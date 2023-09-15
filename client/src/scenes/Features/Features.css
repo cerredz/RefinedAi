@@ -109,10 +109,12 @@ button {
 .features-scene {
   position: relative;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 .features-scene .features-scene-content {
   position: relative;
+  height: 100%;
+  width: 100%;
 }
 .features-scene .features-scene-content .features-sidebar {
   background: rgba(255, 255, 255, 0.1);
@@ -148,6 +150,10 @@ button {
 }
 .features-scene .features-scene-content .features-sidebar .features-links .feature-active {
   background: #171c28;
+}
+.features-scene .features-scene-content .features {
+  position: relative;
+  padding: 50px 10%;
 }
 
 @media (min-width: 1000px) {
@@ -204,5 +210,12 @@ button {
   }
   .features-scene .features-scene-content .features-sidebar .features-links .feature-active svg {
     fill: #fff;
+  }
+  .features-scene .features-scene-content .features {
+    padding: unset;
+    position: absolute;
+    left: 400px;
+    top: 37px;
+    right: 50px;
   }
 }/*# sourceMappingURL=Features.css.map */

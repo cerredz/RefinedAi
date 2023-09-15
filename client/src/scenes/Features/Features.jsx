@@ -7,6 +7,7 @@ import { GiExpand } from "react-icons/gi";
 import { BiTimer, BiSelectMultiple } from "react-icons/bi";
 import { HiOutlinePaintBrush } from "react-icons/hi2";
 import { ImImages } from "react-icons/im";
+import { Esrgan } from "../../components/components";
 const Features = (props) => {
   const [selectedFeature, setSelectedFeature] = useState(3);
   const { feature } = useParams();
@@ -87,6 +88,8 @@ const Features = (props) => {
             </li>
           </ul>
         </div>
+
+        <div className="features">{selectedFeature === 1 && <Esrgan />}</div>
       </div>
     </div>
   );

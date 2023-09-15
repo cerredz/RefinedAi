@@ -12,6 +12,7 @@ import Credits from "./Credits/Credits";
 import PaymentSuccess from "./paymentSucess/PaymentSuccess";
 import CreditsAdvert from "./CreditsAdvert/CreditsAdvert";
 import CollectionAdvert from "./CollectionAdvert/CollectionAdvert";
+import Esrgan from "./Esrgan/Esrgan";
 
 export {
   AccountImages,
@@ -28,4 +29,5 @@ export {
   PaymentSuccess,
   CreditsAdvert,
   CollectionAdvert,
+  Esrgan,
 };
