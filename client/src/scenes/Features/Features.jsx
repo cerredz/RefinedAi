@@ -95,7 +95,7 @@ const Features = (props) => {
 
           {/* ENHANCE / ENLARGE FEATURE*/}
           {selectedFeature === 2 && (
-            <div className="enhance-enlarge">
+            <>
               <h1 className="feature-title">Enhanced AND Enlarged</h1>
               <h3 className="feature-subheader">
                 Does RefinedAI Enlarge My Image?{" "}
@@ -118,7 +118,27 @@ const Features = (props) => {
                 scale and clarity, such as high-quality image enlargement and
                 restoration of old or low-resolution photographs
               </p>
-            </div>
+            </>
+          )}
+
+          {/* EFFICIETCY FEATURE */}
+          {selectedFeature === 3 && (
+            <>
+              <h1 className="feature-title">Efficient Upscaling</h1>
+              <h3 className="feature-subheader">
+                How Long Does it Take For My Image to Upscale?
+              </h3>
+              <p className="feature-text">
+                Apart of providing customers with the best possible experience
+                is being able to provide them with a fast and efficient solution
+                to their problem. That is exactly what we provide at RefinedAI,
+                as the upscaling process is both simple and easy to follow along
+                with taking mere seconds to complete. Our goal is provide our
+                customers with the best looking images possible while taking the
+                least amount of time necessary to achieve this, and that is
+                exactly what we are doing.
+              </p>
+            </>
           )}
         </div>
       </div>
