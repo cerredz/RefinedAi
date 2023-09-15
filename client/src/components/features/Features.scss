@@ -64,6 +64,16 @@
         z-index: -2;
       }
 
+      &::after {
+        position: absolute;
+        content: "";
+        inset: 25px;
+        z-index: -3;
+        filter: blur(2rem);
+        opacity: 0.3;
+        transition: 0.4s ease-in-out;
+      }
+
       .feature-header {
         margin: 5px 0;
         h3 {
@@ -76,6 +86,7 @@
 
       .feature-text {
         position: relative;
+        height: 100%;
 
         .grey-text {
           letter-spacing: 1px;
@@ -90,7 +101,8 @@
           gap: 5px;
           font-size: 0.9rem;
           letter-spacing: 2px;
-          position: relative;
+          position: absolute;
+          bottom: -10px;
 
           &::before {
             position: absolute;
@@ -124,12 +136,25 @@
           text-shadow: 0 0 0.5rem aqua;
         }
       }
+
+      &:hover {
+        &::after {
+          background: aqua;
+          transition: 0.4s ease-in-out;
+        }
+      }
     }
     .feature-2 {
       .feature-header {
         h3 {
           color: $lightBlue;
           text-shadow: 0 0 0.5rem $lightBlue;
+        }
+      }
+      &:hover {
+        &::after {
+          background: $lightBlue;
+          transition: 0.4s ease-in-out;
         }
       }
     }
@@ -140,12 +165,24 @@
           text-shadow: 0 0 0.5rem rgb(9, 65, 219);
         }
       }
+      &:hover {
+        &::after {
+          background: rgb(9, 65, 219);
+          transition: 0.4s ease-in-out;
+        }
+      }
     }
     .feature-4 {
       .feature-header {
         h3 {
           color: rgb(59, 17, 227);
           text-shadow: 0 0 0.5rem rgb(59, 17, 227);
+        }
+      }
+      &:hover {
+        &::after {
+          background: rgb(59, 17, 227);
+          transition: 0.4s ease-in-out;
         }
       }
     }
@@ -157,6 +194,12 @@
           text-shadow: 0 0 0.5rem $primaryPurple;
         }
       }
+      &:hover {
+        &::after {
+          background: $primaryPurple;
+          transition: 0.4s ease-in-out;
+        }
+      }
     }
 
     .feature-6 {
@@ -164,6 +207,12 @@
         h3 {
           color: $primaryPink;
           text-shadow: 0 0 0.5rem $primaryPink;
+        }
+      }
+      &:hover {
+        &::after {
+          background: $primaryPink;
+          transition: 0.4s ease-in-out;
         }
       }
     }

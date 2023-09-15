@@ -33,8 +33,8 @@ const Collection = (props) => {
           <span className="header">Collection</span>
           <p className="grey-text">
             Immerse yourself in a curated selection of the most exquisite images
-            all upscaled by using RefinedAi. Feel free to download, share, or
-            replicate anything you see below
+            all upscaled using RefinedAi. Feel free to download, share, or
+            replicate anything you see below.
           </p>
         </div>
 

@@ -1,0 +1,123 @@
+@import "../../components/variables/variables.scss";
+
+.features-scene {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+
+  .features-scene-content {
+    position: relative;
+
+    .features-sidebar {
+      background: rgba(255, 255, 255, 0.1);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      z-index: 5;
+
+      h1 {
+        display: none;
+      }
+
+      .features-links {
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 10px 5%;
+        gap: 25px;
+
+        .feature-link {
+          border-radius: 50%;
+          padding: 10px;
+          cursor: pointer;
+          //padding: 15px 25px;
+          p {
+            display: none;
+          }
+          svg {
+            font-size: 1.5rem;
+          }
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+        }
+
+        .feature-active {
+          background: #171c28;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .features-scene {
+    .features-scene-content {
+      .features-sidebar {
+        bottom: unset;
+        //width: 300px;
+        width: 325px;
+        left: 0;
+        top: 15%;
+        background: transparent;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border-right: 2px solid rgba(255, 255, 255, 0.2);
+        padding-right: 25px;
+        //margin-top: -50px;
+
+        h1 {
+          display: block;
+          width: 100%;
+          text-align: center;
+          margin: 10px 0;
+          //margin-top: 50px;
+        }
+
+        .features-links {
+          flex-direction: column;
+          align-items: flex-start;
+          padding-right: 0;
+          min-height: 90vh;
+          justify-content: flex-start;
+          gap: 10px;
+          padding: 10px;
+
+          .feature-link {
+            justify-content: flex-start;
+            gap: 25px;
+            border-radius: 0;
+            padding: 10px 0;
+
+            width: 100%;
+            border-radius: 10px;
+
+            p {
+              display: block;
+              letter-spacing: 1px;
+              font-size: 1rem;
+              color: rgba(255, 255, 255, 0.4);
+            }
+
+            svg {
+              fill: rgba(255, 255, 255, 0.4);
+              margin-left: 25px;
+            }
+          }
+
+          .feature-active {
+            background: rgba(255, 255, 255, 0.1);
+            p {
+              color: #fff;
+            }
+            svg {
+              fill: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

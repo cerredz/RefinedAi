@@ -166,6 +166,15 @@ button {
   background: linear-gradient(to top, #1e1f2f, #171c28);
   z-index: -2;
 }
+.features-container .features-content .feature::after {
+  position: absolute;
+  content: "";
+  inset: 25px;
+  z-index: -3;
+  filter: blur(2rem);
+  opacity: 0.3;
+  transition: 0.4s ease-in-out;
+}
 .features-container .features-content .feature .feature-header {
   margin: 5px 0;
 }
@@ -177,6 +186,7 @@ button {
 }
 .features-container .features-content .feature .feature-text {
   position: relative;
+  height: 100%;
 }
 .features-container .features-content .feature .feature-text .grey-text {
   letter-spacing: 1px;
@@ -190,7 +200,8 @@ button {
   gap: 5px;
   font-size: 0.9rem;
   letter-spacing: 2px;
-  position: relative;
+  position: absolute;
+  bottom: -10px;
 }
 .features-container .features-content .feature .feature-text .btn-read-more::before {
   position: absolute;
@@ -213,25 +224,49 @@ button {
   color: aqua;
   text-shadow: 0 0 0.5rem aqua;
 }
+.features-container .features-content .feature-1:hover::after {
+  background: aqua;
+  transition: 0.4s ease-in-out;
+}
 .features-container .features-content .feature-2 .feature-header h3 {
   color: rgb(13, 168, 234);
   text-shadow: 0 0 0.5rem rgb(13, 168, 234);
+}
+.features-container .features-content .feature-2:hover::after {
+  background: rgb(13, 168, 234);
+  transition: 0.4s ease-in-out;
 }
 .features-container .features-content .feature-3 .feature-header h3 {
   color: rgb(9, 65, 219);
   text-shadow: 0 0 0.5rem rgb(9, 65, 219);
 }
+.features-container .features-content .feature-3:hover::after {
+  background: rgb(9, 65, 219);
+  transition: 0.4s ease-in-out;
+}
 .features-container .features-content .feature-4 .feature-header h3 {
   color: rgb(59, 17, 227);
   text-shadow: 0 0 0.5rem rgb(59, 17, 227);
+}
+.features-container .features-content .feature-4:hover::after {
+  background: rgb(59, 17, 227);
+  transition: 0.4s ease-in-out;
 }
 .features-container .features-content .feature-5 .feature-header h3 {
   color: rgb(99, 11, 214);
   text-shadow: 0 0 0.5rem rgb(99, 11, 214);
 }
+.features-container .features-content .feature-5:hover::after {
+  background: rgb(99, 11, 214);
+  transition: 0.4s ease-in-out;
+}
 .features-container .features-content .feature-6 .feature-header h3 {
   color: rgb(238, 6, 238);
   text-shadow: 0 0 0.5rem rgb(238, 6, 238);
+}
+.features-container .features-content .feature-6:hover::after {
+  background: rgb(238, 6, 238);
+  transition: 0.4s ease-in-out;
 }
 
 @media (min-width: 1200px) {

@@ -2,7 +2,10 @@ import React from "react";
 import "./Features.css";
 import { spanNames, featuresData } from "./data";
 import { BsArrowRight } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+
 const Features = (props) => {
+  const navigate = useNavigate();
   return (
     <div id="features" className="features-container">
       {spanNames.map((span, index) => (
@@ -23,22 +26,19 @@ const Features = (props) => {
       <div className="features-content flex">
         {featuresData.map((feature, index) => (
           <div className={`feature ${feature.classname}`}>
-            <span className="top-glow"></span>
-            <span className="bottom-glow"></span>
-            <span className="span-3"></span>
             <div className="feature-header">
               <h3>{feature.heading}</h3>
             </div>
-
             <div className="feature-text">
               <p className="grey-text">{feature.subheading}</p>
-              {feature.readMore ? (
-                <button className="btn-read-more flex">
-                  Read More <BsArrowRight />
-                </button>
-              ) : (
-                <></>
-              )}
+
+              {/* READ MORE BUTTON */}
+              <button
+                onClick={() => navigate(`/features/${feature.redirect}`)}
+                className="btn-read-more flex"
+              >
+                Read More <BsArrowRight />
+              </button>
             </div>
           </div>
         ))}

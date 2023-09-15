@@ -9,6 +9,7 @@ import {
   Support,
   CreditsExplore,
   Collection,
+  Features,
 } from "./scenes/scenes";
 import AOS from "aos";
 
@@ -52,6 +53,7 @@ const App = (props) => {
           />
 
           <Route path="/collection" element={<Collection />} />
+          <Route path="/features/:feature" element={<Features />} />
         </Routes>
       </BrowserRouter>
     </div>

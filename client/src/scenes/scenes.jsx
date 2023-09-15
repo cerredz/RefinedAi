@@ -6,6 +6,7 @@ import Account from "./account/Account";
 import Purchase from "./Purchase/Purchase";
 import CreditsExplore from "./CreditsExplore/CreditsExplore";
 import Collection from "./Collection/Collection";
+import Features from "./Features/Features";
 export {
   Purchase,
   Account,
@@ -15,4 +16,5 @@ export {
   Reviews,
   CreditsExplore,
   Collection,
+  Features,
 };
