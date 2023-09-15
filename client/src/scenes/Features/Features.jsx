@@ -89,7 +89,38 @@ const Features = (props) => {
           </ul>
         </div>
 
-        <div className="features">{selectedFeature === 1 && <Esrgan />}</div>
+        {/* FEATURES */}
+        <div className="features">
+          {selectedFeature === 1 && <Esrgan />}
+
+          {/* ENHANCE / ENLARGE FEATURE*/}
+          {selectedFeature === 2 && (
+            <div className="enhance-enlarge">
+              <h1 className="feature-title">Enhanced AND Enlarged</h1>
+              <h3 className="feature-subheader">
+                Does RefinedAI Enlarge My Image?{" "}
+              </h3>
+              <p className="feature-text">
+                RefinedAI goes far beyond mere image enlargement, setting it
+                apart from conventional upscaling techniques. While traditional
+                methods simply increase the size of an image, often resulting in
+                a blurry or pixelated appearance, Real-ESRGAN takes a more
+                sophisticated approach. This advanced technology doesn't just
+                magnify the image; it also enhances the individual pixels
+                themselves, effectively breathing new life into each element
+                within the image. By intelligently inferring and filling in
+                missing details through a deep neural network, Real-ESRGAN
+                significantly improves the clarity and sharpness of the image,
+                ensuring that the upscaled version doesn't just look larger but
+                also boasts a remarkable level of visual fidelity. This capacity
+                to elevate image quality and preserve intricate details makes
+                Real-ESRGAN an indispensable tool for tasks that demand both
+                scale and clarity, such as high-quality image enlargement and
+                restoration of old or low-resolution photographs
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

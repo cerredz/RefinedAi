@@ -26,6 +26,28 @@
   display: none;
 }
 
+.feature-title {
+  font-size: max(2.5vw, 2.5rem);
+  letter-spacing: 2px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.feature-subheader {
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 10px 0;
+}
+
+.feature-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .btn-glow-hover {
   position: relative;
   overflow: hidden;
@@ -110,27 +132,8 @@ button {
   position: relative;
   margin-bottom: 50px;
 }
-.esrgan-container .header {
-  font-size: max(2.5vw, 2.5rem);
-  letter-spacing: 2px;
-  font-weight: 800;
-  margin-bottom: 25px;
-}
 .esrgan-container .esrgan-content {
   display: flex;
   flex-direction: column;
   gap: 25px;
-}
-.esrgan-container .esrgan-content .esrgan-paragraph .subheader {
-  letter-spacing: 2px;
-  font-weight: 500;
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 10px 0;
-}
-.esrgan-container .esrgan-content .esrgan-paragraph .text {
-  font-size: 0.9rem;
-  line-height: 1.4;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.4);
 }/*# sourceMappingURL=Esrgan.css.map */
