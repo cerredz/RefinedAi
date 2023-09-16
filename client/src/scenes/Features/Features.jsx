@@ -91,6 +91,7 @@ const Features = (props) => {
 
         {/* FEATURES */}
         <div className="features">
+          {/* REAL-ESRGAN MODEL FEATURE */}
           {selectedFeature === 1 && <Esrgan />}
 
           {/* ENHANCE / ENLARGE FEATURE*/}
@@ -116,7 +117,7 @@ const Features = (props) => {
                 to elevate image quality and preserve intricate details makes
                 Real-ESRGAN an indispensable tool for tasks that demand both
                 scale and clarity, such as high-quality image enlargement and
-                restoration of old or low-resolution photographs
+                restoration of old or low-resolution photographs.
               </p>
             </>
           )}
@@ -147,6 +148,35 @@ const Features = (props) => {
               <OutputFeature />
             </>
           )}
+
+          {/* DETAIL REFINEMENT FEATURE */}
+          {selectedFeature === 5 && (
+            <>
+              <h1 className="feature-title">Detail Refinement</h1>
+              <h3 className="feature-subheader">
+                How Does My Image Get Enhanced?
+              </h3>
+              <p className="feature-text">
+                RefinedAI utilized a Real-ESRGAN model that focuses on enhancing
+                the quality of individual pixels within an image, rather than
+                solely enlarging it.It accomplishes this by analyzing the
+                contextual information of neighboring pixels and using it to
+                generate missing high-frequency details, resulting in remarkably
+                clear and sharp images. Unlike traditional upscaling,
+                Real-ESRGAN doesn't just stretch pixels; it reconstructs and
+                refines them, producing images that maintain an authentic and
+                natural appearance even when scaled up. This groundbreaking
+                approach makes Real-ESRGAN invaluable for tasks where pixel
+                quality and intricate details matter, such as improving the
+                resolution of photos, restoring old images, and enhancing visual
+                content across a wide range of applications. With this type of
+                technology you can replace bluriness with crystal clearness.
+              </p>
+            </>
+          )}
+
+          {/* COMPATIBILITY FEATURE */}
+          {}
         </div>
       </div>
     </div>
