@@ -176,7 +176,19 @@ const Features = (props) => {
           )}
 
           {/* COMPATIBILITY FEATURE */}
-          {}
+          {selectedFeature === 6 && (
+            <>
+              <h1 className="feature-title">Compatibility</h1>
+              <h3 className="feature-subheader">
+                What File Types Does RefinedAi Accept?
+              </h3>
+              <p className="feature-text">
+                The type of images that can be inputted into the RefinedAI image
+                upscaler include the following: <br />
+                .png, .jpg, .jpeg, .gif, .webp
+              </p>
+            </>
+          )}
         </div>
       </div>
     </div>
