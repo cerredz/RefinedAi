@@ -6,5 +6,11 @@ Am stil working on some final sections of the website, should be complete and de
 
 
 
+
+
+
+
+
+
 https://github.com/cerredz/RefinedAi/assets/110927971/e42d037e-4f69-4db2-9226-a86ead492446
 
