@@ -7,7 +7,7 @@ import { GiExpand } from "react-icons/gi";
 import { BiTimer, BiSelectMultiple } from "react-icons/bi";
 import { HiOutlinePaintBrush } from "react-icons/hi2";
 import { ImImages } from "react-icons/im";
-import { Esrgan } from "../../components/components";
+import { Esrgan, OutputFeature } from "../../components/components";
 const Features = (props) => {
   const [selectedFeature, setSelectedFeature] = useState(3);
   const { feature } = useParams();
@@ -121,7 +121,7 @@ const Features = (props) => {
             </>
           )}
 
-          {/* EFFICIETCY FEATURE */}
+          {/* EFFICIENTCY FEATURE */}
           {selectedFeature === 3 && (
             <>
               <h1 className="feature-title">Efficient Upscaling</h1>
@@ -138,6 +138,13 @@ const Features = (props) => {
                 least amount of time necessary to achieve this, and that is
                 exactly what we are doing.
               </p>
+            </>
+          )}
+
+          {/* 4k RESOLUTION OUTPUT FEATURE */}
+          {selectedFeature === 4 && (
+            <>
+              <OutputFeature />
             </>
           )}
         </div>
