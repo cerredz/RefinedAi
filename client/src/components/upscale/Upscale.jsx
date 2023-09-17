@@ -4,12 +4,16 @@ import "./Upscale.css";
 import { Navbar } from "../components";
 import { useSelector } from "react-redux";
 import { cardData } from "./Cards";
+import UpscaleParticles from "./UpscaleParticles";
 
 const Upscale = (props) => {
   const stats = useSelector((state) => state.auth.stats);
   return (
     <div className="upscale-container">
       <Navbar />
+
+      <UpscaleParticles />
+
       <div className="upscale-content">
         <div className="upscale-header flex">
           <h1 className="header">RefinedAI Upscaling</h1>

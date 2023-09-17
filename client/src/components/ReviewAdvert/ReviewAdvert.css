@@ -127,24 +127,4 @@ button {
   100% {
     transform: rotate(360deg);
   }
-}
-.login-container {
-  padding: 25px;
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  background: linear-gradient(to bottom right, #171c28, rgb(4, 39, 39));
-}
-.login-container .logo-container .logo {
-  border-radius: 50%;
-  width: 30px;
-  margin-right: 5px;
-  filter: invert(95%);
-  width: 25px;
-}
-.login-container .logo-container .logo-text {
-  font-family: "Roboto Mono", monospace;
-  font-weight: 700;
-  color: rgb(225, 225, 225);
-  font-size: 1.5rem;
-}/*# sourceMappingURL=Login.css.map */
+}/*# sourceMappingURL=ReviewAdvert.css.map */
