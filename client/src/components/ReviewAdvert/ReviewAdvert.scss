@@ -1,1 +1,319 @@
 @import "../variables/variables.scss";
+
+.review-advert-container {
+  position: relative;
+
+  padding: 50px 10%;
+
+  .review-advert-content {
+    flex-wrap: wrap;
+    gap: 25px;
+    flex-direction: column-reverse;
+
+    .review-advert-text {
+      flex-direction: column;
+      flex-wrap: wrap;
+      text-align: center;
+
+      .header {
+        letter-spacing: 2px;
+        font-size: 2rem;
+        word-spacing: -10px;
+        margin: 10px 0;
+
+        .gradient-text {
+          background-image: linear-gradient(to right, $lightBlue, $primaryPink);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          font-style: italic;
+          font-size: 2.2rem;
+        }
+      }
+
+      .grey-text {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        font-weight: 400;
+
+        span {
+          color: rgba(255, 255, 255, 0.8);
+          position: relative;
+          font-size: 0.9rem;
+          &::before {
+            position: absolute;
+            content: "";
+            left: 0;
+            top: calc(100%);
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(
+              to right,
+              rgba(255, 255, 255, 0.4),
+              transparent
+            );
+          }
+        }
+      }
+
+      .text-buttons {
+        margin: 25px 0;
+        gap: 25px;
+
+        button {
+          letter-spacing: 2px;
+          position: relative;
+          background: transparent;
+          z-index: 1;
+        }
+
+        .explore {
+          &::before,
+          &::after {
+            position: absolute;
+            content: "";
+            inset: 0;
+            //border-radius: inherit;
+            background: linear-gradient(135deg, $lightBlue, $primaryPink);
+            z-index: -1;
+            transition: 0.4s ease-in-out;
+            transform: skewX(-15deg);
+          }
+
+          &:hover {
+            &::after {
+              filter: blur(1rem);
+            }
+          }
+        }
+
+        .leave {
+          gap: 10px;
+
+          &::before {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: 0.4s ease-in-out;
+            transform: skewX(-15deg);
+          }
+
+          &:hover {
+            &::before {
+              height: 100%;
+              background: linear-gradient(
+                to top,
+                rgba(255, 255, 255, 0.1),
+                transparent
+              );
+            }
+          }
+        }
+      }
+
+      .text-stats {
+        margin: 10px 0;
+        gap: 25px;
+
+        .stat {
+          h3 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .review-advert-image {
+      position: relative;
+      border-radius: 10px;
+      width: 100%;
+      .review {
+        display: none;
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        inset: 0;
+        border-radius: 50%;
+      }
+
+      .img {
+        width: min(300px, 75%);
+        height: 200px;
+        border-radius: 10px;
+        //max-width: 600px;
+        position: relative;
+        //opacity: 0.3;
+        overflow: hidden;
+        //box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+
+        &::after {
+          position: absolute;
+          content: "";
+          inset: 0;
+          background-image: url("../assets/neonrobot.png");
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          z-index: -3;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4),
+            inset 0 0 25px $primaryBackground, inset 0 0 25px black;
+          border-radius: inherit;
+        }
+
+        span {
+          position: absolute;
+          background: $primaryBackground;
+          filter: blur(0.5rem);
+          z-index: -1;
+        }
+
+        /* BLEND BACKGROUND AND IMAGE */
+        .span-1 {
+          top: 0;
+          left: -10px;
+          height: 50px;
+          width: calc(100% + 20px);
+          transform: translateY(-50%);
+        }
+
+        .span-2 {
+          top: -10px;
+          left: 0;
+          height: calc(100% + 20px);
+          width: 50px;
+          transform: translateX(-50%);
+        }
+
+        .span-3 {
+          bottom: 0;
+          left: -10px;
+          height: 50px;
+          width: calc(100% + 20px);
+          transform: translateY(50%);
+        }
+
+        .span-4 {
+          top: -10px;
+          right: 0;
+          height: calc(100% + 20px);
+          width: 50px;
+          transform: translateX(50%);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .review-advert-container {
+    .review-advert-content {
+      display: grid;
+      place-items: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      .review-advert-text {
+        max-width: 500px;
+        //text-align: left;
+
+        .header {
+          font-size: 2.5rem;
+          margin: 20px 0;
+          .gradient-text {
+            font-size: 2.5rem;
+          }
+        }
+
+        .grey-text {
+          font-size: 1rem;
+        }
+      }
+
+      .review-advert-image {
+        flex-direction: column;
+
+        .img {
+          width: 70%;
+          height: 300px;
+          position: relative;
+          z-index: 1;
+          overflow: visible;
+        }
+
+        .review {
+          display: block;
+          padding: 10px;
+          border-radius: 10px;
+          position: relative;
+          z-index: 1;
+          margin: 10px 0;
+          max-width: 300px;
+
+          .banner {
+            justify-content: space-between;
+            font-size: 0.7rem;
+
+            .stars {
+              justify-content: flex-start;
+              margin: 5px 0;
+              img {
+                width: 10px;
+              }
+              .grey-text {
+                margin-right: 5px;
+              }
+            }
+          }
+
+          &::after,
+          &::before {
+            position: absolute;
+            content: "";
+          }
+
+          &::after {
+            inset: 0;
+            background: linear-gradient(to top, #1d1e2e, $primaryBackground);
+            z-index: -1;
+            border-radius: inherit;
+          }
+          &::before {
+            inset: -3px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, $lightBlue, $primaryPink);
+            z-index: -2;
+            opacity: 0.5;
+          }
+        }
+
+        .user {
+          margin: 10px 0;
+          gap: 5px;
+          justify-content: flex-start;
+          img {
+            width: 30px;
+            height: 25px;
+            border-radius: 50%;
+          }
+          p {
+            font-size: 0.8rem;
+          }
+        }
+
+        .text {
+          p {
+            font-size: 0.8rem;
+            line-height: 1.3;
+          }
+        }
+      }
+    }
+  }
+}

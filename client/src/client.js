@@ -68,7 +68,7 @@ export const getUserReviews = async (id) => {
   }
 };
 
-/* GETS TOTAL USERS, TOTAL IMAGES UPSCALED, AND TOTAL 5 STAR REVIEWS */
+/* GETS TOTAL USERS, TOTAL IMAGES UPSCALED, TOTAL 5 STAR REVIEWS, AND TOTAL REVIEWS */
 export const getStats = async () => {
   try {
     let formattedAllStats = null;
@@ -81,6 +81,7 @@ export const getStats = async () => {
       totalUsers: response.totalUsers,
       totalImagesUpscaled: response.totalImagesUpscaled,
       totalFiveStarReviews: response.totalFiveStarReviews,
+      totalReviews: response.totalReviews,
     };
 
     return formattedAllStats;

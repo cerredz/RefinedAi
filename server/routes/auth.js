@@ -238,6 +238,7 @@ router.get("/allStats", async (req, res) => {
       totalUsers: totalUsers,
       totalImagesUpscaled: totalImages,
       totalFiveStarReviews: totalFiveStarReviews.length,
+      totalReviews: reviews.length,
     };
 
     res.status(200).json(stats);

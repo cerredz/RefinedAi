@@ -127,4 +127,258 @@ button {
   100% {
     transform: rotate(360deg);
   }
+}
+.review-advert-container {
+  position: relative;
+  padding: 50px 10%;
+}
+.review-advert-container .review-advert-content {
+  flex-wrap: wrap;
+  gap: 25px;
+  flex-direction: column-reverse;
+}
+.review-advert-container .review-advert-content .review-advert-text {
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.review-advert-container .review-advert-content .review-advert-text .header {
+  letter-spacing: 2px;
+  font-size: 2rem;
+  word-spacing: -10px;
+  margin: 10px 0;
+}
+.review-advert-container .review-advert-content .review-advert-text .header .gradient-text {
+  background-image: linear-gradient(to right, rgb(13, 168, 234), rgb(238, 6, 238));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  font-size: 2.2rem;
+}
+.review-advert-container .review-advert-content .review-advert-text .grey-text {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.review-advert-container .review-advert-content .review-advert-text .grey-text span {
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  font-size: 0.9rem;
+}
+.review-advert-container .review-advert-content .review-advert-text .grey-text span::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 100%;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.4), transparent);
+}
+.review-advert-container .review-advert-content .review-advert-text .text-buttons {
+  margin: 25px 0;
+  gap: 25px;
+}
+.review-advert-container .review-advert-content .review-advert-text .text-buttons button {
+  letter-spacing: 2px;
+  position: relative;
+  background: transparent;
+  z-index: 1;
+}
+.review-advert-container .review-advert-content .review-advert-text .text-buttons .explore::before, .review-advert-container .review-advert-content .review-advert-text .text-buttons .explore::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background: linear-gradient(135deg, rgb(13, 168, 234), rgb(238, 6, 238));
+  z-index: -1;
+  transition: 0.4s ease-in-out;
+  transform: skewX(-15deg);
+}
+.review-advert-container .review-advert-content .review-advert-text .text-buttons .explore:hover::after {
+  filter: blur(1rem);
+}
+.review-advert-container .review-advert-content .review-advert-text .text-buttons .leave {
+  gap: 10px;
+}
+.review-advert-container .review-advert-content .review-advert-text .text-buttons .leave::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: 0.4s ease-in-out;
+  transform: skewX(-15deg);
+}
+.review-advert-container .review-advert-content .review-advert-text .text-buttons .leave:hover::before {
+  height: 100%;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.1), transparent);
+}
+.review-advert-container .review-advert-content .review-advert-text .text-stats {
+  margin: 10px 0;
+  gap: 25px;
+}
+.review-advert-container .review-advert-content .review-advert-text .text-stats .stat h3 {
+  font-size: 2rem;
+}
+.review-advert-container .review-advert-content .review-advert-text .text-stats .stat p {
+  font-size: 0.8rem;
+}
+.review-advert-container .review-advert-content .review-advert-image {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+}
+.review-advert-container .review-advert-content .review-advert-image .review {
+  display: none;
+}
+.review-advert-container .review-advert-content .review-advert-image::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-radius: 50%;
+}
+.review-advert-container .review-advert-content .review-advert-image .img {
+  width: min(300px, 75%);
+  height: 200px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  /* BLEND BACKGROUND AND IMAGE */
+}
+.review-advert-container .review-advert-content .review-advert-image .img::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  background-image: url("../assets/neonrobot.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -3;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4), inset 0 0 25px #171c28, inset 0 0 25px black;
+  border-radius: inherit;
+}
+.review-advert-container .review-advert-content .review-advert-image .img span {
+  position: absolute;
+  background: #171c28;
+  filter: blur(0.5rem);
+  z-index: -1;
+}
+.review-advert-container .review-advert-content .review-advert-image .img .span-1 {
+  top: 0;
+  left: -10px;
+  height: 50px;
+  width: calc(100% + 20px);
+  transform: translateY(-50%);
+}
+.review-advert-container .review-advert-content .review-advert-image .img .span-2 {
+  top: -10px;
+  left: 0;
+  height: calc(100% + 20px);
+  width: 50px;
+  transform: translateX(-50%);
+}
+.review-advert-container .review-advert-content .review-advert-image .img .span-3 {
+  bottom: 0;
+  left: -10px;
+  height: 50px;
+  width: calc(100% + 20px);
+  transform: translateY(50%);
+}
+.review-advert-container .review-advert-content .review-advert-image .img .span-4 {
+  top: -10px;
+  right: 0;
+  height: calc(100% + 20px);
+  width: 50px;
+  transform: translateX(50%);
+}
+
+@media (min-width: 1000px) {
+  .review-advert-container .review-advert-content {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .review-advert-container .review-advert-content .review-advert-text {
+    max-width: 500px;
+  }
+  .review-advert-container .review-advert-content .review-advert-text .header {
+    font-size: 2.5rem;
+    margin: 20px 0;
+  }
+  .review-advert-container .review-advert-content .review-advert-text .header .gradient-text {
+    font-size: 2.5rem;
+  }
+  .review-advert-container .review-advert-content .review-advert-text .grey-text {
+    font-size: 1rem;
+  }
+  .review-advert-container .review-advert-content .review-advert-image {
+    flex-direction: column;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .img {
+    width: 70%;
+    height: 300px;
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .review {
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    margin: 10px 0;
+    max-width: 300px;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .review .banner {
+    justify-content: space-between;
+    font-size: 0.7rem;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .review .banner .stars {
+    justify-content: flex-start;
+    margin: 5px 0;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .review .banner .stars img {
+    width: 10px;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .review .banner .stars .grey-text {
+    margin-right: 5px;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .review::after, .review-advert-container .review-advert-content .review-advert-image .review::before {
+    position: absolute;
+    content: "";
+  }
+  .review-advert-container .review-advert-content .review-advert-image .review::after {
+    inset: 0;
+    background: linear-gradient(to top, #1d1e2e, #171c28);
+    z-index: -1;
+    border-radius: inherit;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .review::before {
+    inset: -3px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgb(13, 168, 234), rgb(238, 6, 238));
+    z-index: -2;
+    opacity: 0.5;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .user {
+    margin: 10px 0;
+    gap: 5px;
+    justify-content: flex-start;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .user img {
+    width: 30px;
+    height: 25px;
+    border-radius: 50%;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .user p {
+    font-size: 0.8rem;
+  }
+  .review-advert-container .review-advert-content .review-advert-image .text p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
 }/*# sourceMappingURL=ReviewAdvert.css.map */
