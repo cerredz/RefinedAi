@@ -31,18 +31,15 @@ As an aspiring Software Engineer I feel like it is important to provide an expla
 
 - There is a collection of email documents. This one is pretty self-explanatory, a user signs up for the email list, their email is stored into the Email collection, and from their RefinedAi can send them emails about news, announcements, etc.
 
+- There is a colletion of Review documents. These documents each have a desciption, star rating (1-5), and some user information associated with each review. The reason for linking a user's username and profile picture into each review not only so that we can store the reviews written by a user, but also it is so that it can be easily displayed on the frontend
+
+- There is a collection of price documents. These documents are simple just different prices credit packages stored in the backend, so that the user cannot change the price on the credit package through the frontend.
+
 # Technologies / Frameworks / Libraries Used 🎮 
-
-
-
-
-
-
-
-
-
-
-
+ 
+-  Node.js, Express, axios, bcrypt, mongoose, multer, paypal-rest-sdk, sharp, stripe, cors, dotenv
+-  React, React-Redux, aos, file-saver, react-dropzone, react-particles, react-router-dom, figma
+-  html, css, javascript, scss, MongoDB, figma
 
 # Website Preview 🎉
 https://github.com/cerredz/RefinedAi/assets/110927971/e42d037e-4f69-4db2-9226-a86ead492446
