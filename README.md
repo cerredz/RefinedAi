@@ -23,6 +23,14 @@ As of today, I am stil working on some final frontend touch ups / components of 
 # Backend 🌙
 ![RefinedAi Backend Structure](https://github.com/cerredz/RefinedAi/assets/110927971/f3b76af9-4778-44e0-a1aa-e45d729e1e0b)
 
+As an aspiring Software Engineer I feel like it is important to provide an explanation of my backend. The image above provides an overview of my backend structure, while below, I've outlined some key points about it.
+
+- There is a collection of User documents. These documents store the information of a user's account (username, password, email, credits, etc). Everything a user does on the website that is tracked above is safely saved into the backend.
+
+- There is a collection of Image documents. These image documents contain the id to the user that upscaled it, the path to the backend image storage that it is stored at, and some basic statistics about the actual image itself (width, height, size, etc).  Users have an array of image paths that correspond to the 'picturePath' field of images. This allows us to establish a direct link between a user's image paths and the paths of the images they've upscaled, effectively tracking which images belong to each user
+
+- There is a collection of email documents. This one is pretty self-explanatory, a user signs up for the email list, their email is stored into the Email collection, and from their RefinedAi can send them emails about news, announcements, etc.
+
 # Technologies / Frameworks / Libraries Used 🎮 
 
 
