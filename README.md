@@ -4,8 +4,7 @@ A comprehensive Full-Stack application engineered to provide customers with adva
 
 # Overview 🚀
 
-As of today, I am stil working on some final frontend touch ups / components of the website, however the main funtionalities behind the upscaler, image storage, user authentication, and all other backend features is all 100% complete.
-(Scroll to Bottom to see a preview). The application should be completed and deloyed within 1-2 weeks, and when it is completed I will provide an actual overview of the application.
+As of today, I am stil working on some final frontend touch ups / components of the website (Scroll to Bottom to see a preview), however the main funtionalities behind the upscaler, image storage, user authentication, and all other backend features is all 100% complete. The application should be completed and deployed within 1-2 weeks, and when it is completed I will provide an actual overview of the application.
 
 # Features 🎈
 
