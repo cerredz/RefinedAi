@@ -4,6 +4,7 @@
   margin: 0 auto;
   margin-top: 75px;
   position: relative;
+  z-index: 2;
 
   .credits-advert-companies {
     flex-wrap: wrap;
@@ -47,7 +48,6 @@
         left: 5%;
         width: 90%;
         height: 0;
-
         z-index: -2;
         border-radius: inherit;
         filter: blur(2px);
@@ -103,8 +103,7 @@
     z-index: 1;
     position: relative;
 
-    .left-triangle,
-    .right-triangle {
+    .blob {
       display: none;
     }
     &::before {
@@ -137,11 +136,10 @@
         transform: translateX(-50%) translateY(-50%);
         height: 100%;
         width: 100%;
-
         border-radius: 50%;
         background: linear-gradient(to right, $primaryPink, $lightBlue);
-        filter: blur(3rem);
-        opacity: 0.7;
+        filter: blur(4rem);
+        opacity: 0.5;
         z-index: -1;
       }
 
@@ -157,6 +155,9 @@
       gap: 15px;
       flex-direction: column;
       margin: 25px 0;
+      .blob {
+        display: none;
+      }
 
       .credit-advert-heading {
         text-align: center;
@@ -311,29 +312,6 @@
       gap: 25px;
       flex-direction: row;
 
-      /*
-      .left-triangle,
-      .right-triangle {
-        display: block;
-        position: absolute;
-        bottom: 0;
-        background: #131824;
-        width: 150px;
-        height: 150px;
-        z-index: 1;
-      }
-
-      .left-triangle {
-        left: 0;
-        transform: skewX(-30deg) translateY(100%) translateX(-30px);
-      }
-
-      .right-triangle {
-        right: 0;
-        transform: skewX(30deg) translateY(100%) translateX(30px);
-      }
-      */
-
       .img-container {
         max-width: 450px;
       }
@@ -342,6 +320,9 @@
         margin: 0;
         height: 100%;
         max-width: 500px;
+        position: relative;
+        z-index: 1;
+        overflow: visible;
 
         .credit-advert-heading {
           margin: 0;
@@ -354,6 +335,115 @@
             font-size: 1rem;
             letter-spacing: 2px;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .credits-advert-container {
+    .credit-advert-content {
+      padding-bottom: 150px;
+      gap: 75px;
+
+      .blob2,
+      .blob3,
+      .blob4,
+      .blob5,
+      .blob6,
+      .blob7 {
+        display: block;
+        position: absolute;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        overflow: visible;
+        z-index: 2;
+      }
+      .blob2 {
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 200px;
+        background-image: url("../assets/blob4.png");
+        transform: translateX(-50%);
+      }
+
+      .blob3 {
+        right: 150px;
+        top: 70%;
+        width: 170px;
+        height: 170px;
+        background-image: url("../assets/blob5.png");
+      }
+
+      .blob4 {
+        left: 50px;
+        top: 60%;
+        background-image: url("../assets/blob6.png");
+        width: 150px;
+        height: 150px;
+      }
+
+      .blob5 {
+        right: 0;
+        top: 10%;
+        width: 250px;
+        height: 250px;
+        background-image: url("../assets/blob7.png");
+        transform: translateX(50%);
+      }
+
+      .blob6 {
+        top: calc(60% + 75px);
+        left: 25px;
+        background-image: url("../assets/blob8.png");
+        height: 100px;
+        width: 100px;
+        transform: rotate(180deg);
+        z-index: 1;
+      }
+
+      .blob7 {
+        right: 0;
+        top: calc(10% + 110px);
+        background-image: url("../assets/blob9.png");
+        width: 150px;
+        height: 150px;
+        z-index: 1;
+      }
+
+      .credit-advert-text {
+        .blob1 {
+          display: block;
+          inset: 0;
+          z-index: -11;
+          background-image: url("../assets/blob3.png");
+          transform: translateY(170px) translateX(-140px);
+        }
+
+        &::before,
+        &::after,
+        .blob {
+          position: absolute;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        &::before {
+          background-image: url("../assets/blob1.png");
+          inset: -110px;
+          z-index: -10;
+          content: "";
+        }
+
+        &::after {
+          z-index: -11;
+          background-image: url("../assets/blob2.png");
+          inset: -10px;
+          transform: translateY(-150px) translateX(125px);
+          content: "";
         }
       }
     }

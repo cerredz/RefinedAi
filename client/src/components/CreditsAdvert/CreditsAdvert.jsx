@@ -22,14 +22,20 @@ const CreditsAdvert = () => {
         ))}
       </div>
       <div className="credit-advert-content flex">
-        <span className="left-triangle"></span>
-        <span className="right-triangle"></span>
+        <span className="blob blob2"></span>
+        <span className="blob blob3"></span>
+        <span className="blob blob4"></span>
+        <span className="blob blob5"></span>
+        <span className="blob blob6"></span>
+        <span className="blob blob7"></span>
         <div className="img-container flex">
           <img src={space} alt="credit-advert" />
           <span className="glow"></span>
         </div>
 
         <div className="credit-advert-text flex">
+          <span className="blob blob1"></span>
+
           <div className="credit-advert-heading flex">
             <h1 className="header">
               Unlock Upscaled Images With <span>Credits</span>

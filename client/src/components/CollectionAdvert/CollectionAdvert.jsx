@@ -2,6 +2,7 @@ import React from "react";
 import "./CollectionAdvert.css";
 import { spanNames } from "./data";
 import { useNavigate } from "react-router-dom";
+import { BlueParticles, PinkParticles } from "./Particles";
 const CollectionAdvert = (props) => {
   const navigate = useNavigate();
   return (
@@ -12,6 +13,18 @@ const CollectionAdvert = (props) => {
 
       {/* COLLECTION ADVERT CONTENT */}
       <div className="collection-advert-content flex">
+        {/* BLOBS */}
+        <span className="blob blob-1"></span>
+        <span className="blob blob-2"></span>
+        <span className="blob blob-3"></span>
+        <span className="blob blob-4"></span>
+
+        {/* BACKGROUND PARTICLES */}
+        <div className="particle-container">
+          <BlueParticles />
+          <PinkParticles />
+        </div>
+
         <div className="content-text">
           {/* TEXT / BUTTONS*/}
           <h1 className="header">Discover Our Users Upscaled Images</h1>

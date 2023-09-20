@@ -23,7 +23,7 @@ const UpscaleParticles = (props) => {
           zIndex: -1000,
           opacity: 0.3,
         }}
-        height="70%"
+        height="65%"
         options={{
           fullScreen: {
             enable: false,

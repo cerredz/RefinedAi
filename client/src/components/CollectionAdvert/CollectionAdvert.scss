@@ -7,7 +7,12 @@
   z-index: 1;
 
   .beam,
-  .glow {
+  .glow,
+  .blob {
+    display: none;
+  }
+
+  .particle-container {
     display: none;
   }
 
@@ -132,7 +137,6 @@
 
     .content-image {
       position: relative;
-
       width: 100%;
       max-width: 400px;
       z-index: 1;
@@ -154,7 +158,8 @@
         content: "";
         inset: 0;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4),
-          inset 0 0 50px rgba(0, 0, 0, 0.4);
+          inset 0 0 50px rgba(0, 0, 0, 0.4), 0 0 160px $primaryPurple;
+        opacity: 0.5;
       }
     }
   }
@@ -169,6 +174,7 @@
       gap: 50px;
 
       .content-text {
+        text-align: left;
         .header {
           font-size: 2.5rem;
         }
@@ -183,131 +189,58 @@
 
 @media (min-width: 1300px) {
   .collection-advert-container {
-    .beam {
+    .particle-container {
+      display: block;
+    }
+    .blob {
       display: block;
       position: absolute;
-      width: 4px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .blob-1 {
+      top: 0;
+      left: 0;
+      background-image: url("../assets/blob10.png");
+      transform: translateX(-50%) translateY(-50%);
+    }
+    .blob-1,
+    .blob-3 {
+      z-index: -15;
+      width: 350px;
+      height: 350px;
+    }
+
+    .blob-3 {
+      right: 0;
+      bottom: 0;
+      background-image: url("../assets/blob13.png");
+      transform: translateX(50%) translateY(50%);
+    }
+
+    .blob-2 {
+      top: 0;
+      left: 0;
+      transform: translateX(-50%) translateY(-50%);
+      background-image: url("../assets/blob11.png");
+    }
+
+    .blob-2,
+    .blob-4 {
+      width: 400px;
+      height: 400px;
+      z-index: -16;
+      filter: blur(9rem);
       opacity: 0.8;
     }
 
-    .glow {
-      display: block;
-      position: absolute;
+    .blob-4 {
+      right: 0;
+      bottom: 0;
+      transform: translateX(50%) translateY(50%);
+      background-image: url("../assets/blob12.png");
     }
-
-    /*
-    .beam-2,
-    .beam-3 {
-      left: 15%;
-    }
-
-    .beam-4,
-    .beam-5 {
-      left: 11%;
-    }
-
-    .beam-1,
-    .beam-6 {
-      left: 7%;
-    }
-
-    .beam-1,
-    .beam-2,
-    .beam-3,
-    .beam-4,
-    .beam-5,
-    .beam-6,
-    .beam-7,
-    .beam-8,
-    .beam-9,
-    .beam-10,
-    .beam-11,
-    .beam-12 {
-      filter: blur(1px);
-      height: calc(50% + 75px);
-    }
-
-    .beam-2,
-    .beam-4,
-    .beam-6 {
-      top: -75px;
-      transform: skewX(-30deg);
-      background: linear-gradient(to top, rgb(10, 47, 212), $lightBlue);
-    }
-
-    .beam-3,
-    .beam-5,
-    .beam-1 {
-      bottom: -75px;
-      background: linear-gradient(to bottom, rgb(10, 47, 212), $lightBlue);
-      transform: skewX(30deg);
-    }
-
-    .glow-1 {
-      left: 10%;
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(
-        to top,
-        $lightBlue,
-        rgb(10, 47, 212),
-        $lightBlue
-      );
-      border-radius: 50%;
-      top: 50%;
-
-      transform: translateX(-50%) translateY(-50%);
-      filter: blur(4rem);
-    }
-
-    .glow-2 {
-      right: 10%;
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(
-        to top,
-        $primaryPurple,
-        $primaryPink,
-        $primaryPink,
-        $primaryPurple
-      );
-      border-radius: 50%;
-      top: 50%;
-
-      transform: translateX(50%) translateY(-50%);
-      filter: blur(4rem);
-    }
-
-    .beam-7,
-    .beam-8 {
-      right: 15%;
-    }
-
-    .beam-9,
-    .beam-10 {
-      right: 11%;
-    }
-
-    .beam-11,
-    .beam-12 {
-      right: 7%;
-    }
-
-    .beam-8,
-    .beam-10,
-    .beam-12 {
-      bottom: -75px;
-      transform: skewX(-30deg);
-      background: linear-gradient(to top, $primaryPurple, $primaryPink);
-    }
-
-    .beam-7,
-    .beam-9,
-    .beam-11 {
-      background: linear-gradient(to bottom, $primaryPurple, $primaryPink);
-      top: -75px;
-      transform: skewX(30deg);
-    }
-    */
   }
 }
