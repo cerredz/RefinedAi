@@ -1,7 +1,8 @@
 import React from "react";
 import "./CollectionAdvert.css";
-import { spanNames } from "./data";
+import { spanNames, socialMediaIcons } from "./data";
 import { useNavigate } from "react-router-dom";
+
 import { BlueParticles, PinkParticles } from "./Particles";
 const CollectionAdvert = (props) => {
   const navigate = useNavigate();
@@ -57,6 +58,15 @@ const CollectionAdvert = (props) => {
         <div className="content-image">
           <span className="card-glow"></span>
           <span className="image-glow"></span>
+        </div>
+      </div>
+
+      <div className="social-media">
+        <h3 className="social-media-header">Follow Us On Social Media</h3>
+        <div className="icons flex">
+          {socialMediaIcons.map((media, index) => (
+            <div className={`icon ${media.classname} flex`}>{media.icon}</div>
+          ))}
         </div>
       </div>
     </div>

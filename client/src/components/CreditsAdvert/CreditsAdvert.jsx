@@ -5,6 +5,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { companiesData } from "./data";
+import { PinkParticles, BlueParticles } from "./Particles";
 
 const CreditsAdvert = () => {
   const navigate = useNavigate("");
@@ -22,15 +23,11 @@ const CreditsAdvert = () => {
         ))}
       </div>
       <div className="credit-advert-content flex">
-        <span className="blob blob2"></span>
-        <span className="blob blob3"></span>
-        <span className="blob blob4"></span>
-        <span className="blob blob5"></span>
-        <span className="blob blob6"></span>
-        <span className="blob blob7"></span>
         <div className="img-container flex">
           <img src={space} alt="credit-advert" />
           <span className="glow"></span>
+          <PinkParticles />
+          <BlueParticles />
         </div>
 
         <div className="credit-advert-text flex">

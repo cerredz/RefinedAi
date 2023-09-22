@@ -3,7 +3,7 @@ import Particles from "react-particles";
 //import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 
-export const BlueParticles = (props) => {
+export const PinkParticles = (props) => {
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
 
@@ -16,12 +16,12 @@ export const BlueParticles = (props) => {
 
   return (
     <Particles
-      id="tsparticles-2"
+      id="tsparticles-4"
       init={particlesInit}
       loaded={particlesLoaded}
       style={{ position: "absolute", zIndex: -1000, left: "0", top: "0" }}
-      width="20%"
-      height="45%"
+      width="50%"
+      height="100%"
       options={{
         fullScreen: {
           enable: false,
@@ -47,14 +47,14 @@ export const BlueParticles = (props) => {
               quantity: 4,
             },
             repulse: {
-              distance: 400,
+              distance: 200,
               duration: 0.4,
             },
           },
         },
         particles: {
           color: {
-            value: "#0DBCE8",
+            value: "#B01591",
           },
           links: {
             color: "transparent",
@@ -96,7 +96,7 @@ export const BlueParticles = (props) => {
   );
 };
 
-export const PinkParticles = () => {
+export const BlueParticles = (props) => {
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
 
@@ -109,12 +109,12 @@ export const PinkParticles = () => {
 
   return (
     <Particles
-      id="tsparticles-3"
+      id="tsparticles-5"
       init={particlesInit}
       loaded={particlesLoaded}
-      style={{ position: "absolute", zIndex: -1000, right: "0", bottom: "0" }}
-      width="20%"
-      height="45%"
+      style={{ position: "absolute", zIndex: -1000, left: "50%", top: "0" }}
+      width="50%"
+      height="100%"
       options={{
         fullScreen: {
           enable: false,
@@ -140,14 +140,14 @@ export const PinkParticles = () => {
               quantity: 4,
             },
             repulse: {
-              distance: 200,
+              distance: 400,
               duration: 0.4,
             },
           },
         },
         particles: {
           color: {
-            value: "#B01591",
+            value: "#0DBCE8",
           },
           links: {
             color: "transparent",

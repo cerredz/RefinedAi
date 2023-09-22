@@ -16,6 +16,64 @@
     display: none;
   }
 
+  .social-media {
+    text-align: center;
+    margin-top: 40px;
+    .social-media-header {
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .icons {
+      margin: 15px 0;
+      gap: 25px;
+
+      .icon {
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        padding: 7px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        svg {
+          font-size: 1.5rem;
+          fill: rgba(255, 255, 255, 0.4);
+        }
+      }
+
+      .tiktok {
+        &:hover {
+          border: 2px solid #fe2c55;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4), 0 0 15px #fe2c55;
+          svg {
+            fill: #fe2c55;
+            transition: 0.1 ease-in-out;
+          }
+        }
+      }
+
+      .twitter {
+        &:hover {
+          border: 2px solid #1d9bf0;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4), 0 0 15px #1d9bf0;
+          svg {
+            fill: #1d9bf0;
+            transition: 0.1 ease-in-out;
+          }
+        }
+      }
+
+      .instagram {
+        &:hover {
+          border: 2px solid #f74424;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4), 0 0 15px #f74424;
+          svg {
+            fill: #f74424;
+            transition: 0.1 ease-in-out;
+          }
+        }
+      }
+    }
+  }
   .collection-advert-content {
     flex-direction: column-reverse;
     z-index: 1;

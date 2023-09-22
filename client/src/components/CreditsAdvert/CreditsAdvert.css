@@ -407,67 +407,6 @@ button {
     padding-bottom: 150px;
     gap: 75px;
   }
-  .credits-advert-container .credit-advert-content .blob2,
-  .credits-advert-container .credit-advert-content .blob3,
-  .credits-advert-container .credit-advert-content .blob4,
-  .credits-advert-container .credit-advert-content .blob5,
-  .credits-advert-container .credit-advert-content .blob6,
-  .credits-advert-container .credit-advert-content .blob7 {
-    display: block;
-    position: absolute;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    overflow: visible;
-    z-index: 2;
-  }
-  .credits-advert-container .credit-advert-content .blob2 {
-    left: 0;
-    top: 0;
-    width: 200px;
-    height: 200px;
-    background-image: url("../assets/blob4.png");
-    transform: translateX(-50%);
-  }
-  .credits-advert-container .credit-advert-content .blob3 {
-    right: 150px;
-    top: 70%;
-    width: 170px;
-    height: 170px;
-    background-image: url("../assets/blob5.png");
-  }
-  .credits-advert-container .credit-advert-content .blob4 {
-    left: 50px;
-    top: 60%;
-    background-image: url("../assets/blob6.png");
-    width: 150px;
-    height: 150px;
-  }
-  .credits-advert-container .credit-advert-content .blob5 {
-    right: 0;
-    top: 10%;
-    width: 250px;
-    height: 250px;
-    background-image: url("../assets/blob7.png");
-    transform: translateX(50%);
-  }
-  .credits-advert-container .credit-advert-content .blob6 {
-    top: calc(60% + 75px);
-    left: 25px;
-    background-image: url("../assets/blob8.png");
-    height: 100px;
-    width: 100px;
-    transform: rotate(180deg);
-    z-index: 1;
-  }
-  .credits-advert-container .credit-advert-content .blob7 {
-    right: 0;
-    top: calc(10% + 110px);
-    background-image: url("../assets/blob9.png");
-    width: 150px;
-    height: 150px;
-    z-index: 1;
-  }
   .credits-advert-container .credit-advert-content .credit-advert-text .blob1 {
     display: block;
     inset: 0;

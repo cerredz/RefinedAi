@@ -1,12 +1,11 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import Particles from "react-particles";
 //import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 
-export const BlueParticles = (props) => {
+export const BlueParticles = () => {
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
-
     await loadSlim(engine);
   }, []);
 
@@ -16,12 +15,17 @@ export const BlueParticles = (props) => {
 
   return (
     <Particles
-      id="tsparticles-2"
+      id="tsparticles-7"
       init={particlesInit}
       loaded={particlesLoaded}
-      style={{ position: "absolute", zIndex: -1000, left: "0", top: "0" }}
-      width="20%"
-      height="45%"
+      style={{
+        position: "absolute",
+        top: "-10px",
+        left: "-100px",
+        zIndex: "-1000",
+      }}
+      height="400px"
+      width="50%"
       options={{
         fullScreen: {
           enable: false,
@@ -46,21 +50,17 @@ export const BlueParticles = (props) => {
             push: {
               quantity: 4,
             },
-            repulse: {
-              distance: 400,
-              duration: 0.4,
-            },
           },
         },
         particles: {
           color: {
-            value: "#0DBCE8",
+            value: "#16A1EA",
           },
           links: {
-            color: "transparent",
-            distance: 200,
+            color: "#16A1EA",
+            distance: 50,
             enable: true,
-            opacity: 0.3,
+            opacity: 0.5,
             width: 1,
           },
           move: {
@@ -78,16 +78,16 @@ export const BlueParticles = (props) => {
               enable: true,
               area: 800,
             },
-            value: 200,
+            value: 350,
           },
           opacity: {
-            value: 0.3,
+            value: 0.5,
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 1, max: 3 },
           },
         },
         detectRetina: true,
@@ -99,7 +99,6 @@ export const BlueParticles = (props) => {
 export const PinkParticles = () => {
   const particlesInit = useCallback(async (engine) => {
     console.log(engine);
-
     await loadSlim(engine);
   }, []);
 
@@ -109,12 +108,17 @@ export const PinkParticles = () => {
 
   return (
     <Particles
-      id="tsparticles-3"
+      id="tsparticles-8"
       init={particlesInit}
       loaded={particlesLoaded}
-      style={{ position: "absolute", zIndex: -1000, right: "0", bottom: "0" }}
-      width="20%"
-      height="45%"
+      style={{
+        position: "absolute",
+        top: "-10px",
+        left: "50%",
+        zIndex: "-1000",
+      }}
+      height="550px"
+      width="50%"
       options={{
         fullScreen: {
           enable: false,
@@ -139,21 +143,17 @@ export const PinkParticles = () => {
             push: {
               quantity: 4,
             },
-            repulse: {
-              distance: 200,
-              duration: 0.4,
-            },
           },
         },
         particles: {
           color: {
-            value: "#B01591",
+            value: "#A20DA8",
           },
           links: {
-            color: "transparent",
-            distance: 200,
+            color: "#A20DA8",
+            distance: 50,
             enable: true,
-            opacity: 0.3,
+            opacity: 0.5,
             width: 1,
           },
           move: {
@@ -171,16 +171,16 @@ export const PinkParticles = () => {
               enable: true,
               area: 800,
             },
-            value: 200,
+            value: 350,
           },
           opacity: {
-            value: 0.3,
+            value: 0.5,
           },
           shape: {
             type: "circle",
           },
           size: {
-            value: { min: 1, max: 5 },
+            value: { min: 1, max: 3 },
           },
         },
         detectRetina: true,

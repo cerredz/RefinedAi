@@ -5,9 +5,12 @@ import neonrobot from "../assets/neonrobot.png";
 import { BsPencilSquare } from "react-icons/bs";
 import stars from "../assets/reviewStars.png";
 import city from "../assets/city.jpg";
+import { BlueParticles, PinkParticles } from "./Particles";
+import { useNavigate } from "react-router-dom";
 const ReviewAdvert = (props) => {
   const reviews = useSelector((state) => state.auth.stats);
   const [date, setDate] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     /* GET CURRENT DATE FOR EXAMPLE REVIEW CARD */
@@ -23,6 +26,9 @@ const ReviewAdvert = (props) => {
       <div className="review-advert-content flex">
         {/* HEADING / SUBHEADING / BUTTONS / STATS */}
         <div className="review-advert-text flex">
+          <span className="blob blob-2"></span>
+          <span className="blob blob-3"></span>
+          <span className="blob blob-4"></span>
           <h1 className="header">
             <span className="gradient-text">Customers</span> Love Our AI Image
             Upscaler
@@ -32,7 +38,12 @@ const ReviewAdvert = (props) => {
             about our <span>AI Image Upscaler</span>
           </p>
           <div className="text-buttons flex">
-            <button className="explore smooth-btn">Explore</button>
+            <button
+              onClick={() => navigate("/reviews")}
+              className="explore smooth-btn"
+            >
+              Explore
+            </button>
             <button className="leave smooth-btn flex">
               {" "}
               <BsPencilSquare />
@@ -40,6 +51,7 @@ const ReviewAdvert = (props) => {
             </button>
           </div>
 
+          {/* REVIEW STATS */}
           <div className="text-stats flex">
             <div className="stat">
               <h3>{reviews.totalReviews}+</h3>
@@ -62,8 +74,13 @@ const ReviewAdvert = (props) => {
             <span className="span-2"></span>
             <span className="span-3"></span>
             <span className="span-4"></span>
+            <span className="span-5 flex">4k</span>
+            <span className="blob blob-1"></span>
+            <BlueParticles />
+            <PinkParticles />
           </div>
 
+          {/* EXAMPLE REVIEW */}
           <div className="review">
             <div className="banner flex">
               <div className="stars flex">
