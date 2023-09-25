@@ -2,60 +2,23 @@ import React, { useEffect } from "react";
 import "./EmailList.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setJoinEmailList, setLeaveEmailList } from "../../state";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
+import {
+  checkEmaiList,
+  handleJoinEmailList,
+  handleLeaveEmailList,
+} from "../../client";
 
 const EmailList = () => {
   const user = useSelector((state) => state.auth.user);
   const emailList = useSelector((state) => state.auth.emailList);
   const dispatch = useDispatch();
-
-  /* CHECK IF USER HAS JOINED EMAIL LIST */
-  const checkEmaiList = async () => {
-    const joinedEmailList = await Axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/emails/checkUser`,
-      user
-    );
-
-    const response = joinedEmailList.data;
-
-    if (response) {
-      dispatch(setJoinEmailList());
-    } else {
-      dispatch(setLeaveEmailList());
-    }
-  };
-
-  /* ADDS A USER'S EMAIL TO THE EMAIL LIST*/
-  const handleJoinEmailList = async () => {
-    const joinEmailList = await Axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/emails/join`,
-      user
-    );
-
-    const response = joinEmailList.data;
-
-    if (response) {
-      dispatch(setJoinEmailList());
-    }
-  };
-
-  /* REMOVES A USER'S EMAIL FROM THE EMAIL LIST */
-  const handleLeaveEmailList = async () => {
-    const leaveEmailList = await Axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/emails/leave`,
-      user
-    );
-
-    const response = leaveEmailList.data;
-
-    if (response.res) {
-      dispatch(setLeaveEmailList());
-    }
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
-    checkEmaiList();
+    checkEmaiList(user, dispatch);
   }, []);
   return (
     <div className="email-list-container">
@@ -75,13 +38,19 @@ const EmailList = () => {
 
       <div className="btn-container flex">
         {emailList ? (
-          <button className="flex leave" onClick={handleLeaveEmailList}>
+          <button
+            className="flex leave"
+            onClick={() => handleLeaveEmailList(user, dispatch, navigate)}
+          >
             <AiOutlineClose />
             Leave
           </button>
         ) : (
           <>
-            <button className="flex join" onClick={handleJoinEmailList}>
+            <button
+              className="flex join"
+              onClick={() => handleJoinEmailList(user, dispatch, navigate)}
+            >
               <AiOutlineCheck />
               Join{" "}
             </button>

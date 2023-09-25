@@ -5,7 +5,7 @@
   margin: 0 auto;
   padding: 25px 10%;
   background: #131824;
-  z-index: 1;
+  z-index: 5;
 
   .right-triangle,
   .left-triangle {
@@ -103,6 +103,7 @@
           letter-spacing: 2px;
           position: absolute;
           bottom: -10px;
+          z-index: 5;
 
           &::before {
             position: absolute;

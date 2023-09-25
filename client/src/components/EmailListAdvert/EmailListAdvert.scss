@@ -1,0 +1,234 @@
+@import "../variables/variables.scss";
+
+.email-advert-container {
+  background: #131824;
+  margin: 50px 0;
+  padding: 100px 10%;
+  position: relative;
+  z-index: 2;
+
+  .email-advert-content {
+    position: relative;
+    width: 100%;
+    padding: 25px 0;
+    border-radius: 10px;
+    height: fit-content;
+
+    .glow {
+      display: none;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      inset: 0;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: inherit;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05),
+        transparent,
+        rgba(255, 255, 255, 0.05)
+      );
+
+      z-index: 0;
+    }
+
+    .email-advert-image {
+      display: none;
+    }
+
+    .email-advert-text {
+      margin: 0 20px;
+      text-align: center;
+      h3 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        background: linear-gradient(45deg, $lightBlue, rgb(233, 8, 180));
+        -webkit-background-clip: text; /* Webkit/Blink browsers */
+        background-clip: text;
+        color: transparent;
+        margin: 5px auto;
+        width: fit-content;
+      }
+
+      .grey-text {
+        margin: 10px 0;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+      }
+
+      .email-advert-join,
+      .email-advert-leave {
+        margin: 15px 0;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 1;
+
+        button {
+          margin-top: 15px;
+          padding: 5px 25px;
+          border-radius: 10px;
+          cursor: pointer;
+          z-index: 1;
+          position: relative;
+          letter-spacing: 2px;
+          font-size: 1.3rem;
+
+          &::before,
+          &::after {
+            position: absolute;
+            content: "";
+            inset: 0;
+            border-radius: inherit;
+            background: linear-gradient(135deg, $lightBlue, $primaryPink);
+            //opacity: 0.5;
+            transition: 0.4s ease-in-out;
+            z-index: -1;
+          }
+
+          &:hover {
+            &::after {
+              filter: blur(1rem);
+              opacity: 0.6;
+              transition: 0.4s ease-in-out;
+            }
+          }
+        }
+      }
+      .email-advert-join {
+        input {
+          padding: 5px 10px;
+          border-radius: 10px;
+          background: inherit;
+          border: 2px solid transparent;
+          width: calc(100% - 30px);
+          text-align: center;
+          position: relative;
+          z-index: 0;
+          cursor: pointer;
+          outline: none;
+        }
+
+        .user-input {
+          position: relative;
+          background: #131824;
+          width: min(250px, 100%);
+          border-radius: 10px;
+          z-index: 1;
+
+          &::after {
+            position: absolute;
+            content: "";
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, $lightBlue, $primaryPink);
+            z-index: -1;
+            opacity: 0.3;
+          }
+
+          .user-email {
+            color: rgba(255, 255, 255, 0.4);
+          }
+
+          .email {
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1100px) {
+  .email-advert-container {
+    .email-advert-content {
+      justify-content: flex-start;
+      height: 110px;
+      border: none;
+
+      .glow {
+        display: block;
+        position: absolute;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      .glow-1 {
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        z-index: -2;
+        background-image: url("../assets/blob17.png");
+        transform: skewX(-15deg);
+        //rotate: 45deg;
+        filter: blur(4rem);
+        opacity: 0.6;
+      }
+
+      &::after {
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.05),
+          #131824
+        );
+      }
+      &::after {
+        border: none;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        bottom: 0;
+        left: -25px;
+        transform: translateY(25%);
+        width: 200px;
+        height: 150px;
+        background: $lightBlue;
+        //border-radius: 50%;
+        filter: blur(2.5rem);
+        z-index: 1;
+        opacity: 0.3;
+      }
+      .email-advert-image {
+        display: block;
+        position: relative;
+        background-image: url("../assets/phone.png");
+        width: 150px;
+        min-height: 300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transform: translateY(-50px);
+        z-index: 3;
+      }
+
+      .email-advert-text {
+        h3 {
+          font-size: 2rem;
+          margin: 5px 0;
+        }
+
+        .grey-text {
+          margin: 0;
+          text-align: left;
+        }
+
+        .email-advert-join,
+        .email-advert-leave {
+          flex-direction: row;
+          justify-content: flex-start;
+          width: 100%;
+
+          button {
+            margin: 0;
+
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}

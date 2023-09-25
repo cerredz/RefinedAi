@@ -3,6 +3,7 @@ import "./Navbar.css";
 import logo from "../assets/logo.png";
 import { PiDotsNineLight } from "react-icons/pi";
 import { AiOutlineClose, AiOutlineArrowRight } from "react-icons/ai";
+import { setLeaveEmailList } from "../../state";
 import { CgProfile } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,6 +23,7 @@ const Navbar = (props) => {
     dispatch(setLogout());
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    dispatch(setLeaveEmailList());
     navigate("/");
   };
 

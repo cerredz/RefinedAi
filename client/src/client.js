@@ -2,6 +2,9 @@
 /* FUNCTIONS THAT ARE USED IN MULTIPLE FILES */
 import Axios from "axios";
 import { saveAs } from "file-saver";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setJoinEmailList, setLeaveEmailList } from "./state";
 
 /* DOWNLOADS THE INPUTTED IMAGE */
 export const downloadImage = async (img) => {
@@ -108,5 +111,51 @@ export const getUpscaledImages = async () => {
     return response.data;
   } catch (err) {
     console.log(err);
+  }
+};
+
+/* CHECK IF USER HAS JOINED EMAIL LIST */
+export const checkEmaiList = async (user, dispatch) => {
+  const joinedEmailList = await Axios.post(
+    `${process.env.REACT_APP_BACKEND_URL}/emails/checkUser`,
+    user
+  );
+
+  const response = joinedEmailList.data;
+
+  if (response) {
+    dispatch(setJoinEmailList());
+  } else {
+    dispatch(setLeaveEmailList());
+  }
+};
+
+/* ADDS A USER'S EMAIL TO THE EMAIL LIST*/
+export const handleJoinEmailList = async (user, dispatch, navigate) => {
+  if (!user) return navigate("/login");
+
+  const joinEmailList = await Axios.post(
+    `${process.env.REACT_APP_BACKEND_URL}/emails/join`,
+    user
+  );
+
+  const response = joinEmailList.data;
+
+  if (response) {
+    dispatch(setJoinEmailList());
+  }
+};
+
+/* REMOVES A USER'S EMAIL FROM THE EMAIL LIST */
+export const handleLeaveEmailList = async (user, dispatch) => {
+  const leaveEmailList = await Axios.post(
+    `${process.env.REACT_APP_BACKEND_URL}/emails/leave`,
+    user
+  );
+
+  const response = leaveEmailList.data;
+
+  if (response.res) {
+    dispatch(setLeaveEmailList());
   }
 };

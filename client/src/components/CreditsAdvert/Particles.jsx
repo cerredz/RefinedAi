@@ -4,21 +4,9 @@ import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 
 export const PinkParticles = (props) => {
-  const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
-
-    await loadSlim(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
-  }, []);
-
   return (
     <Particles
       id="tsparticles-4"
-      init={particlesInit}
-      loaded={particlesLoaded}
       style={{ position: "absolute", zIndex: -1000, left: "0", top: "0" }}
       width="50%"
       height="100%"
@@ -31,7 +19,7 @@ export const PinkParticles = (props) => {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        fpsLimit: 60,
         interactivity: {
           events: {
             onClick: {
@@ -97,21 +85,9 @@ export const PinkParticles = (props) => {
 };
 
 export const BlueParticles = (props) => {
-  const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
-
-    await loadSlim(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
-  }, []);
-
   return (
     <Particles
       id="tsparticles-5"
-      init={particlesInit}
-      loaded={particlesLoaded}
       style={{ position: "absolute", zIndex: -1000, left: "50%", top: "0" }}
       width="50%"
       height="100%"
@@ -124,7 +100,7 @@ export const BlueParticles = (props) => {
             value: "transparent",
           },
         },
-        fpsLimit: 120,
+        fpsLimit: 60,
         interactivity: {
           events: {
             onClick: {

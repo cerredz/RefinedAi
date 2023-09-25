@@ -1,0 +1,325 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.5s ease-in-out;
+  color: rgb(225, 225, 225);
+  font-family: "Roboto Mono", monospace;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grey-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hide {
+  display: none;
+}
+
+.feature-title {
+  font-size: max(2.5vw, 2.5rem);
+  letter-spacing: 2px;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+
+.feature-subheader {
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 10px 0;
+}
+
+.feature-text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-glow-hover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
+}
+.btn-glow-hover::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transform: skewX(45deg);
+  filter: blur(1rem);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.3), transparent);
+}
+.btn-glow-hover:hover {
+  box-shadow: 0 0 2.5rem rgba(255, 255, 255, 0.3);
+}
+.btn-glow-hover:hover::before {
+  width: 80%;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.smooth-btn {
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+
+.center-outwards-hover::before, .center-outwards-hover::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.2);
+  width: 0;
+  transition: 0.4s ease-in-out;
+}
+.center-outwards-hover::before {
+  right: 50%;
+}
+.center-outwards-hover::after {
+  left: 50%;
+}
+.center-outwards-hover:hover::after, .center-outwards-hover:hover::before {
+  width: 50%;
+  transition: 0.4s ease-in-out;
+}
+
+.pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.email-advert-container {
+  background: #131824;
+  margin: 50px 0;
+  padding: 100px 10%;
+  position: relative;
+  z-index: 2;
+}
+.email-advert-container .email-advert-content {
+  position: relative;
+  width: 100%;
+  padding: 25px 0;
+  border-radius: 10px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.email-advert-container .email-advert-content .glow {
+  display: none;
+}
+.email-advert-container .email-advert-content::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent, rgba(255, 255, 255, 0.05));
+  z-index: 0;
+}
+.email-advert-container .email-advert-content .email-advert-image {
+  display: none;
+}
+.email-advert-container .email-advert-content .email-advert-text {
+  margin: 0 20px;
+  text-align: center;
+}
+.email-advert-container .email-advert-content .email-advert-text h3 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, rgb(13, 168, 234), rgb(233, 8, 180));
+  -webkit-background-clip: text; /* Webkit/Blink browsers */
+  background-clip: text;
+  color: transparent;
+  margin: 5px auto;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.email-advert-container .email-advert-content .email-advert-text .grey-text {
+  margin: 10px 0;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join,
+.email-advert-container .email-advert-content .email-advert-text .email-advert-leave {
+  margin: 15px 0;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1;
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join button,
+.email-advert-container .email-advert-content .email-advert-text .email-advert-leave button {
+  margin-top: 15px;
+  padding: 5px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join button::before, .email-advert-container .email-advert-content .email-advert-text .email-advert-join button::after,
+.email-advert-container .email-advert-content .email-advert-text .email-advert-leave button::before,
+.email-advert-container .email-advert-content .email-advert-text .email-advert-leave button::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(13, 168, 234), rgb(238, 6, 238));
+  transition: 0.4s ease-in-out;
+  z-index: -1;
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join button:hover::after,
+.email-advert-container .email-advert-content .email-advert-text .email-advert-leave button:hover::after {
+  filter: blur(1rem);
+  opacity: 0.6;
+  transition: 0.4s ease-in-out;
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join input {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: inherit;
+  border: 2px solid transparent;
+  width: calc(100% - 30px);
+  text-align: center;
+  position: relative;
+  z-index: 0;
+  cursor: pointer;
+  outline: none;
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join .user-input {
+  position: relative;
+  background: #131824;
+  width: min(250px, 100%);
+  border-radius: 10px;
+  z-index: 1;
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join .user-input::after {
+  position: absolute;
+  content: "";
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgb(13, 168, 234), rgb(238, 6, 238));
+  z-index: -1;
+  opacity: 0.3;
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join .user-input .user-email {
+  color: rgba(255, 255, 255, 0.4);
+}
+.email-advert-container .email-advert-content .email-advert-text .email-advert-join .user-input .email {
+  z-index: 1;
+}
+
+@media (min-width: 1100px) {
+  .email-advert-container .email-advert-content {
+    justify-content: flex-start;
+    height: 110px;
+    border: none;
+  }
+  .email-advert-container .email-advert-content .glow {
+    display: block;
+    position: absolute;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .email-advert-container .email-advert-content .glow-1 {
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    z-index: -2;
+    background-image: url("../assets/blob17.png");
+    transform: skewX(-15deg);
+    filter: blur(4rem);
+    opacity: 0.6;
+  }
+  .email-advert-container .email-advert-content::after {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.05), #131824);
+  }
+  .email-advert-container .email-advert-content::after {
+    border: none;
+  }
+  .email-advert-container .email-advert-content::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: -25px;
+    transform: translateY(25%);
+    width: 200px;
+    height: 150px;
+    background: rgb(13, 168, 234);
+    filter: blur(2.5rem);
+    z-index: 1;
+    opacity: 0.3;
+  }
+  .email-advert-container .email-advert-content .email-advert-image {
+    display: block;
+    position: relative;
+    background-image: url("../assets/phone.png");
+    width: 150px;
+    min-height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateY(-50px);
+    z-index: 3;
+  }
+  .email-advert-container .email-advert-content .email-advert-text h3 {
+    font-size: 2rem;
+    margin: 5px 0;
+  }
+  .email-advert-container .email-advert-content .email-advert-text .grey-text {
+    margin: 0;
+    text-align: left;
+  }
+  .email-advert-container .email-advert-content .email-advert-text .email-advert-join,
+  .email-advert-container .email-advert-content .email-advert-text .email-advert-leave {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .email-advert-container .email-advert-content .email-advert-text .email-advert-join button,
+  .email-advert-container .email-advert-content .email-advert-text .email-advert-leave button {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+}/*# sourceMappingURL=EmailListAdvert.css.map */

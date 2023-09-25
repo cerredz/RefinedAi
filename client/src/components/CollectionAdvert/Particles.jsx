@@ -5,20 +5,13 @@ import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSli
 
 export const BlueParticles = (props) => {
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
-
     await loadSlim(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
   }, []);
 
   return (
     <Particles
       id="tsparticles-2"
       init={particlesInit}
-      loaded={particlesLoaded}
       style={{ position: "absolute", zIndex: -1000, left: "0", top: "0" }}
       width="20%"
       height="45%"
@@ -98,20 +91,13 @@ export const BlueParticles = (props) => {
 
 export const PinkParticles = () => {
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
-
     await loadSlim(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
   }, []);
 
   return (
     <Particles
       id="tsparticles-3"
       init={particlesInit}
-      loaded={particlesLoaded}
       style={{ position: "absolute", zIndex: -1000, right: "0", bottom: "0" }}
       width="20%"
       height="45%"

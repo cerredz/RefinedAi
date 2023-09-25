@@ -15,6 +15,7 @@ import CollectionAdvert from "./CollectionAdvert/CollectionAdvert";
 import Esrgan from "./Esrgan/Esrgan";
 import OutputFeature from "./OutputFeature/OutputFeature";
 import ReviewAdvert from "./ReviewAdvert/ReviewAdvert";
+import EmailListAdvert from "./EmailListAdvert/EmailListAdvert";
 export {
   AccountImages,
   AccountSettings,
@@ -33,4 +34,5 @@ export {
   Esrgan,
   OutputFeature,
   ReviewAdvert,
+  EmailListAdvert,
 };

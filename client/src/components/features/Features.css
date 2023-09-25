@@ -133,7 +133,7 @@ button {
   margin: 0 auto;
   padding: 25px 10%;
   background: #131824;
-  z-index: 1;
+  z-index: 5;
 }
 .features-container .right-triangle,
 .features-container .left-triangle {
@@ -224,6 +224,7 @@ button {
   letter-spacing: 2px;
   position: absolute;
   bottom: -10px;
+  z-index: 5;
 }
 .features-container .features-content .feature .feature-text .btn-read-more::before {
   position: absolute;

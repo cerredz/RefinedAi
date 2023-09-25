@@ -8,15 +8,11 @@ const UpscaleParticles = (props) => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
-  }, []);
   return (
     <div className="particles-container">
       <Particles
         id="tsparticles"
         init={particlesInit}
-        loaded={particlesLoaded}
         style={{
           position: "absolute",
           top: `45vh`,
@@ -28,7 +24,7 @@ const UpscaleParticles = (props) => {
           fullScreen: {
             enable: false,
           },
-          fpsLimit: 120,
+          fpsLimit: 60,
           interactivity: {
             events: {
               onClick: {

@@ -5,6 +5,7 @@ import {
   CreditsAdvert,
   CollectionAdvert,
   ReviewAdvert,
+  EmailListAdvert,
 } from "../../components/components";
 import "./home.css";
 import { scrollToTop } from "../../client";
@@ -21,6 +22,7 @@ const Home = (props) => {
         <CollectionAdvert />
         <Features />
         <ReviewAdvert />
+        <EmailListAdvert />
       </div>
 
       <div className="second-page-container"></div>
