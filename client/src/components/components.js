@@ -17,6 +17,7 @@ import OutputFeature from "./OutputFeature/OutputFeature";
 import ReviewAdvert from "./ReviewAdvert/ReviewAdvert";
 import EmailListAdvert from "./EmailListAdvert/EmailListAdvert";
 import Footer from "./Footer/Footer";
+
 export {
   AccountImages,
   AccountSettings,

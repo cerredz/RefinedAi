@@ -13,7 +13,7 @@ import {
 } from "./scenes/scenes";
 import AOS from "aos";
 
-import { PaymentSuccess, Footer } from "./components/components";
+import { PaymentSuccess } from "./components/components";
 
 const App = (props) => {
   useEffect(() => {
@@ -56,7 +56,6 @@ const App = (props) => {
           <Route path="/features/:feature" element={<Features />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </div>
   );
 };

@@ -134,6 +134,7 @@ button {
   padding: 100px 10%;
   position: relative;
   z-index: 2;
+  margin-bottom: 0;
 }
 .email-advert-container .email-advert-content {
   position: relative;

@@ -1,1 +1,86 @@
 @import "../variables/variables.scss";
+
+.footer-container {
+  margin: 50px 0;
+  padding: 25px 10%;
+
+  .footer-links {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 50px;
+
+    .footer-column {
+      flex-direction: column;
+      gap: 5px;
+      margin: 0 25px;
+      align-items: flex-start;
+
+      .logo {
+        gap: 10px;
+        img {
+          width: 40px;
+          filter: invert(100);
+        }
+      }
+
+      .socials {
+        justify-content: space-around;
+        width: 100%;
+        svg {
+          color: rgba(255, 255, 255, 0.4);
+          font-size: 1.2rem;
+          padding: 7px;
+          border-radius: 50%;
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
+          cursor: pointer;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+
+      h3 {
+        font-weight: 800;
+        letter-spacing: 2px;
+        font-size: 1.4rem;
+        color: $lightBlue;
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin: 5px 0;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        font-weight: 600;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      h1 {
+        letter-spacing: 3px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .rights {
+    margin-top: 50px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .footer-container {
+    padding: 25px 10%;
+    .footer-links {
+      justify-content: space-between;
+    }
+  }
+}
