@@ -10,6 +10,7 @@ import { monthNames, paymentMethodData } from "./PurchaseInfo";
 import { IoIosArrowForward } from "react-icons/io";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import logo from "../../components/assets/logo.png";
 
 const Purchase = (props) => {
   const user = useSelector((state) => state.auth.user);
@@ -95,6 +96,12 @@ const Purchase = (props) => {
 
   return (
     <div className="purchase-container">
+      <div className="logo-container flex">
+        <img className="logo" src={logo} alt="" />
+        <h1 onClick={() => navigate("/")} className="logo-text">
+          RefinedAI
+        </h1>
+      </div>
       {purchaseData && id ? (
         <>
           {/* TOP IMAGE*/}

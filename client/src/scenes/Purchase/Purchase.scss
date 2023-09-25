@@ -4,6 +4,28 @@
   min-height: 100vh;
   padding-bottom: 50px;
 
+  .logo-container {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    padding-bottom: 25px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    .logo {
+      border-radius: 50%;
+      width: 30px;
+      margin-right: 5px;
+      filter: invert(95%);
+      width: 25px;
+    }
+    .logo-text {
+      font-family: "Roboto Mono", monospace;
+      font-weight: 700;
+      color: $primaryTextColor;
+      font-size: 1.5rem;
+    }
+  }
+
   .purchase-icon-container {
     padding: 75px 5%;
     background: rgba(255, 255, 255, 0.1);
@@ -208,7 +230,7 @@
 
     .purchase-data-container,
     .cart-container {
-      width: 50%;
+      width: 30%;
     }
   }
 
