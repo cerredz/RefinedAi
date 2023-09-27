@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Footer.css";
 import { useSelector } from "react-redux";
 import logo from "../assets/logo.png";
+import { scrollToTop } from "../../client.js";
 import { BsTwitter } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaTiktok } from "react-icons/fa6";
@@ -23,7 +24,7 @@ const Footer = (props) => {
           {user && (
             <p onClick={() => navigate(`/account/${user.username}`)}>Account</p>
           )}
-          <p onClick={() => navigate("/")}>Upscale</p>
+          <p onClick={scrollToTop}>Upscale</p>
           <p>
             {" "}
             <a
@@ -63,9 +64,28 @@ const Footer = (props) => {
           </div>
 
           <div className="socials flex">
-            <BsTwitter />
-            <AiFillInstagram />
-            <FaTiktok />
+            <a
+              target="_blank"
+              className="flex"
+              href="https://twitter.com/RefinedAi"
+            >
+              <BsTwitter />
+            </a>
+            <a
+              target="_blank"
+              className="flex"
+              href="https://www.instagram.com/refinedai/"
+            >
+              <AiFillInstagram />
+            </a>
+
+            <a
+              target="_blank"
+              className="flex"
+              href="https://www.tiktok.com/@refinedai"
+            >
+              <FaTiktok />
+            </a>
           </div>
         </div>
       </div>

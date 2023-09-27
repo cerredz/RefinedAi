@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Account.css";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogin } from "../../state";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { scrollToTop } from "../../client";
 import { SmoothDarkButton } from "../../widgets/widgets";
@@ -45,6 +45,9 @@ const Account = () => {
   const [selectedTab, setSelectedTab] = useState("account-settings");
   const dispatch = useDispatch();
   const [uploadedImage, setUploadedImage] = useState(false);
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const images = queryParams.get("images");
 
   const handleUploadImage = () => {
     setUploadedImage(true);
@@ -52,6 +55,11 @@ const Account = () => {
 
   useEffect(() => {
     scrollToTop();
+
+    if (images === "true") {
+      // user clicked on the 'view images' button on the homepage
+      setSelectedTab("account-images");
+    }
   }, []);
   return (
     <div className="account-container">

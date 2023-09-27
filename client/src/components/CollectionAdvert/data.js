@@ -5,17 +5,17 @@ export const socialMediaIcons = [
   {
     icon: <AiOutlineTwitter />,
     classname: "twitter",
-    redirect: "",
+    redirect: "https://twitter.com/RefinedAi",
   },
   {
     icon: <FaTiktok />,
     classname: "tiktok",
-    redirect: "",
+    redirect: "https://www.tiktok.com/@refinedai",
   },
   {
     icon: <BiLogoInstagramAlt />,
     classname: "instagram",
-    redirect: "",
+    redirect: "https://www.instagram.com/refinedai/",
   },
 ];
 

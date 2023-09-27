@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setReviews } from "../../state";
 import { BsPencil } from "react-icons/bs";
 import { AiOutlineClose, AiOutlineCheck } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+
 import Axios from "axios";
 
 import "./Reviews.css";
@@ -39,6 +40,10 @@ const Reviews = (props) => {
   const [isWritingReview, setIsWritingReview] = useState(false);
   const [reviewStars, setReviewStars] = useState(5);
   const [reviewDesciption, setReviewDescription] = useState("");
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const write = queryParams.get("write");
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -98,7 +103,12 @@ const Reviews = (props) => {
   };
 
   useEffect(() => {
-    /* GET REVIEWS FROM BACKEND*/
+    if (write === "true") {
+      // user clicked "leave review" button on home page
+      setIsWritingReview(true);
+    }
+
+    console.log(write);
   }, []);
   return (
     <div className="review-container">

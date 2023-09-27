@@ -2,10 +2,19 @@ import React from "react";
 import "./CollectionAdvert.css";
 import { spanNames, socialMediaIcons } from "./data";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { BlueParticles, PinkParticles } from "./Particles";
 const CollectionAdvert = (props) => {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user);
+
+  /* USER WANTS TO VIEW THEIR IMAGES UPSCALED */
+  const handleViewImages = () => {
+    if (!user) return navigate("/login");
+
+    navigate(`/account/${user.username}?images=true`);
+  };
   return (
     <div className="collection-advert-container">
       {spanNames.map((span, index) => (
@@ -42,7 +51,10 @@ const CollectionAdvert = (props) => {
             >
               View Collection
             </button>
-            <button className="btn-user-images smooth-btn">
+            <button
+              onClick={handleViewImages}
+              className="btn-user-images smooth-btn"
+            >
               View Your Images
               <span className="top top-right"></span>
               <span className="top top-top"></span>
@@ -65,7 +77,11 @@ const CollectionAdvert = (props) => {
         <h3 className="social-media-header">Follow Us On Social Media</h3>
         <div className="icons flex">
           {socialMediaIcons.map((media, index) => (
-            <div className={`icon ${media.classname} flex`}>{media.icon}</div>
+            <div className={`icon ${media.classname} flex`}>
+              <a target="_blank" className="flex" href={media.redirect}>
+                {media.icon}
+              </a>
+            </div>
           ))}
         </div>
       </div>

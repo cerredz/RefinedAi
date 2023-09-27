@@ -8,6 +8,7 @@ import city from "../assets/city.jpg";
 import { BlueParticles, PinkParticles } from "./Particles";
 import { useNavigate } from "react-router-dom";
 const ReviewAdvert = (props) => {
+  const user = useSelector((state) => state.auth.user);
   const reviews = useSelector((state) => state.auth.stats);
   const [date, setDate] = useState(null);
   const navigate = useNavigate();
@@ -21,6 +22,13 @@ const ReviewAdvert = (props) => {
     const year = today.getFullYear();
     setDate(`${month}/${day}/${year}`);
   }, []);
+
+  /* USER CLICKED THE LEAVE REVIEW BUTTON */
+  const handleLeaveReviewClick = () => {
+    if (!user) return navigate("/login");
+
+    navigate("/reviews?write=true");
+  };
   return (
     <div className="review-advert-container">
       <div className="review-advert-content flex">
@@ -44,7 +52,10 @@ const ReviewAdvert = (props) => {
             >
               Explore
             </button>
-            <button className="leave smooth-btn flex">
+            <button
+              onClick={handleLeaveReviewClick}
+              className="leave smooth-btn flex"
+            >
               {" "}
               <BsPencilSquare />
               Leave a Review

@@ -39,20 +39,17 @@ const Navbar = (props) => {
       <div className="nav-headings flex-between">
         <div className="links">
           <ul className="flex">
-            <li>
+            <li onClick={() => navigate("/features/1")}>
               Features<span></span>
             </li>
-            <li>
+            <li onClick={() => navigate("/credits")}>
               Pricing<span></span>
-            </li>
-            <li>
-              Upscale<span></span>
             </li>
             <li onClick={() => navigate("/support")}>
               Support<span></span>
             </li>
 
-            <li>Collection</li>
+            <li onClick={() => navigate("/collection")}>Collection</li>
           </ul>
         </div>
 
@@ -144,9 +141,9 @@ const Navbar = (props) => {
 
           <div className="links-container">
             <ul>
-              <li>Features</li>
-              <li>Pricing</li>
-              <li>Upscale</li>
+              <li onClick={() => navigate("/features/1")}>Features</li>
+              <li onClick={() => navigate("/credits")}>Pricing</li>
+
               <li onClick={() => navigate("/support")}>Support</li>
               <li onClick={() => navigate("/reviews")}>Reviews</li>
               {user == null ? (
