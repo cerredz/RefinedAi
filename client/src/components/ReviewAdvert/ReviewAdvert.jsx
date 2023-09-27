@@ -37,15 +37,20 @@ const ReviewAdvert = (props) => {
           <span className="blob blob-2"></span>
           <span className="blob blob-3"></span>
           <span className="blob blob-4"></span>
-          <h1 className="header">
+
+          <h1 data-aos="zoom-in" data-aos-offset="200" className="header">
             <span className="gradient-text">Customers</span> Love Our AI Image
             Upscaler
           </h1>
-          <p className="grey-text">
+          <p data-aos="zoom-in" data-aos-offset="200" className="grey-text">
             Dont just take our word for it, hear what our customers have to say
             about our <span>AI Image Upscaler</span>
           </p>
-          <div className="text-buttons flex">
+          <div
+            data-aos="zoom-in"
+            data-aos-offset="200"
+            className="text-buttons flex"
+          >
             <button
               onClick={() => navigate("/reviews")}
               className="explore smooth-btn"
@@ -63,7 +68,11 @@ const ReviewAdvert = (props) => {
           </div>
 
           {/* REVIEW STATS */}
-          <div className="text-stats flex">
+          <div
+            data-aos="zoom-in"
+            data-aos-offset="200"
+            className="text-stats flex"
+          >
             <div className="stat">
               <h3>{reviews.totalReviews}+</h3>
               <p className="grey-text">Total Reviews</p>
@@ -80,7 +89,7 @@ const ReviewAdvert = (props) => {
         </div>
         {/* IMAGE / REVIEW CARD */}
         <div className="review-advert-image flex">
-          <div className="img">
+          <div data-aos-offset="200" data-aos="fade-down" className="img">
             <span className="span-1"></span>
             <span className="span-2"></span>
             <span className="span-3"></span>
@@ -92,7 +101,7 @@ const ReviewAdvert = (props) => {
           </div>
 
           {/* EXAMPLE REVIEW */}
-          <div className="review">
+          <div data-aos-offset="200" data-aos="fade-up" className="review">
             <div className="banner flex">
               <div className="stars flex">
                 <p className="grey-text">Stars</p>

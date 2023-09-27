@@ -15,7 +15,7 @@ const UpscaleParticles = (props) => {
         init={particlesInit}
         style={{
           position: "absolute",
-          top: `45vh`,
+          top: `46vh`,
           zIndex: -1000,
           opacity: 0.3,
         }}
@@ -32,8 +32,7 @@ const UpscaleParticles = (props) => {
                 mode: "push",
               },
               onHover: {
-                enable: true,
-                mode: "repulse",
+                enable: false,
               },
               resize: true,
             },
@@ -50,7 +49,7 @@ const UpscaleParticles = (props) => {
 
           particles: {
             color: {
-              value: "linear-gradient(to right, red, blue)",
+              value: "transparent",
             },
             links: {
               color: "#44C6EA",
@@ -72,9 +71,9 @@ const UpscaleParticles = (props) => {
             number: {
               density: {
                 enable: true,
-                area: 800,
+                area: 1000,
               },
-              value: 80,
+              value: 100,
             },
             opacity: {
               value: 0.5,

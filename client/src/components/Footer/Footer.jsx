@@ -54,6 +54,7 @@ const Footer = (props) => {
           <p onClick={() => navigate("/collection")}>View Collection</p>
           <p onClick={() => navigate("/reviews")}>View Reviews</p>
           <p>Email List</p>
+          <p onClick={() => navigate("/content")}>Content Credit</p>
         </div>
 
         {/* SINGULAR FOOTER COLUMN */}

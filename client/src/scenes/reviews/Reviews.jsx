@@ -170,7 +170,7 @@ const Reviews = (props) => {
             </div>
           </div>
         )}
-        <div className="review-banner flex">
+        <div data-aos="zoom-in" className="review-banner flex">
           {/* BANNER AT TOP OF SCREEN*/}
           <div className="review-header flex">
             <h1>See Why Customers Love RefinedAI</h1>
@@ -194,7 +194,7 @@ const Reviews = (props) => {
         </div>
 
         <div className="reviews">
-          <div className="btn-container flex">
+          <div data-aos="zoom-in" className="btn-container flex">
             <button onClick={() => setIsWritingReview(true)}>
               Leave Review
             </button>
@@ -202,7 +202,12 @@ const Reviews = (props) => {
 
           <div className="user-reviews-container flex">
             {reviews.map((review, index) => (
-              <div className="user-container">
+              <div
+                key={index}
+                data-aos="fade-up"
+                data-aos-offset="200"
+                className="user-container"
+              >
                 <div className="stars-container">
                   <img className="star" src={star} alt="star" />
                   <img className="star" src={star} alt="star" />

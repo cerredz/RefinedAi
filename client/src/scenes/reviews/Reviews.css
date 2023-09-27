@@ -225,13 +225,13 @@ button {
   align-items: flex-start;
 }
 .review-container .review-content .reviews .user-reviews-container .user-container {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   width: 225px;
   padding: 25px;
   border-radius: 15px;
   margin: 20px;
   min-height: 180px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4), inset 0 0 2rem rgba(255, 255, 255, 0.1);
 }
 .review-container .review-content .reviews .user-reviews-container .user-container .stars-container img {
   width: 30px;
@@ -239,11 +239,11 @@ button {
 .review-container .review-content .reviews .user-reviews-container .user-container .user-info {
   margin: 10px 0;
   justify-content: flex-start;
-  gap: 15px;
+  gap: 10px;
 }
 .review-container .review-content .reviews .user-reviews-container .user-container .user-info .pfp {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
 }
 .review-container .review-content .reviews .user-reviews-container .user-container .review-info p {

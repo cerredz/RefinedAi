@@ -19,7 +19,11 @@ const EmailListAdvert = (props) => {
 
   return (
     <div className="email-advert-container">
-      <div className="email-advert-content flex">
+      <div
+        data-aos="zoom-in"
+        data-aos-offset="300"
+        className="email-advert-content flex"
+      >
         <span className="glow glow-1"></span>
         <div className="email-advert-image"></div>
         {!emailList ? (

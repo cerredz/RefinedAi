@@ -16,21 +16,29 @@ const CreditsAdvert = () => {
       <div className="credits-advert-companies flex">
         {/* COMPANIES THAT USE / DEVELOPE AI IMAGE UPSCALING */}
         {companiesData.map((company, index) => (
-          <div className={`company-card flex ${company.classname}`} key={index}>
+          <div
+            data-aos={company.animation}
+            className={`company-card flex ${company.classname}`}
+            key={index}
+          >
             <img src={company.icon} alt="" />
             <p className="grey-text"> {company.company}</p>
           </div>
         ))}
       </div>
       <div className="credit-advert-content flex">
-        <div className="img-container flex">
+        <div data-aos="fade-right" className="img-container flex">
           <img src={space} alt="credit-advert" />
           <span className="glow"></span>
           <PinkParticles />
           <BlueParticles />
         </div>
 
-        <div className="credit-advert-text flex">
+        <div
+          data-aos="fade-left"
+          data-aos-offset="300"
+          className="credit-advert-text flex"
+        >
           <span className="blob blob1"></span>
 
           <div className="credit-advert-heading flex">

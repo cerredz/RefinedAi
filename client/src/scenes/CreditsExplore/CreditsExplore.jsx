@@ -25,7 +25,7 @@ const CreditsExplore = (props) => {
         <span className="glow big big-medium"></span>
         <span className="glow big big-right"></span>
         <>
-          <div className="credits-explore-banner">
+          <div data-aos="zoom-in" className="credits-explore-banner">
             <h1 className="header">
               Choose Your <span className="glow-text">Credit</span> Package
             </h1>

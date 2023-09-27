@@ -13,7 +13,7 @@ const Features = (props) => {
       ))}
 
       {/* HEADING / SUBHEADING*/}
-      <div className="features-heading">
+      <div data-aos="zoom-in" className="features-heading">
         <span className="heading">Our Features</span>
 
         <p className="grey-text">
@@ -25,7 +25,12 @@ const Features = (props) => {
       {/* FEATURES CARD */}
       <div className="features-content flex">
         {featuresData.map((feature, index) => (
-          <div className={`feature ${feature.classname}`}>
+          <div
+            data-aos={feature.animation}
+            data-aos-duration="900"
+            data-aos-offset="250"
+            className={`feature ${feature.classname}`}
+          >
             <div className="feature-header">
               <h3>{feature.heading}</h3>
             </div>

@@ -17,6 +17,7 @@ import OutputFeature from "./OutputFeature/OutputFeature";
 import ReviewAdvert from "./ReviewAdvert/ReviewAdvert";
 import EmailListAdvert from "./EmailListAdvert/EmailListAdvert";
 import Footer from "./Footer/Footer";
+import AnchorTags from "./Footer/AnchorTags";
 
 export {
   AccountImages,
@@ -38,4 +39,5 @@ export {
   ReviewAdvert,
   EmailListAdvert,
   Footer,
+  AnchorTags,
 };

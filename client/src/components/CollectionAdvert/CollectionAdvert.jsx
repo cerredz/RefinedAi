@@ -35,7 +35,7 @@ const CollectionAdvert = (props) => {
           <PinkParticles />
         </div>
 
-        <div className="content-text">
+        <div data-aos="flip-up" className="content-text">
           {/* TEXT / BUTTONS*/}
           <h1 className="header">Discover Our Users Upscaled Images</h1>
           <p className="grey-text">
@@ -67,13 +67,13 @@ const CollectionAdvert = (props) => {
         </div>
 
         {/* IMAGE */}
-        <div className="content-image">
+        <div data-aos="zoom-in" className="content-image">
           <span className="card-glow"></span>
           <span className="image-glow"></span>
         </div>
       </div>
 
-      <div className="social-media">
+      <div data-aos="fade-up" className="social-media">
         <h3 className="social-media-header">Follow Us On Social Media</h3>
         <div className="icons flex">
           {socialMediaIcons.map((media, index) => (

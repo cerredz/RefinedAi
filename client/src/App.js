@@ -12,8 +12,8 @@ import {
   Features,
 } from "./scenes/scenes";
 import AOS from "aos";
-
-import { PaymentSuccess } from "./components/components";
+import "aos/dist/aos.css";
+import { PaymentSuccess, AnchorTags } from "./components/components";
 
 const App = (props) => {
   useEffect(() => {
@@ -27,7 +27,12 @@ const App = (props) => {
       behavior: "smooth",
     });
 
-    AOS.init({ duration: 1000 });
+    AOS.init({
+      duration: 700,
+      once: false,
+      delay: 0,
+      easing: "ease",
+    });
   }, []);
   return (
     <div style={{ background: `#171C28`, overflow: "hidden" }}>
@@ -39,6 +44,7 @@ const App = (props) => {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/account/:username" element={<Account />} />
           <Route path="/purchase" element={<Purchase />} />
+          <Route path="/content" element={<AnchorTags />} />
           <Route
             path="/success/:credits/:paymentID/:price/:type"
             element={<PaymentSuccess />}

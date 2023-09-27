@@ -15,15 +15,15 @@ const Upscale = (props) => {
       <UpscaleParticles />
 
       <div className="upscale-content">
-        <div className="upscale-header flex">
+        <div data-aos="fade-down" className="upscale-header flex">
           <h1 className="header">RefinedAI Upscaling</h1>
           <p className="grey-text subheader">
             Utilize World Class AI Upscaling to Create Ultra High Resolution
-            Crystal Clear Images.
+            Images
           </p>
         </div>
 
-        <div className="upscale-info flex">
+        <div data-aos="zoom-in" className="upscale-info flex">
           <div className="users-info stat flex">
             <h1 className="stat-text ">{stats.totalUsers}+</h1>
             <p className="grey-text">Satisfied Customers</p>
@@ -38,11 +38,11 @@ const Upscale = (props) => {
           </div>
         </div>
 
-        <div className="upscale-uploader">
+        <div data-aos="fade-up" className="upscale-uploader">
           <FileUploader />
         </div>
 
-        <div className="upscale-cards-container flex">
+        <div data-aos="fade-up" className="upscale-cards-container flex">
           {cardData.map((card, index) => (
             <div className={`card-container ${card.classname}`} key={index}>
               <span className="top-right-top"></span>

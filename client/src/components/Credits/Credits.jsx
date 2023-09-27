@@ -32,7 +32,11 @@ const Credits = (props) => {
     <div className="credits-container">
       {priceData &&
         priceData.map((price, index) => (
-          <div id={`card-${price.tier}`} className={`credit-card`}>
+          <div
+            data-aos={index <= 2 ? "fade-left" : "fade-right"}
+            id={`card-${price.tier}`}
+            className={`credit-card`}
+          >
             <span className="bottom-glow" />
             <span className="top-glow"></span>
 

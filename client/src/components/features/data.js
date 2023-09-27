@@ -25,6 +25,7 @@ export const featuresData = [
 
     classname: "feature-1",
     redirect: 1,
+    animation: "fade-right",
   },
   {
     heading: "Enhanced AND Enlarged",
@@ -33,6 +34,7 @@ export const featuresData = [
 
     classname: "feature-2",
     redirect: 2,
+    animation: "fade-down",
   },
   {
     heading: "Efficient Upscaling",
@@ -41,6 +43,7 @@ export const featuresData = [
 
     classname: "feature-3",
     redirect: 3,
+    animation: "fade-left",
   },
   {
     heading: "High Resolution Output",
@@ -49,6 +52,7 @@ export const featuresData = [
 
     classname: "feature-4",
     redirect: 4,
+    animation: "fade-right",
   },
   {
     heading: "Detail Refinement",
@@ -57,6 +61,7 @@ export const featuresData = [
 
     classname: "feature-5",
     redirect: 5,
+    animation: "fade-up",
   },
 
   {
@@ -66,5 +71,6 @@ export const featuresData = [
 
     classname: "feature-6",
     redirect: 6,
+    animation: "fade-left",
   },
 ];

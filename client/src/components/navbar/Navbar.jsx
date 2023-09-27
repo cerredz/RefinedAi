@@ -31,12 +31,16 @@ const Navbar = (props) => {
   return (
     <nav className="navbar-container flex-between">
       {/* NAVBAR*/}
-      <div onClick={() => navigate("/")} className="logo-container flex">
+      <div
+        data-aos="fade-right"
+        onClick={() => navigate("/")}
+        className="logo-container flex"
+      >
         <img className="logo" src={logo} alt="" />
         <h1 className="logo-text">RefinedAI</h1>
       </div>
 
-      <div className="nav-headings flex-between">
+      <div data-aos="fade-left" className="nav-headings flex-between">
         <div className="links">
           <ul className="flex">
             <li onClick={() => navigate("/features/1")}>

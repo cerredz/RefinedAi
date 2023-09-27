@@ -29,7 +29,7 @@ const Collection = (props) => {
       <Navbar />
       <div className="collection-content">
         {/* TOP BANNER */}
-        <div className="collection-banner flex">
+        <div data-aos="zoom-in" className="collection-banner flex">
           <span className="header">Collection</span>
           <p className="grey-text">
             Immerse yourself in a curated selection of the most exquisite images
@@ -43,6 +43,8 @@ const Collection = (props) => {
           {collection &&
             collection.map((image, index) => (
               <div
+                data-aos="fade-up"
+                date-aos-offset="300"
                 onMouseOver={() => setSelectedImage(index)}
                 onMouseLeave={() => setSelectedImage(null)}
                 key={index}
